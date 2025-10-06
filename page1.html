@@ -1,48 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Coffee Shop Manager</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CỘNG CÀ PHÊ</title> />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-  <header>
-    <h1>T-COFFEE</h1>
-    <div>Admin | Logout</div>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">Coffee</div>
+        <div>
+          <h1>Coffee.in CÀ PHÊ</h1>
+          <div class="small">Coffee • Lifestyle</div>
+        </div>
+      </div>
+
+      <nav class="main-menu" aria-label="Main navigation">
+        <a href="#">Main Page</a>
+        <a href="#">Story</a>
+        <a href="#">Menu</a>
+        <a href="#">Store</a>
+        <a href="#">News</a>
+        <a href="#">Hiring</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon" title="Tìm kiếm">
+
+          <!-- simple magnifier icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-4.35-4.35" stroke="#2b2f28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="#2b2f28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="icon" title="Đặt bàn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10" stroke="#2b2f28" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="7" y="11" width="10" height="6" rx="1" stroke="#2b2f28" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn primary">Contact</button>
+      </div>
+    </div>
   </header>
 
-  <div class="layout">
-    <aside>
-      <ul>
-        <li class="active">Dashboard</li>
-        <li>Orders</li>
-        <li>Menu Management</li>
-        <li>Staff</li>
-        <li>Inventory</li>
-        <li>Reports</li>
-      </ul>
-    </aside>
+  <!-- Main -->
+  <main class="container">
 
-    <main>
-      <h2>Dashboard Overview</h2>
-
-      <section class="stats">
+    <!-- Hero-->
+    <div class="hero-wrap">
+      <section class="hero">
+        <div class="hero-image" role="img" aria-label="Ảnh banner Cộng (placeholder)"></div>
+        <div class="hero-content">
+          <h2>Hương vị Việt — Không gian mang câu chuyện</h2>
+          <p>Khám phá menu mới, sự kiện, và không gian CỘNG — cà phê với hồn Việt.</p>
+          <div class="cta">
+            <button class="btn primary">Xem Menu</button>
+            <button class="btn secondary">Cửa hàng gần bạn</button>
+          </div>
+        </div>
       </section>
+    </div>
 
-      <section>
-        <h3>Recent Orders</h3>
-        <table>
-            <tr><td></td></tr>
-            <tr><td></td></tr>
-            <tr><td></td></tr>
-        </table>
-      </section>
-    </main>
-  </div>
+    <!-- Giới thiệu & Sản phẩm -->
+    <section class="section">
+      <div class="section-title">
+        <h3>Thực đơn & Đặc sắc</h3>
+        <a class="small" href="#">Xem tất cả</a>
+      </div>
 
+      <div class="grid-cards">
+        <article class="card">
+          <img src="https://picsum.photos/seed/cong-1/800/600" alt="Đồ uống 1">
+          <h3>Trà sữa kem CỘNG</h3>
+          <p class="muted">Lớp kem béo, vị trà đậm.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/seed/cong-2/800/600" alt="Đồ uống 2">
+          <h3>Cà phê sữa đá</h3>
+          <p class="muted">Từ hạt rang chọn lọc.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/seed/cong-3/800/600" alt="Đồ uống 3">
+          <h3>Bánh ngọt</h3>
+          <p class="muted">Phù hợp ăn kèm cà phê.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Promo + Gallery -->
+    <section class="section feature-wide">
+      <div class="left card">
+        <h3>Chương trình & Ưu đãi</h3>
+        <p class="muted">Thời gian có hạn — ưu đãi đặc biệt cho khách hàng thân thiết.</p>
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:180px;background:#fff;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.04)">
+            <strong>Combo sáng</strong>
+            <div class="small">Tiết kiệm 15%</div>
+          </div>
+          <div style="flex:1;min-width:180px;background:#fff;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.04)">
+            <strong>Thứ 4 mua 1 tặng 1</strong>
+            <div class="small">Áp dụng tại cửa hàng</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right card">
+        <h3>Hình ảnh cửa hàng</h3>
+        <img src="https://picsum.photos/seed/cong-space/800/600" alt="Không gian cửa hàng">
+      </div>
+    </section>
+
+    <!-- Stores grid -->
+    <section class="section">
+      <div class="section-title">
+        <h3>Chuỗi cửa hàng</h3>
+        <a class="small" href="#">Tìm theo tỉnh/thành</a>
+      </div>
+      <div class="locations">
+        <div class="store">
+          <h4>CỘNG - Hoàn Kiếm</h4>
+          <div class="muted">Số 10, Hàng Trống — 7:30 - 22:00</div>
+        </div>
+        <div class="store">
+          <h4>CỘNG - Tây Hồ</h4>
+          <div class="muted">Số 5, Tây Hồ — 8:00 - 22:30</div>
+        </div>
+        <div class="store">
+          <h4>CỘNG - Hai Bà Trưng</h4>
+          <div class="muted">Số 2, Hai Bà Trưng — 7:00 - 21:30</div>
+        </div>
+        <div class="store">
+          <h4>CỘNG - Nam Từ Liêm</h4>
+          <div class="muted">Số 88, Nam Từ Liêm — 8:00 - 23:00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section class="section">
+      <div class="section-title">
+        <h3>Tin tức & Sự kiện</h3>
+        <a class="small" href="#">Xem tất cả</a>
+      </div>
+      <div class="news-list">
+        <article class="news-item card">
+          <img src="https://picsum.photos/seed/cong-news1/800/600" alt="Tin 1">
+          <div>
+            <h4 style="margin:0 0 6px">Cộng ra mắt menu mùa thu</h4>
+            <div class="muted">Khám phá hương vị mới.</div>
+          </div>
+        </article>
+
+        <article class="news-item card">
+          <img src="https://picsum.photos/seed/cong-news2/800/600" alt="Tin 2">
+          <div>
+            <h4 style="margin:0 0 6px">Sự kiện cộng đồng</h4>
+            <div class="muted">Thông tin sự kiện và tham gia.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
   <footer>
-    © 2025 Coffee Manager
+    <div class="container footer-grid">
+      <div>
+        <h4>CỘNG CÀ PHÊ</h4>
+        <div class="small">Bản mô phỏng © 2025</div>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <div class="small">Email: info@cong.example<br>Hotline: 1900 0000</div>
+      </div>
+      <div>
+        <h4>Giờ mở cửa</h4>
+        <div class="small">7:00 - 23:00 (Tùy cửa hàng)</div>
+      </div>
+      <div>
+        <h4>Mạng xã hội</h4>
+        <div class="small">Facebook · Instagram · TikTok</div>
+      </div>
+    </div>
   </footer>
 
 </body>
