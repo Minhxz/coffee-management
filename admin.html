@@ -1,1 +1,172 @@
-<h1>Hello Admin</h1>
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quản trị - CỘNG CÀ PHÊ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="admin.html" class="logo">CÀ PHÊ Admin</a>
+
+      <div class="main-menu">
+        <a href="admin.html" class="active">Dashboard</a>
+        <a href="#">Đơn hàng</a>
+        <a href="#">Sản phẩm</a>
+        <a href="#">Khách hàng</a>
+      </div>
+
+      <div class="header-right">
+        <span id="admin-name" style="margin-right:16px;color:var(--muted);"></span>
+        <button type="button" id="logout-btn" class="btn secondary" style="padding:8px 16px;font-size:14px;">
+          <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main style="margin-top:110px;padding-bottom:60px;">
+    <div class="container">
+      <div style="margin-bottom:32px;">
+        <h1>Dashboard quản trị</h1>
+        <p class="muted">Chào mừng đến với trang quản trị CỘNG CÀ PHÊ</p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-bottom:40px;">
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:56px;background:var(--accent-fade);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+              <i class="fa-solid fa-shopping-cart" style="font-size:24px;color:var(--accent);"></i>
+            </div>
+            <div>
+              <div class="muted" style="font-size:14px;">Đơn hàng hôm nay</div>
+              <h2 style="margin-top:4px;">42</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:56px;background:rgba(255,193,7,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+              <i class="fa-solid fa-dollar-sign" style="font-size:24px;color:#ff9800;"></i>
+            </div>
+            <div>
+              <div class="muted" style="font-size:14px;">Doanh thu</div>
+              <h2 style="margin-top:4px;">2.4M</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:56px;background:rgba(33,150,243,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+              <i class="fa-solid fa-users" style="font-size:24px;color:#2196f3;"></i>
+            </div>
+            <div>
+              <div class="muted" style="font-size:14px;">Khách hàng</div>
+              <h2 style="margin-top:4px;">1,248</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:56px;background:rgba(76,175,80,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+              <i class="fa-solid fa-mug-hot" style="font-size:24px;color:#4caf50;"></i>
+            </div>
+            <div>
+              <div class="muted" style="font-size:14px;">Sản phẩm</div>
+              <h2 style="margin-top:4px;">86</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Orders -->
+      <div class="card" style="padding:24px;margin-bottom:40px;">
+        <h3 style="margin-bottom:20px;">Đơn hàng gần đây</h3>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--bg-alt);">
+                <th style="text-align:left;padding:12px 8px;font-weight:600;">Mã đơn</th>
+                <th style="text-align:left;padding:12px 8px;font-weight:600;">Khách hàng</th>
+                <th style="text-align:left;padding:12px 8px;font-weight:600;">Sản phẩm</th>
+                <th style="text-align:right;padding:12px 8px;font-weight:600;">Số tiền</th>
+                <th style="text-align:center;padding:12px 8px;font-weight:600;">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--bg-alt);">
+                <td style="padding:12px 8px;">#ORD-001</td>
+                <td style="padding:12px 8px;">Nguyễn Văn A</td>
+                <td style="padding:12px 8px;">Cà phê sữa đá x2</td>
+                <td style="padding:12px 8px;text-align:right;">76,000đ</td>
+                <td style="padding:12px 8px;text-align:center;">
+                  <span style="background:#4caf50;color:white;padding:4px 12px;border-radius:12px;font-size:12px;">Hoàn thành</span>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--bg-alt);">
+                <td style="padding:12px 8px;">#ORD-002</td>
+                <td style="padding:12px 8px;">Trần Thị B</td>
+                <td style="padding:12px 8px;">Trà sữa kem x1</td>
+                <td style="padding:12px 8px;text-align:right;">52,000đ</td>
+                <td style="padding:12px 8px;text-align:center;">
+                  <span style="background:#ff9800;color:white;padding:4px 12px;border-radius:12px;font-size:12px;">Đang xử lý</span>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--bg-alt);">
+                <td style="padding:12px 8px;">#ORD-003</td>
+                <td style="padding:12px 8px;">Lê Văn C</td>
+                <td style="padding:12px 8px;">Bạc xỉu x1, Dừa đá xay x1</td>
+                <td style="padding:12px 8px;text-align:right;">98,000đ</td>
+                <td style="padding:12px 8px;text-align:center;">
+                  <span style="background:#4caf50;color:white;padding:4px 12px;border-radius:12px;font-size:12px;">Hoàn thành</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:12px 8px;">#ORD-004</td>
+                <td style="padding:12px 8px;">Phạm Thị D</td>
+                <td style="padding:12px 8px;">Cà phê đen x3</td>
+                <td style="padding:12px 8px;text-align:right;">90,000đ</td>
+                <td style="padding:12px 8px;text-align:center;">
+                  <span style="background:#2196f3;color:white;padding:4px 12px;border-radius:12px;font-size:12px;">Mới</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div style="margin-bottom:40px;">
+        <h3 style="margin-bottom:20px;">Thao tác nhanh</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+          <button class="btn primary" style="justify-content:center;padding:16px;">
+            <i class="fa-solid fa-plus"></i> Thêm sản phẩm
+          </button>
+          <button class="btn secondary" style="justify-content:center;padding:16px;">
+            <i class="fa-solid fa-file-export"></i> Xuất báo cáo
+          </button>
+          <button class="btn secondary" style="justify-content:center;padding:16px;">
+            <i class="fa-solid fa-bell"></i> Thông báo
+          </button>
+          <button class="btn secondary" style="justify-content:center;padding:16px;">
+            <i class="fa-solid fa-cog"></i> Cài đặt
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
