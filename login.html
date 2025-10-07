@@ -4,25 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Đăng nhập - CỘNG CÀ PHÊ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js" defer></script>
 </head>
-
 <body>
-  <div class="auth-container">
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">CÀ PHÊ</a>
+
+      <div class="main-menu">
+        <a href="index.html">Trang Chủ</a>
+        <a href="#">Cửa Hàng</a>
+        <a href="#">Dịch Vụ</a>
+        <a href="#">Về Chúng Tôi</a>
+        <a href="#">Liên Hệ</a>
+      </div>
+
+      <div class="header-right">
+        <a href="index.html" class="icon-btn" aria-label="Trang chủ">
+          <i class="fa-solid fa-house"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Nội dung auth -->
+  <div class="auth-container" style="margin-top:110px;">
     <div class="auth-card">
       <div class="auth-header">
-        <div class="logo">Coffee</div>
-        <h2>Chào mừng trở lại</h2>
+        <div class="logo" style="font-family:'Bebas Neue',sans-serif;">CỘNG</div>
+        <h2 style="margin-top:8px;">Chào mừng trở lại</h2>
         <p class="auth-subtitle">Đăng nhập vào tài khoản của bạn</p>
       </div>
 
-      <div id="error-message" class="error-message" style="display: none;"></div>
-      <div id="success-message" class="success-message" style="display: none;"></div>
+      <!-- Thông báo -->
+      <div id="error-message" class="error-message" style="display:none;" role="alert" aria-live="assertive"></div>
+      <div id="success-message" class="success-message" style="display:none;" role="status" aria-live="polite"></div>
 
-      <form id="auth-form" class="auth-form">
+      <!-- Form -->
+      <form id="auth-form" class="auth-form" autocomplete="on" novalidate>
+        <!-- Email -->
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">Email <span style="color:#d22">*</span></label>
           <input
             type="email"
             id="email"
@@ -30,11 +58,14 @@
             required
             placeholder="example@email.com"
             autocomplete="email"
+            inputmode="email"
+            aria-required="true"
           />
         </div>
 
-        <div class="form-group">
-          <label for="password">Mật khẩu</label>
+        <!-- Password -->
+        <div class="form-group" style="position:relative;">
+          <label for="password">Mật khẩu <span style="color:#d22">*</span></label>
           <input
             type="password"
             id="password"
@@ -43,10 +74,28 @@
             placeholder="••••••••"
             autocomplete="current-password"
             minlength="6"
+            aria-required="true"
           />
+          <!-- Nút hiện/ẩn mật khẩu -->
+          <button type="button"
+                  id="toggle-password"
+                  aria-label="Hiện mật khẩu"
+                  style="
+                    position:absolute;
+                    right:10px;
+                    top:35px;
+                    background:transparent;
+                    border:none;
+                    cursor:pointer;
+                    color:#666;
+                    padding:4px;
+                  ">
+            <i class="fa-regular fa-eye"></i>
+          </button>
         </div>
 
-        <div id="full-name-group" class="form-group" style="display: none;">
+        <!-- Full name -->
+        <div id="full-name-group" class="form-group" style="display:none;">
           <label for="full_name">Họ và tên</label>
           <input
             type="text"
@@ -57,6 +106,7 @@
           />
         </div>
 
+        <!-- Submit -->
         <button type="submit" class="btn primary btn-full" id="submit-btn">
           Đăng nhập
         </button>
@@ -66,16 +116,15 @@
         <span>hoặc</span>
       </div>
 
+      <!-- Toggle chế độ -->
       <button type="button" class="btn secondary btn-full" id="toggle-mode">
         Tạo tài khoản mới
       </button>
 
-      <div class="auth-footer">
-        <a href="page1.html" class="back-link">← Quay lại trang chủ</a>
+      <div class="auth-footer" style="margin-top:18px;">
+        <a href="index.html" class="back-link">← Quay lại trang chủ</a>
       </div>
     </div>
   </div>
-
-  <script type="module" src="auth.js"></script>
 </body>
 </html>
