@@ -22,8 +22,8 @@ toggleBtn?.addEventListener('click', () => {
   const hidden = pw.type === 'password';
   pw.type = hidden ? 'text' : 'password';
   toggleBtn.innerHTML = hidden
-    ? '<i class="fa-regular fa-eye-slash"></i>'
-    : '<i class="fa-regular fa-eye"></i>';
+    ? '<i class="fa-regular fa-eye"></i>'
+    : '<i class="fa-regular fa-eye-slash"></i>';
   toggleBtn.setAttribute('aria-label', hidden ? 'Ẩn mật khẩu' : 'Hiện mật khẩu');
 });
 
@@ -42,19 +42,7 @@ function showSuccess(msg) {
 }
 
 
-(function autoRedirectIfLoggedIn(){
-  const sessionRaw = localStorage.getItem(SESSION_KEY);
-  if (sessionRaw) {
-    try {
-      const s = JSON.parse(sessionRaw);
-      if (s?.isAdmin) {
-        if (!window.location.pathname.includes('admin.html')) {
-          window.location.href = 'admin.html';
-        }
-      }
-    } catch(_) {}
-  }
-})();
+
 
 form?.addEventListener('submit', (e) => {
   e.preventDefault();
