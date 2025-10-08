@@ -512,32 +512,18 @@ header{
   display:block;
   box-shadow:0 16px 40px -14px rgba(60,94,44,.35);
 }
-.story-img.main { aspect-ratio:4/5; }
-.story-img.overlay {
-  position:absolute;
-  width:56%;
-  right:-6%; bottom:-6%;
-  aspect-ratio:3/4;
-  box-shadow:0 14px 36px -10px rgba(0,0,0,.35);
-  border:4px solid #fff;
-  transform:rotate(4deg);
+
+
+
+/* Footer */
+footer{
+  margin-top:36px;
+  padding:36px 0;
 }
-.story-content p { line-height:1.55; }
 
-
-
-/*Order*/
-.order-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.18);
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s cubic-bezier(.4,1.2,.4,1), z-index 0s 0.35s;
-  display: flex; 
+.footer-grid{display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
 .order-modal.active {
