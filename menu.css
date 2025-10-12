@@ -1,0 +1,233 @@
+body {
+  margin: 0;
+  font-family: "Times New Roman", serif;
+  color: #1a1a1a;
+  background: linear-gradient(to right, #f5f3eb, #a1eb9d);
+}
+
+/* HEADER*/
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  position: relative;
+  min-height: 76px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  font-family: "League Spartan", "Be Vietnam Pro", "Noto Sans", Arial;
+  color: #2f4f2f;
+}
+.logo img {
+  width: 50px;
+  height: auto;
+  border-radius: 8px;
+}
+.main-menu {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none; /* ✅ Bỏ dấu chấm trước các mục */
+}
+
+.main-menu a {
+  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
+  color: black;
+  font-weight: 300;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 20px;
+  text-decoration: none; /* ✅ Bỏ gạch chân */
+  transition: background 0.18s, color 0.18s;
+  font-weight: bold;
+}
+
+.main-menu a.active,
+.main-menu a:hover {
+  background: rgba(41, 64, 31, 0.08);
+  color: var(--accent);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Góc phải (Admin info) */
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.logout-btn {
+  background-color: #3e773e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #2d5d2d;
+}
+
+/*  LAYOUT CHÍNH */
+.menu-page {
+  display: flex;
+  padding: 40px 60px;
+}
+
+/* SIDEBAR*/
+.sidebar {
+  width: 220px;
+  border-right: 2px solid black;
+  padding-right: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar li.active {
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.sidebar li:hover {
+  color: #333;
+  transform: translateX(3px);
+}
+
+/*  DANH SÁCH SẢN PHẨM */
+.product-list {
+  flex: 1;
+  display: none; /* Ẩn mặc định */
+  gap: 40px;
+  padding-left: 40px;
+  flex-wrap: wrap;
+}
+
+.product-list.active {
+  display: flex; /* Hiện khi được chọn */
+}
+
+/*CARD SẢN PHẨM*/
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.product-card .info {
+  background-color: #d3e3c5;
+  text-align: center;
+  padding: 10px;
+}
+
+.product-card .price {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/*  TRẠNG THÁI MÓN */
+.status-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #3e773e;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.status-text {
+  font-weight: bold;
+  color: #3e773e;
+}
+
+.status-text.off {
+  color: #b71c1c;
+}
