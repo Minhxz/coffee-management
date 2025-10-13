@@ -22,6 +22,9 @@
 }
 
 /* Gốc */
+html{
+  scroll-behavior: smooth;
+}
 *{ box-sizing:border-box; }
 html,body{height:100%;}
 body{
@@ -119,7 +122,7 @@ header{
   font-size:16px;
   transition:background .18s,color .18s;
 }
-.main-menu a.active,
+
 .main-menu a:hover{
   background:rgba(60,94,44,0.08);
   color:var(--accent);
@@ -596,6 +599,7 @@ header{
   border-radius:18px;
   overflow:hidden;
 }
+
 .pin {
   position:absolute;
   width:18px; height:18px;
@@ -677,7 +681,7 @@ header{
 }
 .n-form input:focus { outline:2px solid #fff; }
 
-/*Fôter */
+/*Fôoter */
 .site-footer {
   margin-top:0;
   position:relative;
