@@ -84,3 +84,4 @@ form?.addEventListener('submit', (e) => {
     submitBtn.style.opacity = 1;
   }, 550);
 });
+
