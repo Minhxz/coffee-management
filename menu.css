@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: "Times New Roman", serif;
   color: #1a1a1a;
-  background: linear-gradient(to right, #f5f3eb, #587f3f);
+  background: linear-gradient(#83b961);
   overflow-y: scroll; /* cố định thanh cuộn để nó khong làm ảnh hưởng đẽn trang web */
 }
 
@@ -122,6 +122,7 @@ body {
   border-radius: 8px;
   padding: 10px;
   font-weight: bold;
+  background-color: #efede6;
 }
 
 .sidebar li:hover {
