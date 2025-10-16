@@ -23,10 +23,10 @@
       <a href="index.html" class="logo">CÀ PHÊ</a>
       <div class="main-menu">
         <a href="#" class="active" aria-current="page">Trang Chủ</a>
-        <a href="#signature">Menu</a>
+        <a href="menu.html">Menu</a>
         <a href="#story">Tuyển Dụng</a>
         <a href="#testimonials">Cảm Nhận</a>
-        <a href="#">Liên Hệ-Hỗ Trợ</a>
+        <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
       </div>
       <div class="header-right">
         <button type="button" class="icon-btn" aria-label="Tìm kiếm">
@@ -308,17 +308,71 @@
     </div>
   </footer>
 
+  <!-- Online -->
+  <div id="order-modal" class="order-modal">
+  <div class="order-section">
+    <h2 class="modal-title">Đặt Hàng Online</h2>
+    <div class="modal-menu">
+      <div class="modal-item" data-id="1" data-name="Cà phê sữa đá" data-price="60000">
+        <img src="./images/cfsuada.jpg" alt="Cà phê sữa đá">
+        <div>
+          <div class="item-name">Cà phê sữa đá</div>
+          <div class="item-price">60,000 đ</div>
+          <button class="btn-add-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+      <div class="modal-item" data-id="2" data-name="Cacao dừa đá xay" data-price="65000">
+        <img src="./images/duadaxay.jpg" alt="Cacao dừa đá xay">
+        <div>
+          <div class="item-name">Cacao dừa đá xay</div>
+          <div class="item-price">65,000 đ</div>
+          <button class="btn-add-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+      <div class="modal-item" data-id="3" data-name="Bạc xỉu" data-price="70000">
+        <img src="./images/bacxiu.jpg" alt="Bạc xỉu">
+        <div>
+          <div class="item-name">Bạc xỉu</div>
+          <div class="item-price">70,000 đ</div>
+          <button class="btn-add-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+      <div class="modal-item" data-id="4" data-name="Trà sữa kem" data-price="70000">
+        <img src="./images/kemtrung.jpg" alt="Trà sữa kem">
+        <div>
+          <div class="item-name">Trà sữa kem</div>
+          <div class="item-price">70,000 đ</div>
+          <button class="btn-add-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+    <h3>Giỏ hàng của bạn</h3>
+    <div id="cart-list"></div>
+    <div class="cart-total">
+      Tổng cộng: <span id="cart-total">0 đ</span>
+    </div>
+    <form id="cart-form">
+      <input type="text" name="name" placeholder="Họ tên" required>
+      <input type="tel" name="phone" placeholder="Số điện thoại" required>
+      <input type="text" name="address" placeholder="Địa chỉ" required>
+      <button type="submit" class="btn primary" style="margin-top:14px;">
+      <i class="fa-solid fa-paper-plane"></i> Đặt hàng
+</button>
+    </form>
+    <button id="close-order-modal" class="btn secondary" style="margin-top:12px;">Đóng</button>
+  </div>
+</div>
   <div id="modal-root"></div>
   <script>
-    fetch('order-modal.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('modal-root').innerHTML = html;
-        const script = document.createElement('script');
-        script.src = 'order-modal.js';
-        document.body.appendChild(script);
-      });
-  </script>
+  fetch('order-modal.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('modal-root').innerHTML = html;
+      const script = document.createElement('script');
+      script.src = './js/order.js';
+      document.body.appendChild(script);
+    });
+</script>
   <script>
     const obs = new IntersectionObserver(entries=>{
       entries.forEach(e=>{

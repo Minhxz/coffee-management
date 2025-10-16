@@ -75,7 +75,7 @@ form?.addEventListener('submit', (e) => {
       localStorage.setItem(SESSION_KEY, JSON.stringify(sessionObj));
       showSuccess('Đăng nhập thành công. Đang chuyển hướng...');
       setTimeout(() => {
-        window.location.href = 'admin.html';
+        window.location.href = 'index.html';
       }, 600);
     } else {
       showError('Email hoặc mật khẩu không đúng.');
