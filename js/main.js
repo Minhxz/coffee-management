@@ -87,3 +87,4 @@ form?.addEventListener('submit', (e) => {
   }, 550);
 });
 
+>>>>>>> bca6a1651f57b3aa86d58e31a9237620e8376a5e
