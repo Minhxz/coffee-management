@@ -246,8 +246,200 @@ nav.main-menu a:hover{
   border-radius:6px;
 }
 .card h3{
+<<<<<<< HEAD
   margin:12px 0 8px;
   font-family:'Bebas Neue',sans-serif;font-size:20px;
+=======
+  margin:14px 0 8px;
+  font-family: var(--font-heading);
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:1px;
+}
+.card p{ margin:0; color:var(--muted); }
+
+/* Signature grid  */
+.signature-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:var(--gap);
+  align-items:stretch;
+}
+.card.card--tall { padding:0; }
+.card.card--tall .card-media {
+  position:relative;
+  aspect-ratio:5/7;
+  width:100%;
+  overflow:hidden;
+  border-radius:16px 16px 0 0;
+}
+.card.card--tall .card-media img {
+  width:100%; height:100%;
+  object-fit:cover;
+  transform:scale(1.04);
+  transition:transform 1s ease;
+}
+.card.card--tall:hover .card-media img { transform:scale(1.1); }
+.card-badge {
+  position:absolute;
+  top:10px; left:10px;
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  padding:6px 10px;
+  border-radius:12px;
+  letter-spacing:.5px;
+  backdrop-filter:blur(3px);
+}
+.card.card--tall .card-body {
+  padding:16px 16px 20px;
+  display:flex; flex-direction:column; gap:6px;
+}
+.meta-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.price-tag {
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:.5px;
+}
+.chips { display:flex; gap:6px; flex-wrap:wrap; }
+.chip {
+  background:var(--accent);
+  color:#fff;
+  font-size:11px;
+  line-height:1;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.chip--new { background:#d9480f; }
+
+/* story */
+.story-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+@media (max-width:980px){
+  .story-grid { grid-template-columns:1fr; }
+}
+.story-stack {
+  position:relative;
+  max-width:520px;
+  margin:0 auto;
+}
+.story-img {
+  border-radius:26px;
+  object-fit:cover;
+  width:100%;
+  display:block;
+  box-shadow:0 16px 40px -14px rgba(60,94,44,.35);
+}
+.story-img.main { aspect-ratio:4/5; }
+.story-img.overlay {
+  position:absolute;
+  width:56%;
+  right:-6%; bottom:-6%;
+  aspect-ratio:3/4;
+  box-shadow:0 14px 36px -10px rgba(0,0,0,.35);
+  border:4px solid #fff;
+  transform:rotate(4deg);
+}
+.story-content p { line-height:1.55; }
+
+
+
+/*Order*/
+#order-modal,
+#checkout-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.14);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#order-modal.active,
+#checkout-modal.active {
+  display: flex;
+}
+#order-modal > .order-section,
+#checkout-modal > .order-section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px 28px 28px;
+  min-width: 320px;
+  box-shadow: 0 8px 32px #0003;
+  animation: modalPop .25s cubic-bezier(.5,1.6,.6,1);
+}
+@keyframes modalPop {
+  0% { transform: scale(.88); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/*Testimonials*/
+.testimonial-row {
+  display:grid;
+  gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.testimonial-card {
+  background:var(--card);
+  padding:26px 24px 30px;
+  border-radius:20px;
+  position:relative;
+  box-shadow:0 6px 22px -8px rgba(60,94,44,0.18);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  overflow:hidden;
+}
+.testimonial-card:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 80% 18%, rgba(60,94,44,0.16), transparent 60%);
+  opacity:.55;
+  pointer-events:none;
+}
+.quote-mark {
+  font-size:58px;
+  line-height:1;
+  font-family: var(--font-heading);
+  color:var(--accent);
+  opacity:.15;
+  position:absolute;
+  top:-4px; left:14px;
+}
+.t-meta {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:auto;
+}
+.avatar {
+  width:44px; height:44px;
+  border-radius:14px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  letter-spacing:.5px;
+  font-size:14px;
+>>>>>>> 2566afadee6f62848fd2a0c19608f1a5fc18b126
 }
 
 .card p{

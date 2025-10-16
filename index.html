@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coffee Cats</title>
+  <meta name="description" content="CỘNG CÀ PHÊ - Hương vị Việt và không gian mang câu chuyện.">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="order-modal.css">
+</head>
+<body class="has-texture">
+
+  <!-- Header -->
+  <header class="site-header elevate-1">
+    <nav class="navbar">
+      <img src="./images/golocat.jpg" alt="" id="cat">
+      <a href="index.html" class="logo">CÀ PHÊ</a>
+      <div class="main-menu">
+        <a href="#" class="active" aria-current="page">Trang Chủ</a>
+        <a href="#signature">Menu</a>
+        <a href="#story">Tuyển Dụng</a>
+        <a href="#testimonials">Cảm Nhận</a>
+        <a href="#">Liên Hệ-Hỗ Trợ</a>
+      </div>
+      <div class="header-right">
+        <button type="button" class="icon-btn" aria-label="Tìm kiếm">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="javascript:void(0);" id="cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
+          <i class="fa-regular fa-user"></i>
+          <span>Đăng nhập</span>
+        </a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero--layered" id="top">
+    <div class="hero__bg"></div>
+    <div class="hero__inner container">
+      <div class="hero__content fade-in">
+        <h1 class="hero__title">
+          Hương vị Việt<br><span class="hero__title-accent">Không gian kể chuyện</span>
+        </h1>
+        <p class="hero__subtitle">
+          Từ ly cà phê phin đậm đà đến những biến tấu hiện đại – mỗi thức uống là một lát cắt ký ức và cảm hứng Việt.
+        </p>
+        <div class="hero__cta">
+          <a href="#menu-scroll" class="btn primary">Khám phá menu</a>
+          <a href="#store" class="btn secondary">Cửa hàng gần bạn</a>
+        </div>
+      </div>
+      <div class="hero__visual parallax-float">
+        <div class="hero-img-frame">
+          <img src="./images/anh4.jpg" alt="Không gian quán cà phê" loading="lazy">
+          <div class="hero-tag">Vietnamese Roast</div>
+        </div>
+        <div class="hero-side-stack">
+          <img src="./images/anh2.jpg" alt="Ly cà phê" class="stack-img">
+          <img src="./images/anh1.jpg" alt="Quầy pha chế" class="stack-img delay">
+        </div>
+      </div>
+    </div>
+    <div class="hero__bottom-wave"></div>
+  </section>
+  
+
+  <main id="menu-scroll">
+
+    <!-- Signature Drinks -->
+    <section class="section section-tight" id="signature">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">
+            <span class="accent-bar"></span> MÓN BÁN CHẠY
+          </h2>
+          <p class="section-intro">
+            Một số thức uống nổi bật
+          </p>
+        </div>
+        <div class="grid-cards signature-grid">
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="./images/cfsuada.jpg" alt="Cà phê sữa đá">
+              <div class="card-badge">Signature</div>
+            </div>
+            <div class="card-body">
+              <h3>Cà phê sữa đá</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">60.000đ</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="./images/duadaxay.jpg" alt="Dừa đá xay">
+              <div class="card-badge">Signature</div>
+            </div>
+            <div class="card-body">
+              <h3>Cacao dừa đá xay</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000đ</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="./images/bacxiu.jpg" alt="Bạc xỉu">
+              <div class="card-badge">Signature</div>
+            </div>
+            <div class="card-body">
+              <h3>Bạc xỉu</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">70.000đ</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="./images/kemtrung.jpg" alt="Trà sữa kem trứng">
+              <div class="card-badge">Signature</div>
+            </div>
+            <div class="card-body">
+              <h3>Trà sữa kem </h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">70.000đ</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="center-block">
+          <button class="btn secondary" id="menu-scroll">Xem đầy đủ menu</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="section section-alt" id="story">
+      <div class="container story-grid">
+        <div class="story-media reveal">
+          <div class="story-stack">
+            <img src="./images/tuyendung1.jpg" alt="Không gian hoài niệm" class="story-img main">
+            <img src="./images/tuyendung2.webp" alt="Chi tiết nội thất" class="story-img overlay">
+          </div>
+        </div>
+        <div class="story-content reveal">
+          <h2 class="section-title"><span class="accent-bar"></span> Tin Tuyển Dụng</h2>
+            
+            <p>• Nhân viên Fulltime số lượng : 8 bạn</p>
+            <p>*Với môi trường GENZ 🥳 trẻ trung và năng động 🤗</p>
+            <p>- CHỈ CẦN YÊU CẦU CÁC BẠN ỨNG TUYỂN 😘 </p>
+            <p>• Nhanh nhẹn, nhiệt tình, trong công viêc </p>
+            <p>• Luôn biết tự giác, có sự ham học hỏi với công việc</p>
+            <p>• Có nguyện vọng gắn bó lâu dài với công việc.</p>
+            <p>
+               Thời gian: part-time ca sáng 6h30- 12h, ca chiều 12h-17h30, ca tối 17h30- 23h có thể thay đổi thời gian để phù hợp với lịch học và làm việc của các bạn
+              🍄 Lương : hàng tháng theo trách nhiệm với công việc, thưởng theo trách nhiệm với công việc + hỗ trợ tiền ăn giữa các ca 
+              🍄 Công việc : order bưng bê, nhẹ nhàng sạch sẽ, phù hợp với các bạn sinh viên muốn làm thêm giờ
+            </p>
+            <button class="btn primary">Tìm hiểu thêm</button>
+        </div>
+      </div>
+    </section>
+    
+  
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head center">
+          <h2 class="section-title"><span class="accent-bar"></span> Cảm nhận khách hàng</h2>
+          <p class="section-intro small-width">
+            Hãy chia sẻ cảm nhận của bạn sau khi thưởng thức thức uống tại quán — mỗi góp ý đều giúp chúng tôi hoàn thiện hơn mỗi ngày.
+          </p><br><br>
+          <h3> Một số đánh giá mới</h3>
+        </div>
+        <div class="testimonial-row">
+          <div class="testimonial-card reveal">
+            <div class="quote-mark">“</div>
+            <p>Khá là yêu thích không gian của quán, đặc biệt là đồ uống rất ngon, hơn hẳn những quán mà mk từng tới</p>
+            <div class="t-meta">
+              <span class="avatar">D</span>
+              <div>
+                <strong>Diệu Linh</strong>
+                <div class="muted">Quảng Ninh</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="quote-mark">“</div>
+            <p>Đồ uống khá đa dạng, hương vị thơm ngon, mk đánh giá cao chất lượng phục vụ của quán này nha:)) </p>
+            <div class="t-meta">
+              <span class="avatar">M</span>
+              <div>
+                <strong>Minh</strong>
+                <div class="muted">Hải Phòng</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="quote-mark">“</div>
+            <p>Nhân viên phục vụ và tư vấn rất nhiệt tình luôn nha, cà phê ngon thì khỏi phải bàn luôn, ai chưa dùng thử thì nên ghé 1 lần nha</p>
+            <div class="t-meta">
+              <span class="avatar">M</span>
+              <div>
+                <strong>Mai</strong>
+                <div class="muted">Phú Thọ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Store Finder Teaser -->
+    <section class="section section-soft" id="store">
+      <div class="container store-teaser reveal">
+        <div>
+          <h2 class="section-title"><span class="accent-bar"></span>  <a href="#store" style="color:inherit; text-decoration:none;">Tìm Kiếm cửa hàng gần nhất</a></h2>
+          <p class="muted">
+            Chúng tôi có các cơ sở đa dạng và nhiều vị trí, hãy tìm cửa hàng gần nhất để ghé lại trải nghiệm 
+          </p>
+          <a href="#store" class="btn primary">Xem bản đồ</a>
+        </div>
+        <div class="mini-map">
+          <div class="map-fake">
+            
+            <span class="pin" style="top:38%;left:34%;"></span>
+            <span class="pin" style="top:58%;left:62%;"></span>
+            <span class="pin" style="top:48%;left:52%;"></span>
+          </div>
+          <div class="mini-legend">
+            <div><span class="dot"></span> Cửa hàng hoạt động</div>
+            <div><span class="dot dot--soon"></span> Gần bạn nhất</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-band reveal">
+      <div class="container n-flex">
+        <div class="n-text">
+          <h2 class="n-title">Ưu đãi đặc biệt</h2>
+          <p class="muted" style="color: lightgrey;">Đăng kí để nhận về nhiều ưu đãi tốt</p>
+        </div>
+        <form class="n-form" onsubmit="event.preventDefault(); this.reset();">
+          <input type="email" required placeholder="Email của bạn" aria-label="Email">
+          <button class="btn primary">Đăng ký</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="site-footer">
+    <div class="footer-top-accent"></div>
+    <div class="container footer-grid">
+      <div>
+        <h4>CaFé</h4>
+        <div class="small">VN © 1969</div>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <div class="small">info@cong.example<br>Hotline: 1900 0000</div>
+      </div>
+      <div>
+        <h4>Giờ mở cửa</h4>
+        <div class="small">9:30-22:00</div>
+      </div>
+      <div>
+        <h4>Mạng xã hội</h4>
+        <div class="socials">
+          <a href="#" title="Facebook"><img src="./images/fb.jpg" width="24" alt="Facebook"></a>
+          <a href="#" title="Instagram"><img src="./images/ins.jpg" width="24" alt="Instagram"></a>
+          <a href="#" title="Tiktok"><img src="./images/tik.jpg" width="24" alt="Tiktok"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="modal-root"></div>
+  <script>
+    fetch('order-modal.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('modal-root').innerHTML = html;
+        const script = document.createElement('script');
+        script.src = 'order-modal.js';
+        document.body.appendChild(script);
+      });
+  </script>
+  <script>
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in-view');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal, .fade-in').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
