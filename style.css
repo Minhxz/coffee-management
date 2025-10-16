@@ -326,20 +326,9 @@ header{
   box-shadow:0 10px 26px -8px rgba(0,0,0,.35);
   animation:heroFloat 7s ease-in-out infinite;
 }
-.stack-img.delay { animation-delay:1.4s; }
-@keyframes heroFloat {
-  0%,100% { transform:translateY(-4px); }
-  50% { transform:translateY(10px); }
-}
-.hero__bottom-wave {
-  position:absolute;
-  left:0; right:0; bottom:-1px;
-  height:80px;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(60,94,44,0.10), transparent 70%),
-    linear-gradient(to bottom, transparent, #f5f3eb);
-  pointer-events:none;
-  z-index:-1;
+.card h3{
+  margin:12px 0 8px;
+  font-family:'Bebas Neue',sans-serif;font-size:20px;
 }
 
 /* Phần chính */
