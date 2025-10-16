@@ -1,11 +1,15 @@
 body {
   margin: 0;
-  font-family: "Times New Roman", serif;
-  color: #1a1a1a;
-  background: linear-gradient(#83b961);
-  overflow-y: scroll; /* cố định thanh cuộn để nó khong làm ảnh hưởng đẽn trang web */
+  background: #f5f3eb;
+  color: #2b2f28;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  padding-bottom: 60px;
+  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
+  font-weight: 400;
+  overflow-y: scroll;
 }
-
 /* HEADER*/
 .navbar {
   position: fixed;
@@ -18,7 +22,7 @@ body {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 28px;
-  background-color: #efede6;
+  background-color: #fff;
 }
 .logo {
   display: flex;
@@ -28,7 +32,7 @@ body {
   font-weight: 700;
   letter-spacing: 1.2px;
   font-family: "League Spartan", "Be Vietnam Pro", "Noto Sans", Arial;
-  color: #2f4f2f;
+  color: #3c5e2c;
 }
 .logo img {
   width: 50px;
@@ -45,15 +49,18 @@ body {
 }
 
 .main-menu a {
-  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
+  font-family: "League Spartan", "Be Vietnam Pro", "Noto Sans", Arial,
+    sans-serif;
   color: black;
-  font-weight: 300;
+  font-size: 20px;
+  text-decoration: none;
+
+  color: var(--dark);
+  font-weight: 600;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 20px;
-  text-decoration: none; /* ✅ Bỏ gạch chân */
+  font-size: 16px;
   transition: background 0.18s, color 0.18s;
-  font-weight: bold;
 }
 
 .main-menu a.active,
@@ -66,6 +73,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: "League Spartan", "Be Vietnam Pro", "Noto Sans", Arial,
+    sans-serif;
 }
 /* Góc phải (Admin info) */
 .admin-info {
@@ -77,7 +86,7 @@ body {
 }
 
 .logout-btn {
-  background-color: #3e773e;
+  background-color: #3c5e2c;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -88,9 +97,8 @@ body {
 }
 
 .logout-btn:hover {
-  background-color: #2d5d2d;
+  background-color: #2d4620;
 }
-
 /*  LAYOUT CHÍNH */
 .menu-page {
   display: flex;
@@ -102,6 +110,7 @@ body {
   width: 220px;
   border-right: 2px solid black;
   padding-right: 30px;
+  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
 }
 
 .sidebar ul {
@@ -112,7 +121,7 @@ body {
 
 .sidebar li {
   padding: 12px 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -151,6 +160,7 @@ body {
   width: 200px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
+  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
 }
 
 .product-card:hover {
@@ -167,11 +177,13 @@ body {
   background-color: #d3e3c5;
   text-align: center;
   padding: 10px;
+  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
 }
 
 .product-card .price {
   font-weight: bold;
   font-size: 1.2rem;
+  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
 }
 
 /*  TRẠNG THÁI MÓN */

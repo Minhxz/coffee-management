@@ -1,9 +1,13 @@
 body {
   margin: 0;
-  font-family: "Times New Roman", serif;
-  color: #1a1a1a;
-  background: linear-gradient(#83b961);
-  overflow-y: scroll; /* cố định thanh cuộn để nó khong làm ảnh hưởng đẽn trang web */
+  background: #f5f3eb;
+  color: #2b2f28;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  padding-bottom: 60px;
+  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
+  font-weight: 400;
 }
 /* Thanh tìm kiếm + lọc */
 .search-bar {
@@ -56,7 +60,7 @@ body {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 28px;
-  background-color: #efede6;
+  background-color: #fff;
 }
 .logo {
   display: flex;
@@ -83,7 +87,8 @@ body {
 }
 
 .main-menu a {
-  font-family: "Be Vietnam Pro", "Noto Sans", "Inter", Arial, sans-serif;
+  font-family: "League Spartan", "Be Vietnam Pro", "Noto Sans", Arial,
+    sans-serif;
   color: black;
   font-weight: 300;
   padding: 8px 16px;
