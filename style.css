@@ -527,124 +527,32 @@ header{
 
 
 /*Order*/
-body {
-  background: #f6f6f9;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #222;
-}
-
-.order-section {
-  max-width: 700px;
-  margin: 50px auto;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px #0001;
-  padding: 32px;
-}
-
-.order-section h2 {
-  margin-bottom: 22px;
-}
-
-.product-list {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-
-.product-card {
-  flex: 1 1 200px;
-  border: 1px solid #ececec;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  background: #faf8f3;
-}
-
-.product-card img {
-  width: 100%;
-  max-width: 140px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.cart-list {
-  margin: 20px 0;
-  padding-left: 18px;
-}
-
-.cart-list li {
-  margin: 4px 0;
-}
-
-.order-form label {
-  display: block;
-  margin: 10px 0 4px;
-}
-
-.order-form input,
-.order-form textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #eee;
-  font-size: 15px;
-  box-sizing: border-box;
-}
-
-.order-form button {
-  margin-top: 14px;
-  padding: 10px 24px;
-  background: #4f7c5c;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.order-form button:hover {
-  background: #356841;
-}
-
-.btn {
-  padding: 7px 16px;
-  border-radius: 7px;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  margin-top: 8px;
-  margin-bottom: 2px;
-  transition: background 0.2s;
-}
-
-.btn.primary {
-  background: #4f7c5c;
-  color: #fff;
-}
-
-.btn.secondary {
-  background: #e0e3da;
-  color: #333;
-}
-
-.btn.secondary:hover {
-  background: #bfc8ba;
-}
-
-.success-message {
-  color: #217a2d;
-  background: #e8f7ea;
-  border: 1px solid #b3e2c2;
-  padding: 12px;
-  border-radius: 8px;
+#order-modal,
+#checkout-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.14);
+  z-index: 9999;
   display: none;
-  margin-top: 18px;
-  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+#order-modal.active,
+#checkout-modal.active {
+  display: flex;
+}
+#order-modal > .order-section,
+#checkout-modal > .order-section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px 28px 28px;
+  min-width: 320px;
+  box-shadow: 0 8px 32px #0003;
+  animation: modalPop .25s cubic-bezier(.5,1.6,.6,1);
+}
+@keyframes modalPop {
+  0% { transform: scale(.88); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 /*Testimonials*/

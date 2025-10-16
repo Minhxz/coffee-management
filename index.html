@@ -12,6 +12,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="order-modal.css">
 </head>
 <body class="has-texture">
 
@@ -24,7 +25,6 @@
         <a href="#" class="active" aria-current="page">Trang Chủ</a>
         <a href="#signature">Menu</a>
         <a href="#story">Tuyển Dụng</a>
-        <a href="#order">Đặt Hàng</a>
         <a href="#testimonials">Cảm Nhận</a>
         <a href="#">Liên Hệ-Hỗ Trợ</a>
       </div>
@@ -32,14 +32,13 @@
         <button type="button" class="icon-btn" aria-label="Tìm kiếm">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
+        <a href="javascript:void(0);" id="cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
         <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
           <i class="fa-regular fa-user"></i>
           <span>Đăng nhập</span>
         </a>
-        <a href="">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-      </div>
     </nav>
   </header>
 
@@ -121,7 +120,8 @@
                 </div>
               </div>
             </div>
-          </article><article class="card card--tall reveal">
+          </article>
+          <article class="card card--tall reveal">
             <div class="card-media">
               <img src="./images/bacxiu.jpg" alt="Bạc xỉu">
               <div class="card-badge">Signature</div>
@@ -137,7 +137,8 @@
                 </div>
               </div>
             </div>
-          </article><article class="card card--tall reveal">
+          </article>
+          <article class="card card--tall reveal">
             <div class="card-media">
               <img src="./images/kemtrung.jpg" alt="Trà sữa kem trứng">
               <div class="card-badge">Signature</div>
@@ -187,35 +188,9 @@
             <button class="btn primary">Tìm hiểu thêm</button>
         </div>
       </div>
-    </section class="order">
-    
-    <!-- Đặt Hàng -->
-    <section>
-    <div class="order-section" id="order">
-    <h2>Đặt Hàng Online</h2>
-    <div class="product-list" id="product-list">
-      <!-- Sản phẩm sẽ được render ở đây -->
-    </div>
-
-    <h3>Giỏ hàng của bạn</h3>
-    <ul class="cart-list" id="cart-list"></ul>
-    <div><strong>Tổng cộng: <span id="total-amount">0</span> đ</strong></div>
-
-    <form class="order-form" id="order-form">
-      <label for="name">Họ tên:</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="phone">Số điện thoại:</label>
-      <input type="tel" id="phone" name="phone" required>
-      
-      <label for="address">Địa chỉ:</label>
-      <textarea id="address" name="address" rows="3" required></textarea>
-      
-      <button type="submit">Đặt hàng</button>
-    </form>
-    <div class="success-message" id="order-success"></div>
-  </div>
     </section>
+    
+  
 
     <!-- Testimonials -->
     <section class="section" id="testimonials">
@@ -333,6 +308,17 @@
     </div>
   </footer>
 
+  <div id="modal-root"></div>
+  <script>
+    fetch('order-modal.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('modal-root').innerHTML = html;
+        const script = document.createElement('script');
+        script.src = 'order-modal.js';
+        document.body.appendChild(script);
+      });
+  </script>
   <script>
     const obs = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
@@ -344,6 +330,5 @@
     },{threshold:.12});
     document.querySelectorAll('.reveal, .fade-in').forEach(el=>obs.observe(el));
   </script>
-  <script src="./js/order.js"></script>
 </body>
 </html>
