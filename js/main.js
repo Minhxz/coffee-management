@@ -142,5 +142,77 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.hero-slider .hero');
+  const prevBtn = document.querySelector('.slider-btn.prev');
+  const nextBtn = document.querySelector('.slider-btn.next');
+  let current = 0;
+  let autoSlideInterval;
 
+  if (slides.length === 0) return;
 
+  // Gán class active cho slide đầu
+  slides[current].classList.add('active');
+
+  function goToSlide(newIndex, direction) {
+    if (newIndex === current) return;
+
+    const currentSlide = slides[current];
+    const nextSlide = slides[newIndex];
+
+    // Reset transform cho slide mới trước khi animate
+    nextSlide.classList.remove('exit-left', 'exit-right', 'active');
+    nextSlide.style.transition = 'none'; // ngắt animation để set vị trí ban đầu
+
+    if (direction === 'next') {
+      nextSlide.style.transform = 'translateX(100%)';
+    } else {
+      nextSlide.style.transform = 'translateX(-100%)';
+    }
+
+    // Kích hoạt lại transition để chạy animation
+    requestAnimationFrame(() => {
+      nextSlide.style.transition = '';
+      currentSlide.classList.remove('active');
+      currentSlide.classList.add(direction === 'next' ? 'exit-left' : 'exit-right');
+
+      nextSlide.classList.add('active');
+      nextSlide.style.transform = 'translateX(0)';
+    });
+
+    current = newIndex;
+  }
+
+  function nextSlide() {
+    let newIndex = current + 1;
+    if (newIndex >= slides.length) newIndex = 0; // ✅ Quay vòng mượt
+    goToSlide(newIndex, 'next');
+  }
+
+  function prevSlide() {
+    let newIndex = current - 1;
+    if (newIndex < 0) newIndex = slides.length - 1;
+    goToSlide(newIndex, 'prev');
+  }
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    restartAutoSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    restartAutoSlide();
+  });
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 6000);
+  }
+
+  function restartAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  startAutoSlide();
+});
