@@ -85,3 +85,62 @@ form?.addEventListener('submit', (e) => {
   }, 550);
 });
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const showMoreBtn = document.getElementById("show-more");
+  const extraCards = document.querySelectorAll(".card.extra");
+
+  let isExpanded = false;
+
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener("click", function(e) {
+      e.preventDefault(); // Ngăn nhảy lên đầu trang
+
+      // Nếu đang ẩn → hiện thêm món
+      if (!isExpanded) {
+        extraCards.forEach(card => {
+          card.classList.add("show");
+        });
+
+        showMoreBtn.textContent = "Thu gọn";
+
+        // ✅ Cuộn mượt xuống phần cuối menu
+        setTimeout(() => {
+          const lastCard = extraCards[extraCards.length - 1];
+          lastCard.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 300);
+      } 
+      // Nếu đang hiện → ẩn lại
+      else {
+        extraCards.forEach(card => {
+          card.classList.remove("show");
+        });
+
+        showMoreBtn.textContent = "Xem đầy đủ menu";
+
+        // ✅ Cuộn mượt trở lại đầu phần signature
+        setTimeout(() => {
+          document.getElementById("signature").scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
+      }
+
+      isExpanded = !isExpanded;
+    });
+  }
+});
+
+
+
+// 🗺️ Mở Google Maps khi nhấn "Xem bản đồ"
+document.addEventListener("DOMContentLoaded", function() {
+  const findBtn = document.getElementById("find-store");
+  if (findBtn) {
+    findBtn.addEventListener("click", function(event) {
+      event.preventDefault(); // Ngăn không cuộn lên đầu trang
+      window.open("https://www.google.com/maps/search/CAT+CAFE/", "_blank");
+    });
+  }
+});
+
+
+
