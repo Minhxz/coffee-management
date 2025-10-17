@@ -85,3 +85,25 @@ form?.addEventListener('submit', (e) => {
   }, 550);
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const btn = document.getElementById("show-more");
+  const extraCards = document.querySelectorAll(".card.extra");
+
+  btn.addEventListener("click", function(e) {
+    e.preventDefault(); // ✅ Đảm bảo không nhảy lên đầu trang (phòng trường hợp thẻ a)
+
+    extraCards.forEach(card => {
+      card.classList.toggle("show");
+    });
+
+    // ✅ Đổi nội dung nút
+    if (btn.textContent === "Xem đầy đủ menu") {
+      btn.textContent = "Thu gọn";
+    } else {
+      btn.textContent = "Xem đầy đủ menu";
+
+      // ✅ Cuộn nhẹ xuống phần món bán chạy, tránh nhảy lên top
+      document.getElementById("signature").scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
