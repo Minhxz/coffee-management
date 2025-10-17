@@ -16,6 +16,39 @@
   <link rel="stylesheet" href="hotro.css">
 
 </head>
+<script>
+     document.addEventListener("DOMContentLoaded", function() {
+     const form = document.querySelector(".contact-form");
+
+     form.addEventListener("submit", function(event) {
+     event.preventDefault(); 
+
+    
+     const name = form.querySelector('input[type="text"]').value.trim();
+     const email = form.querySelector('input[type="email"]').value.trim();
+     const message = form.querySelector('textarea').value.trim();
+
+    
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    
+     if (name === "" || email === "" || message === "") {
+     alert("Vui lòng nhập đầy đủ thông tin trước khi gửi!");
+     return;
+    }
+
+     if (!emailRegex.test(email)) {
+      alert("Vui lòng nhập địa chỉ email hợp lệ!");
+      return;
+    }
+      alert("✅ Bạn đã gửi thành công! Cảm ơn bạn đã liên hệ với Cat Cafe ❤️");
+
+    
+      form.reset();
+  });
+});
+</script>
+
 <body class="has-texture">
 
   <!-- Header -->
@@ -24,7 +57,7 @@
       <img src="./images/golocat.jpg" alt="" id="cat">
       <a href="index.html" class="logo">CÀ PHÊ</a>
       <div class="main-menu">
-        <a href="#" class="active" aria-current="page">Trang Chủ</a>
+        <a href="index.html" class="active" aria-current="page">Trang Chủ</a>
         <a href="menu.html">Menu</a>
         <a href="#story">Tuyển Dụng</a>
         <a href="#testimonials">Cảm Nhận</a>
@@ -41,6 +74,7 @@
           <i class="fa-regular fa-user"></i>
           <span>Đăng nhập</span>
         </a>
+      </div>  
     </nav>
   </header>
 
@@ -49,21 +83,29 @@
     <div class="contact-info">
         <div class="info-box">
             <h3>📍 Address info</h3>
-            <p>Cat Coffee,29/85 Xuân Thủy, Dịch vọng hậu,Cầu Giấy, Hà Nội</p>
+            <p>Cat Cafe:29/85 Xuân Thủy, Dịch Vọng Hậu,Cầu Giấy, Hà Nội</p>
         </div>
         <div class="info-box">
             <h3>🕐Opening hours</h3>
-            <p><p>Monday – Friday: 9am – 6pm<br>Saturday: 10am – 4pm</p></p>
+            <p>Monday – Friday: 9h30-22:00<br>Saturday, Sunday: 9h30-23:00</p>
         </div>
         <div class="info-box">
             <h3>✉️ Contact info</h3>
-            <p>CatCaFe2025@gmail.com</p>
+            <p>CatCaFe2025@gmail.com<br>Hotline: 0378093269-0965299505</p>
+            
         </div>
     </div>
     <div class="contact-body">
       <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24156.01983625126!2d-74.0152454!3d40.7139556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a317a04b7d3%3A0xc80b8f06e177fe62!2sNew%20York!5e0!3m2!1svi!2s!4v1700900000000!5m2!1svi!2s" 
-          width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe
+           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.807769994045!2d105.84117167503067!3d21.02851168062027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab978f5120a7%3A0x9a3b7a050d82f6de!2zSOG6o2kgQ2jhu6MgTmjGoW4gSOG7kyBI4bqjaSBO4buZaSBI4bqjaSBI4buTLg!5e0!3m2!1svi!2s!4v1739748750000!5m2!1svi!2s"
+             width="100%"
+             height="280"
+             style="border:0;"
+             allowfullscreen=""
+             
+        ></iframe>
+
       </div>
       <form class="contact-form">
         <input type="text" placeholder="Tên của bạn:" required>
@@ -95,7 +137,7 @@
       <div>
         <h4>Mạng xã hội</h4>
         <div class="socials">
-          <a href="#" title="Facebook"><img src="./images/fb.jpg"24" alt="Facebook"></a>
+          <a href="#" title="Facebook"><img src="./images/fb.jpg" width="24" alt="Facebook"></a>
           <a href="#" title="Instagram"><img src="./images/ig.jpg" width="24" alt="Instagram"></a>
           <a href="#" title="Tiktok"><img src="./images/tiktok.jpg" width="24" alt="Tiktok"></a>
         </div>
