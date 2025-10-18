@@ -72,9 +72,10 @@ form.addEventListener('submit', e => {
   updateCartView();
   form.reset();
   modal.classList.remove('active');
-  modal.addEventListener('click', function(e) {
-  if (e.target === modal) modal.classList.remove('active');
 });
+
+modal.addEventListener('click', function(e) {
+  if (e.target === modal) modal.classList.remove('active');
 });
 
 updateCartView();

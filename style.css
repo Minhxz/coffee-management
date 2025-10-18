@@ -108,29 +108,8 @@ h4 { font-size: 1.15rem; }
   margin:0 auto;
   padding:0 28px;
   position:relative;
-}
-
-/* background chính*/
-.has-texture:before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 70% 20%, rgba(60,94,44,0.13), transparent 60%),
-    radial-gradient(circle at 20% 75%, rgba(120,140,110,0.10), transparent 62%),
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 6px, transparent 6px 12px);
-  mix-blend-mode:normal;
-  opacity:.55;
-  pointer-events:none;
-  z-index:-2;
-}
-
-/*header (dẫn)*/
-
-header{
-  margin:0 auto;
-  padding:0 28px;
-  position:relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* background chính*/
@@ -163,60 +142,48 @@ header{
   z-index:200;
   border-bottom:1px solid rgba(0,0,0,0.04);
   min-height:78px;
-  border-bottom:1px solid rgba(0,0,0,0.04);
-  min-height:78px;
+  width: 100%;
 }
 
 .navbar{
 .navbar{
   display:flex;
   align-items:center;
-  gap:24px;
+  gap:20px;
   justify-content:space-between;
   position:relative;
   min-height:76px;
   max-width:var(--maxw);
   margin:0 auto;
   padding:0 28px;
+  width: 100%;
+  box-sizing: border-box;
 }
 #cat{
-  display: flex;
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
-.logo{
-  font-weight:800;
-  gap:24px;
-  justify-content:space-between;
-  position:relative;
-  min-height:76px;
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:0 28px;
-}
-#cat{
-  display: flex;
-  height: 100px;
-  width: 100px;
-}
+
 .logo{
   font-weight:800;
   font-size:20px;
   letter-spacing:1.2px;
   font-family: var(--font-heading);
   color:var(--dark);
-  letter-spacing:1.2px;
-  font-family: var(--font-heading);
-  color:var(--dark);
+  flex-shrink: 0;
 }
-.main-menu{
+
 .main-menu{
   display:flex;
   gap:18px;
   gap:18px;
   align-items:center;
   margin:0;
-  margin:0;
+  flex: 1;
+  justify-content: center;
 }
 .main-menu a{
 .main-menu a{
@@ -241,11 +208,26 @@ header{
 .header-right {
   display:flex;
   align-items:center;
-  gap:10px;
-.header-right {
-  display:flex;
-  align-items:center;
-  gap:10px;
+  gap:12px;
+  flex-shrink: 0;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
 }
 #lang-toggle {
   margin-left: 10px;
@@ -1845,12 +1827,50 @@ header{
   .n-form { flex-wrap:wrap; }
   .n-form input { flex:1 1 100%; min-width:0; }
 }
+
+@media (max-width:960px){
+  .navbar {
+    padding: 0 20px;
+    gap: 15px;
+  }
+  .main-menu {
+    gap: 12px;
+  }
+  .main-menu a {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+}
 @media (max-width:640px){
   .hero-side-stack { display:none; }
   .hero-img-frame { width:100%; }
   .footer-grid{ grid-template-columns:repeat(2,1fr); }
-  .navbar{ flex-wrap:wrap; gap:14px; padding:0 18px; }
-  .main-menu{ flex-wrap:wrap; gap:10px; }
+  .navbar{ 
+    flex-wrap:nowrap; 
+    gap:10px; 
+    padding:0 18px;
+    min-height: 70px;
+  }
+  .main-menu{ 
+    display: none; /* Ẩn menu chính trên mobile, sẽ cần hamburger menu */
+  }
+  #cat {
+    height: 45px;
+    width: 45px;
+  }
+  .logo {
+    font-size: 18px;
+  }
+  .header-right {
+    gap: 8px;
+  }
+  .login-btn span {
+    display: none; /* Chỉ hiện icon trên mobile */
+  }
+  #lang-toggle {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
 }
 @media (max-width:440px){
   .footer-grid{ grid-template-columns:1fr; }
@@ -1879,12 +1899,50 @@ header{
   .n-form { flex-wrap:wrap; }
   .n-form input { flex:1 1 100%; min-width:0; }
 }
+
+@media (max-width:960px){
+  .navbar {
+    padding: 0 20px;
+    gap: 15px;
+  }
+  .main-menu {
+    gap: 12px;
+  }
+  .main-menu a {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+}
 @media (max-width:640px){
   .hero-side-stack { display:none; }
   .hero-img-frame { width:100%; }
   .footer-grid{ grid-template-columns:repeat(2,1fr); }
-  .navbar{ flex-wrap:wrap; gap:14px; padding:0 18px; }
-  .main-menu{ flex-wrap:wrap; gap:10px; }
+  .navbar{ 
+    flex-wrap:nowrap; 
+    gap:10px; 
+    padding:0 18px;
+    min-height: 70px;
+  }
+  .main-menu{ 
+    display: none; /* Ẩn menu chính trên mobile, sẽ cần hamburger menu */
+  }
+  #cat {
+    height: 45px;
+    width: 45px;
+  }
+  .logo {
+    font-size: 18px;
+  }
+  .header-right {
+    gap: 8px;
+  }
+  .login-btn span {
+    display: none; /* Chỉ hiện icon trên mobile */
+  }
+  #lang-toggle {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
 }
 @media (max-width:440px){
   .footer-grid{ grid-template-columns:1fr; }
