@@ -129,8 +129,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-
-
 // 🗺️ Mở Google Maps khi nhấn "Xem bản đồ"
 document.addEventListener("DOMContentLoaded", function() {
   const findBtn = document.getElementById("find-store");
