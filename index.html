@@ -39,6 +39,7 @@
           <i class="fa-regular fa-user"></i>
           <span>Đăng nhập</span>
         </a>
+        <button id="lang-toggle" class="btn secondary">EN / VI</button>
       </div>
     </nav>
   </header>
@@ -91,7 +92,7 @@
         </p>
         <div class="hero__cta">
           <a href="#gallery" class="btn primary">Xem không gian</a>
-          <a href="#menu-scroll" class="btn secondary">Đặt bàn ngay</a>
+          <a href="datban.html" class="btn secondary">Đặt bàn ngay</a>
         </div>
       </div>
 
@@ -522,27 +523,7 @@
   </div>
 </div>
   <div id="modal-root"></div>
-  <script>
-  fetch('order-modal.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('modal-root').innerHTML = html;
-      const script = document.createElement('script');
-      script.src = './js/order.js';
-      document.body.appendChild(script);
-    });
-</script>
-  <script>
-    const obs = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('in-view');
-          obs.unobserve(e.target);
-        }
-      });
-    },{threshold:.12});
-    document.querySelectorAll('.reveal, .fade-in').forEach(el=>obs.observe(el));
-  </script>
+  <script src="./js/order.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
