@@ -38,12 +38,14 @@
           <button type="button" class="icon-btn" aria-label="Tìm kiếm">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <a href="javascript:void(0);" id="cart-btn">
-            <button type="button" class="icon-btn" aria-label="Giỏ hàng">
+
+          <a href="cart.html" id="cart-btn" aria-label="Giỏ hàng">
+            <button type="button" class="icon-btn">
               <i class="fa-solid fa-cart-shopping"></i>
               <span class="cart-count">0</span>
             </button>
           </a>
+
           <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
             <i class="fa-regular fa-user"></i>
             <span>Đăng nhập</span>
@@ -75,20 +77,17 @@
             </div>
 
             <div class="card-body">
-              <h3>Cacao dừa đá xay</h3>
+              <h3 class="item-name">Cacao dừa đá xay</h3>
               <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
               <div class="meta-row">
-                <span class="price-tag">610.000đ</span>
+                <span class="price-tag">65000</span>
                 <div class="chips">
                   <span class="chip">coffee</span>
                   <span class="chip">classic</span>
                 </div>
-                <a href="javascript:void(0);" id="cart-btn">
-                  <button type="button" class="icon-btn" aria-label="Giỏ hàng">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-count">0</span>
-                  </button>
-                </a>
+
+                <!-- ✅ Nút thêm món -->
+                <button class="add-btn">Thêm món</button>
               </div>
             </div>
           </article>
@@ -108,6 +107,7 @@
                   <span class="chip">coffee</span>
                   <span class="chip">classic</span>
                 </div>
+                <button class="add-btn">Thêm món</button>
               </div>
             </div>
           </article>
@@ -479,6 +479,28 @@
         </div>
       </section>
     </main>
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h3 id="popup-name"></h3>
+        <p>Giá: <span id="popup-price"></span>đ</p>
+
+        <label>Số lượng:</label>
+        <div class="quantity">
+          <button id="minus">-</button>
+          <input type="number" id="quantity" value="1" min="1" />
+          <button id="plus">+</button>
+        </div>
+
+        <label>Ghi chú món:</label>
+        <textarea id="note" placeholder="Ví dụ: ít đá, thêm ngọt..."></textarea>
+
+        <div class="popup-actions">
+          <button id="cancel">Hủy</button>
+          <button id="confirm">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+
     <script>
       // ========== Xử lý sidebar ==========
       const menuItems = document.querySelectorAll(".sidebar li");
@@ -505,6 +527,99 @@
           });
         });
       });
+      // Lấy các phần tử cần dùng
+      const popup = document.getElementById("popup");
+      const popupName = document.getElementById("popup-name");
+      const popupPrice = document.getElementById("popup-price");
+      const quantityInput = document.getElementById("quantity");
+      const noteInput = document.getElementById("note");
+
+      const btnMinus = document.getElementById("minus");
+      const btnPlus = document.getElementById("plus");
+      const btnCancel = document.getElementById("cancel");
+      const btnConfirm = document.getElementById("confirm");
+
+      // Ẩn popup khi mới tải
+      popup.style.display = "none";
+
+      // Thêm sự kiện cho các nút Thêm món
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const name = card.querySelector("h3").textContent;
+          const price = card
+            .querySelector(".price-tag")
+            .textContent.replace("đ", "")
+            .trim();
+
+          popupName.textContent = name;
+          popupPrice.textContent = price;
+          quantityInput.value = 1;
+          noteInput.value = "";
+          popup.style.display = "flex";
+        });
+      });
+
+      // Nút tăng/giảm
+      btnMinus.addEventListener("click", () => {
+        if (quantityInput.value > 1) quantityInput.value--;
+      });
+
+      btnPlus.addEventListener("click", () => {
+        quantityInput.value++;
+      });
+
+      // Nút hủy
+      btnCancel.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+
+      // Nút xác nhận
+      btnConfirm.addEventListener("click", () => {
+        const item = {
+          name: popupName.textContent,
+          price: Number(popupPrice.textContent.replace(/\D/g, "")), // ép về số
+          quantity: Number(quantityInput.value),
+          note: noteInput.value,
+        };
+
+        console.log("Món đã thêm:", item);
+
+        // ✅ Lấy giỏ hàng cũ (nếu có)
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // ✅ Kiểm tra xem món đã có trong giỏ chưa
+        let existing = cart.find((x) => x.name === item.name);
+        if (existing) {
+          existing.quantity = Number(existing.quantity) + Number(item.quantity);
+        } else {
+          cart.push(item);
+        }
+
+        // ✅ Lưu lại vào localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // ✅ Cập nhật hiển thị trên icon giỏ hàng ngay lập tức
+        updateCartCount();
+
+        alert("Đã thêm vào giỏ hàng!");
+        popup.style.display = "none";
+      });
+
+      // ✅ Hàm cập nhật số lượng trên biểu tượng giỏ
+      function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const countElement = document.querySelector(".cart-count");
+        let totalItems = cart.reduce(
+          (total, item) => total + Number(item.quantity),
+          0
+        );
+        countElement.textContent = totalItems;
+      }
+
+      // ✅ Khi tải trang lần đầu, hiển thị đúng số món hiện có
+      document.addEventListener("DOMContentLoaded", updateCartCount);
     </script>
   </body>
 </html>
