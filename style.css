@@ -247,6 +247,22 @@ header{
   align-items:center;
   gap:10px;
 }
+#lang-toggle {
+  margin-left: 10px;
+  background-color: #fff;
+  color: #355e3b;
+  border: 1px solid #355e3b;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+#lang-toggle:hover {
+  background-color: #355e3b;
+  color: #fff;
+}
 
 /* Nút */
 .icon-btn {
