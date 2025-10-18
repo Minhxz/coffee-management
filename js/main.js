@@ -95,6 +95,67 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== MAIN PAGE FUNCTIONALITY =====
 document.addEventListener("DOMContentLoaded", function() {
   
+  // ===== SEARCH BAR FUNCTIONALITY =====
+  const searchToggle = document.getElementById("search-toggle");
+  const searchBar = document.getElementById("search-bar");
+  const searchOverlay = document.getElementById("search-overlay");
+  const searchClose = document.getElementById("search-close");
+  const searchInput = document.getElementById("search-input");
+  
+  if (searchToggle && searchBar && searchOverlay && searchClose && searchInput) {
+    // Open search bar
+    searchToggle.addEventListener("click", function(e) {
+      e.preventDefault();
+      searchBar.classList.add("active");
+      searchOverlay.classList.add("active");
+      document.body.style.overflow = "hidden"; // Prevent background scrolling
+      setTimeout(() => {
+        searchInput.focus();
+      }, 200);
+    });
+    
+    // Close search bar function
+    function closeSearch() {
+      searchBar.classList.remove("active");
+      searchOverlay.classList.remove("active");
+      document.body.style.overflow = ""; // Restore scrolling
+      searchInput.value = "";
+    }
+    
+    // Close search bar
+    searchClose.addEventListener("click", function(e) {
+      e.preventDefault();
+      closeSearch();
+    });
+    
+    // Close search when clicking overlay
+    searchOverlay.addEventListener("click", function(e) {
+      closeSearch();
+    });
+    
+    // Close search on Escape key
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && searchBar.classList.contains("active")) {
+        closeSearch();
+      }
+    });
+    
+    // Handle search input (you can customize this for actual search functionality)
+    searchInput.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          // Here you can add actual search functionality
+          console.log("Searching for:", query);
+          // For now, just show an alert
+          alert(`Tìm kiếm: "${query}"`);
+          closeSearch();
+        }
+      }
+    });
+  }
+  
   // ===== XỬ LÝ NÚT "XEM THÊM" MENU =====
   const showMoreBtn = document.getElementById("show-more");
   const extraCards = document.querySelectorAll(".card.extra");
