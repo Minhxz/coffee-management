@@ -47,7 +47,7 @@
 <section class="hero-slider">
 
   <!--Slide 1 -->
-  <section class="hero hero--layered slide active">
+  <section class="hero hero--layered active">
     <div class="hero__bg"></div>
     <div class="hero__inner container">
       <div class="hero__content fade-in">
@@ -79,7 +79,7 @@
   </section>
 
   <!-- Slide 2 -->
-  <section class="hero hero-- slide layered">
+  <section class="hero hero--layered">
     <div class="hero__bg"></div>
     <div class="hero__inner container">
       <div class="hero__content fade-in">
@@ -111,7 +111,7 @@
   </section>
 
   <!-- Slide 3 -->
-  <section class="hero hero-- slide layered">
+  <section class="hero hero--layered">
     <div class="hero__bg"></div>
     <div class="hero__inner container">
       <div class="hero__content fade-in">
@@ -523,27 +523,7 @@
   </div>
 </div>
   <div id="modal-root"></div>
-  <script>
-  fetch('order-modal.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('modal-root').innerHTML = html;
-      const script = document.createElement('script');
-      script.src = './js/order.js';
-      document.body.appendChild(script);
-    });
-</script>
-  <script>
-    const obs = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('in-view');
-          obs.unobserve(e.target);
-        }
-      });
-    },{threshold:.12});
-    document.querySelectorAll('.reveal, .fade-in').forEach(el=>obs.observe(el));
-  </script>
+  <script src="./js/order.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
