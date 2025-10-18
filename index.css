@@ -489,6 +489,7 @@ header {
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 250px;
 }
 .card:hover {
   transform: translateY(-7px) scale(1.01);
