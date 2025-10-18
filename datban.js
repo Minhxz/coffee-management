@@ -75,3 +75,11 @@ document.addEventListener("DOMContentLoaded", function() {
     popup.style.display = "none";
   });
 });
+
+// Nút quay lại trang chủ
+const backHomeBtn = document.getElementById("back-home-btn");
+if (backHomeBtn) {
+  backHomeBtn.addEventListener("click", () => {
+    window.location.href = "index.html"; // chuyển hướng về trang chủ
+  });
+}

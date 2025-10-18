@@ -214,6 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startAutoSlide();
 });
+
+
+
+
 // ====== NÚT ĐỔI NGÔN NGỮ ======
 const langBtn = document.getElementById('lang-toggle');
 let currentLang = localStorage.getItem('lang') || 'vi';

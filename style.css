@@ -1637,6 +1637,24 @@ header{
   box-shadow:0 0 0 3px rgba(60,94,44,0.18);
   background:#fff;
 }
+.back-home-btn {
+  display: block;
+  width: 100%;
+  background-color: #2f5233; /* màu xanh đậm cùng tông với nút chính */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px; /* tạo khoảng cách giữa 2 nút */
+  transition: background-color 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #244026; /* màu tối hơn khi hover */
+}
+
 .btn-full{
   width:100%;
   display:inline-flex;
