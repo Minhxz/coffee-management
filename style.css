@@ -477,6 +477,7 @@ header{
   line-height:1.08;
   margin:0 0 18px;
   letter-spacing:1.2px;
+  color:var(--accent)
 }
 .hero__title-accent {
   background:var(--grad-accent);
