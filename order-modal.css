@@ -1,0 +1,238 @@
+/* Order Modal Styles */
+.order-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.order-modal.active {
+  display: flex;
+}
+
+.order-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  max-height: 90vh;
+  width: 100%;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #3c5e2c;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.modal-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.modal-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.modal-item:hover {
+  border-color: #3c5e2c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(60, 94, 44, 0.1);
+}
+
+.modal-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.modal-item > div {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.item-price {
+  color: #3c5e2c;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.btn-add-cart {
+  background: #3c5e2c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-add-cart:hover {
+  background: #A0522D;
+}
+
+/* Cart Section */
+.order-section h3 {
+  color: #3c5e2c;
+  margin: 25px 0 15px;
+  font-size: 20px;
+}
+
+#cart-list {
+  min-height: 60px;
+  margin-bottom: 20px;
+}
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  gap: 15px;
+}
+
+.cart-row:last-child {
+  border-bottom: none;
+}
+
+.cart-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-btn {
+  background: #3c5e2c;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.qty-btn:hover {
+  background: #3c5e2c;
+}
+
+.cart-total {
+  text-align: right;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3c5e2c;
+  margin: 20px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Form Styles */
+#cart-form {
+  display: grid;
+  gap: 15px;
+}
+
+#cart-form input {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+#cart-form input:focus {
+  outline: none;
+  border-color: #3c5e2c;
+}
+
+.btn.primary {
+  background: #3c5e2c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn.primary:hover {
+  background: #3c5e2c;
+}
+
+.btn.secondary {
+  background: #fff;
+  color: #3c5e2c;
+  border: 2px solid #3c5e2c;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn.secondary:hover {
+  background: #3c5e2c;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .order-section {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .modal-menu {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cart-row {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
