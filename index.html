@@ -522,7 +522,16 @@
   </div>
 </div>
   <div id="modal-root"></div>
-  <script src="./js/order.js"></script>
+  <script>
+  fetch('order-modal.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('modal-root').innerHTML = html;
+      const script = document.createElement('script');
+      script.src = './js/order.js';
+      document.body.appendChild(script);
+    });
+</script>
   <script>
     const obs = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
