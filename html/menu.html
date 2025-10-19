@@ -12,46 +12,52 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.min.css" />
+    <link rel="stylesheet" href="../fontawesome-free-7.1.0-web/css/all.min.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
   </head>
   <body class="has-texture">
     <!-- Header -->
     <header class="site-header elevate-1">
       <nav class="navbar">
-        <img src="/PicsLinh/golocat (1).jpg" alt="" id="cat" />
-        <a href="index.html" class="logo">CÀ PHÊ</a>
+        <img src="../images/golocat.jpg" alt="" id="cat" />
+        <a href="../index.html" class="logo">CÀ PHÊ</a>
         <div class="main-menu">
-          <a href="#">Trang Chủ</a>
+          <a href="../index.html">Trang Chủ</a>
           <a href="#signature" class="active" aria-current="page">Menu</a>
-          <a href="#story">Tuyển Dụng</a>
-          <a href="#testimonials">Cảm Nhận</a>
-          <a href="#footer">Liên Hệ-Hỗ Trợ</a>
+          <a href="../index.html#story">Tuyển Dụng</a>
+          <a href="../index.html#testimonials">Cảm Nhận</a>
+          <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
         </div>
         <div class="header-right">
-          <button type="button" class="icon-btn" aria-label="Tìm kiếm">
+          <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-
-          <a href="cart.html" id="cart-btn" aria-label="Giỏ hàng">
-            <button type="button" class="icon-btn">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="cart-count">0</span>
-            </button>
+          <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
           </a>
-
           <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
             <i class="fa-regular fa-user"></i>
             <span>Đăng nhập</span>
           </a>
+          <button id="lang-toggle" class="btn secondary">EN / VI</button>
         </div>
       </nav>
+      
+      <!-- Search Overlay -->
+      <div id="search-overlay" class="search-overlay"></div>
+      <div id="search-bar" class="search-bar">
+        <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+        <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
       <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
     </header>
 
@@ -73,7 +79,7 @@
         <div class="grid-cards signature-grid">
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image2.png" alt="Taste of Autumn" />
+              <img src="../images/image2.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -95,7 +101,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image3.png" alt="Taste of Autumn" />
+              <img src="../images/image3.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -116,7 +122,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image4.png" alt="Taste of Autumn" />
+              <img src="../images/image4.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -137,7 +143,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image5.png" alt="Taste of Autumn" />
+              <img src="../images/image5.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -158,7 +164,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image6.png" alt="Taste of Autumn" />
+              <img src="../images/image6.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -183,7 +189,7 @@
         <div class="grid-cards signature-grid">
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image6.png" alt="Taste of Autumn" />
+              <img src="../images/image6.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -204,7 +210,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image7.png" alt="Taste of Autumn" />
+              <img src="../images/image7.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -224,7 +230,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image8.png" alt="Taste of Autumn" />
+              <img src="../images/image8.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -245,7 +251,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image8.png" alt="Taste of Autumn" />
+              <img src="../images/image8.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -266,7 +272,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image2.png" alt="Taste of Autumn" />
+              <img src="../images/image2.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -291,7 +297,7 @@
         <div class="grid-cards signature-grid">
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image3.png" alt="Taste of Autumn" />
+              <img src="../images/image3.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -312,7 +318,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image6.png" alt="Taste of Autumn" />
+              <img src="../images/image6.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -333,7 +339,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image5.png" alt="Taste of Autumn" />
+              <img src="../images/image5.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -354,7 +360,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image6.png" alt="Taste of Autumn" />
+              <img src="../images/image6.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -380,7 +386,7 @@
         <div class="grid-cards signature-grid">
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/ice2.png" alt="Taste of Autumn" />
+              <img src="../images/ice2.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -401,7 +407,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image3.png" alt="Taste of Autumn" />
+              <img src="../images/image3.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -422,7 +428,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image5.png" alt="Taste of Autumn" />
+              <img src="../images/image5.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -448,7 +454,7 @@
         <div class="grid-cards signature-grid">
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/set2.png" alt="Taste of Autumn" />
+              <img src="../images/set2.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -469,7 +475,7 @@
 
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/image3.png" alt="Taste of Autumn" />
+              <img src="../images/image3.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -495,7 +501,7 @@
         <div class="grid-cards signature-grid">
           <article class="card card--tall reveal">
             <div class="card-media">
-              <img src="/PicsLinh/toppng1.png" alt="Taste of Autumn" />
+              <img src="../images/toppng1.png" alt="Taste of Autumn" />
               <div class="card-badge">Signature</div>
             </div>
 
@@ -539,6 +545,7 @@
         </div>
       </div>
     </div>
-    <script src="menu.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
   </body>
 </html>
