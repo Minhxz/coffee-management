@@ -267,6 +267,22 @@ header {
   display: flex;
   padding: 120px 60px 40px;
 }
+.add-btn {
+  background-color: #6a994e; /* xanh matcha hoặc coffee */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #386641;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
 
 /* SIDEBAR*/
 .sidebar {
@@ -531,37 +547,142 @@ input:checked + .slider:before {
   overflow: visible;
   transition: 0.3s;
 }
+/* ===== PHẦN NỀN POPUP ===== */
 .popup {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: none; /* ẩn mặc định */
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
 }
 
+.popup.active {
+  display: flex; /* hiện khi mở */
+}
+
+/* ===== KHUNG NỘI DUNG POPUP ===== */
 .popup-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  background: linear-gradient(145deg, #ffffff, #f4f6f8);
+  padding: 25px 20px;
+  border-radius: 15px;
   width: 320px;
   max-width: 90%;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== TIÊU ĐỀ & GIÁ ===== */
+.popup-content h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.popup-content p {
+  text-align: center;
+  font-weight: bold;
+  color: #27ae60;
+  margin-bottom: 15px;
+}
+
+/* ===== NHÃN ===== */
+.popup-content label {
+  font-weight: 600;
+  color: #444;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ===== CHỌN SỐ LƯỢNG ===== */
 .quantity {
   display: flex;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 15px;
+  justify-content: center;
 }
 
 .quantity button {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+  background-color: #e7e7e7;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quantity button:hover {
+  background-color: #d0d0d0;
+}
+
+.quantity input {
+  width: 60px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* ===== GHI CHÚ ===== */
+textarea {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 0.95rem;
+  resize: none;
+  margin-bottom: 15px;
+  transition: border-color 0.2s;
+}
+
+textarea:focus {
+  border-color: #27ae60;
+  outline: none;
+}
+
+/* ===== CÁC NÚT HÀNH ĐỘNG ===== */
+.custom-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: #6b4f29;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 2000;
+}
+
+.custom-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .popup-actions {
@@ -570,12 +691,42 @@ input:checked + .slider:before {
   margin-top: 10px;
 }
 
+.popup-actions button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#cancel {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+#cancel:hover {
+  background-color: #c0392b;
+}
+
+#confirm {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+#confirm:hover {
+  background-color: #1e8a4a;
+}
+
+/* ===== HIỂN THỊ ICON GIỎ HÀNG ===== */
 .icon-btn {
   position: relative;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .cart-count {
