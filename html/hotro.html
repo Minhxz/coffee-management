@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAT CAFE</title>
+  <meta name="description" content="CỘNG CÀ PHÊ - Hương vị Việt và không gian mang câu chuyện.">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="../fontawesome-free-7.1.0-web/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/order.css">
+  <link rel="stylesheet" href="../css/hotro.css">
+
+</head>
+<script>
+     document.addEventListener("DOMContentLoaded", function() {
+     const form = document.querySelector(".contact-form");
+
+     form.addEventListener("submit", function(event) {
+     event.preventDefault(); 
+
+    
+     const name = form.querySelector('input[type="text"]').value.trim();
+     const email = form.querySelector('input[type="email"]').value.trim();
+     const message = form.querySelector('textarea').value.trim();
+
+    
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    
+     if (name === "" || email === "" || message === "") {
+     alert("Vui lòng nhập đầy đủ thông tin trước khi gửi!");
+     return;
+    }
+
+     if (!emailRegex.test(email)) {
+      alert("Vui lòng nhập địa chỉ email hợp lệ!");
+      return;
+    }
+      alert("✅ Bạn đã gửi thành công! Cảm ơn bạn đã liên hệ với Cat Cafe ❤️");
+
+    
+      form.reset();
+  });
+});
+</script>
+
+<body class="has-texture">
+
+  <!-- Header -->
+  <header class="site-header elevate-1">
+    <nav class="navbar">
+      <img src="../images/golocat.jpg" alt="" id="cat">
+      <a href="../index.html" class="logo">CÀ PHÊ</a>
+      <div class="main-menu">
+        <a href="../index.html" class="active" aria-current="page">Trang Chủ</a>
+        <a href="menu.html">Menu</a>
+        <a href="#story">Tuyển Dụng</a>
+        <a href="#testimonials">Cảm Nhận</a>
+        <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
+      </div>
+      <div class="header-right">
+        <button type="button" class="icon-btn" aria-label="Tìm kiếm">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="javascript:void(0);" id="cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
+          <i class="fa-regular fa-user"></i>
+          <span>Đăng nhập</span>
+        </a>
+      </div>  
+    </nav>
+  </header>
+
+<!--Contact section-->
+<section class="contact-section container">
+    <div class="contact-info">
+        <div class="info-box">
+            <h3>📍 Address info</h3>
+            <p>Cat Cafe:29/85 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</p>
+        </div>
+        <div class="info-box">
+            <h3>🕐Opening hours</h3>
+            <p>Monday – Friday: 9h30-22:00<br>Saturday, Sunday: 9h30-23:00</p>
+        </div>
+        <div class="info-box">
+            <h3>✉️ Contact info</h3>
+            <p>CatCaFe2025@gmail.com<br>Hotline: 0378093269-0965299505</p>
+            
+        </div>
+    </div>
+    <div class="contact-body">
+      <div class="map">
+        <iframe
+           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.807769994045!2d105.84117167503067!3d21.02851168062027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab978f5120a7%3A0x9a3b7a050d82f6de!2zSOG6o2kgQ2jhu6MgTmjGoW4gSOG7kyBI4bqjaSBO4buZaSBI4bqjaSBI4buTLg!5e0!3m2!1svi!2s!4v1739748750000!5m2!1svi!2s"
+             width="100%"
+             height="280"
+             style="border:0;"
+             allowfullscreen=""
+             
+        ></iframe>
+        
+    </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Tên của bạn:" required>
+        <input type="email" placeholder="Gmail:" required>
+        <textarea rows="4" placeholder="Bình Luận:" required></textarea>
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+      </div>
+       
+    
+</section>
+
+  <!-- Footer -->
+  <footer id="footer" class="site-footer">
+    <div class="footer-top-accent"></div>
+    <div class="container footer-grid">
+      <div>
+        <h4>CaFé</h4>
+        <div class="small">Cat Cafe:29/85 Xuân Thủy <br>Dịch Vọng Hậu, Cầu Giấy, Hà Nội</div>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <div class="small">CatCaFe2025@gmail.com<br>Hotline: 0965299505</div>
+      </div>
+      <div>
+        <h4>Giờ mở cửa</h4>
+        <div class="small">9:30-22:00 <br>9h30-23:00</div>
+      </div>
+      <div>
+        <h4>Mạng xã hội</h4>
+        <div class="socials">
+          <a href="#" title="Facebook"><img src="../images/fb.jpg" width="24" alt="Facebook"></a>
+          <a href="#" title="Instagram"><img src="../images/ig.jpg" width="24" alt="Instagram"></a>
+          <a href="#" title="Tiktok"><img src="../images/tiktok.jpg" width="24" alt="Tiktok"></a>
+        </div>
+      </div>
+    </div>
+  </footer>

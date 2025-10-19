@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coffee Cats</title>
+    <meta
+      name="description"
+      content="CỘNG CÀ CAT - Hương vị Việt và không gian mang câu chuyện."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fontawesome-free-7.1.0-web/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+  </head>
+  <body class="has-texture">
+    <!-- Header -->
+    <header class="site-header elevate-1">
+      <nav class="navbar">
+        <img src="../images/golocat.jpg" alt="" id="cat" />
+        <a href="../index.html" class="logo">CÀ PHÊ</a>
+        <div class="main-menu">
+          <a href="../index.html">Trang Chủ</a>
+          <a href="#signature" class="active" aria-current="page">Menu</a>
+          <a href="../index.html#story">Tuyển Dụng</a>
+          <a href="../index.html#testimonials">Cảm Nhận</a>
+          <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
+        </div>
+        <div class="header-right">
+          <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
+            <i class="fa-regular fa-user"></i>
+            <span>Đăng nhập</span>
+          </a>
+          <button id="lang-toggle" class="btn secondary">EN / VI</button>
+        </div>
+      </nav>
+      
+      <!-- Search Overlay -->
+      <div id="search-overlay" class="search-overlay"></div>
+      <div id="search-bar" class="search-bar">
+        <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+        <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <!-- Khu vực nội dung -->
+    <main class="menu-page">
+      <aside class="sidebar">
+        <ul>
+          <li class="active"><a href="#cafe">Cafe</a></li>
+          <li><a href="#sinhto">Sinh tố</a></li>
+          <li><a href="#banhngot">Bánh ngọt</a></li>
+          <li><a href="#anvat">Ăn vặt</a></li>
+          <li><a href="#settrabanh">Set trà bánh</a></li>
+          <li><a href="#topping">Topping</a></li>
+        </ul>
+      </aside>
+
+      <!-- CAFE-->
+      <section class="product-list active" id="cafe">
+        <div class="grid-cards signature-grid">
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image2.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Cacao nóng</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <!-- ✅ Nút thêm món -->
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image3.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Cacao đá</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image4.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Cafe cốt dừa</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">60.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image5.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Cafe bạc hà</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">60.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image6.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Cafe trứng sữa</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- SINH TO-->
+      <section class="product-list" id="sinhto">
+        <div class="grid-cards signature-grid">
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image6.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Sinh tố xoài chanh leo</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image7.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Sinh tố việt quất đá xay</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image8.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Sinh tố chanh leo dâu tây</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image8.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Sinh tố chanh leo</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image2.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Xoài chuối chanh dây</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!--BANH -->
+      <section class="product-list" id="banhngot">
+        <div class="grid-cards signature-grid">
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image3.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Tiramisu</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image6.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Banh hạnh nhân</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image5.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Banh trái cây</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image6.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Sinh tố xoài chanh leo</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!--DO AN VAt-->
+      <section class="product-list" id="anvat">
+        <div class="grid-cards signature-grid">
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/ice2.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Iscream choco</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image3.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Chanh tuyết</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image5.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Vani kem dâu</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!--SET TRA BANH-->
+      <section class="product-list" id="settrabanh">
+        <div class="grid-cards signature-grid">
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/set2.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Set 1</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/image3.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Set trà 2</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!--TOPPNG-->
+      <section class="product-list" id="topping">
+        <div class="grid-cards signature-grid">
+          <article class="card card--tall reveal">
+            <div class="card-media">
+              <img src="../images/toppng1.png" alt="Taste of Autumn" />
+              <div class="card-badge">Signature</div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="item-name">Trân châu</h3>
+              <p class="muted">Đậm vị – ngọt béo cân bằng.</p>
+              <div class="meta-row">
+                <span class="price-tag">65.000</span>
+                <div class="chips">
+                  <span class="chip">coffee</span>
+                  <span class="chip">classic</span>
+                </div>
+
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <div class="menu-overlay"></div>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h3 id="popup-name"></h3>
+        <p>Giá: <span id="popup-price"></span>đ</p>
+
+        <label>Số lượng:</label>
+        <div class="quantity">
+          <button id="minus">-</button>
+          <input type="number" id="quantity" value="1" min="1" />
+          <button id="plus">+</button>
+        </div>
+
+        <label>Ghi chú món:</label>
+        <textarea id="note" placeholder="Ví dụ: ít đá, thêm ngọt..."></textarea>
+
+        <div class="popup-actions">
+          <button id="cancel">Hủy</button>
+          <button id="confirm">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
+  </body>
+</html>
