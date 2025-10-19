@@ -99,7 +99,6 @@ btnConfirm.addEventListener("click", () => {
 
   popup.style.display = "none";
 });
-
 // Hàm cập nhật số lượng trên biểu tượng giỏ
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -132,3 +131,24 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 500);
   }, 2500);
 }
+// ========== Nút mở/đóng menu trên mobile ==========
+const menuToggle = document.querySelector(".menu-toggle");
+const mainMenu = document.querySelector(".main-menu");
+
+// Overlay đã có trong HTML hoặc CSS
+let overlay = document.querySelector(".menu-overlay");
+if (!overlay) {
+  overlay = document.createElement("div");
+  overlay.className = "menu-overlay";
+  document.body.appendChild(overlay);
+}
+
+menuToggle.addEventListener("click", () => {
+  const isActive = mainMenu.classList.toggle("active");
+  overlay.classList.toggle("active", isActive);
+});
+
+overlay.addEventListener("click", () => {
+  mainMenu.classList.remove("active");
+  overlay.classList.remove("active");
+});
