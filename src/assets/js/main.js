@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // ===== XỬ LÝ HERO SLIDER =====
   const heroSlider = document.querySelector('.hero-slider');
   if (heroSlider) {
-    const slides = heroSlider.querySelectorAll('.hero.hero--layered');
+    const slides = heroSlider.querySelectorAll('.hero');
     const prevBtn = heroSlider.querySelector('.slider-btn.prev');
     const nextBtn = heroSlider.querySelector('.slider-btn.next');
     
