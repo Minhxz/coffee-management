@@ -35,15 +35,17 @@ const btnConfirm = document.getElementById("confirm");
 popup.style.display = "none";
 
 // Thêm sự kiện cho các nút Thêm món
-const cards = document.querySelectorAll(".card");
+const addButtons = document.querySelectorAll(".add-btn");
 
-cards.forEach((card) => {
-  card.addEventListener("click", () => {
+addButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const card = button.closest(".menu-card");
     const name = card.querySelector("h3").textContent;
-    const price = card
-      .querySelector(".price-tag")
-      .textContent.replace("đ", "")
-      .trim();
+    const priceText = card.querySelector(".price-tag").textContent;
+    const price = priceText.replace("đ", "").replace(".", "").trim();
 
     popupName.textContent = name;
     popupPrice.textContent = price;

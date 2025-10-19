@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coffee Cats</title>
+    <meta
+      name="description"
+      content="CỘNG CÀ CAT - Hương vị Việt và không gian mang câu chuyện."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../public/fontawesome-free-7.1.0-web/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/menu.css" />
+  </head>
+  <body class="has-texture">
+    <!-- Header -->
+    <header class="site-header elevate-1">
+      <nav class="navbar">
+        <img src="../assets/images/golocat.jpg" alt="" id="cat" />
+        <a href="index.html" class="logo">CÀ PHÊ</a>
+        <div class="main-menu">
+          <a href="index.html">Trang Chủ</a>
+          <a href="#signature" class="active" aria-current="page">Menu</a>
+          <a href="../index.html#story">Tuyển Dụng</a>
+          <a href="../index.html#testimonials">Cảm Nhận</a>
+          <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
+        </div>
+        <div class="header-right">
+          <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
+            <i class="fa-regular fa-user"></i>
+            <span>Đăng nhập</span>
+          </a>
+          <button id="lang-toggle" class="btn secondary">EN / VI</button>
+        </div>
+      </nav>
+      
+      <!-- Search Overlay -->
+      <div id="search-overlay" class="search-overlay"></div>
+      <div id="search-bar" class="search-bar">
+        <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+        <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <!-- Khu vực nội dung -->
+    <main class="menu-page">
+      <aside class="sidebar">
+        <ul>
+          <li class="active"><a href="#cafe">Cafe</a></li>
+          <li><a href="#sinhto">Sinh tố</a></li>
+          <li><a href="#banhngot">Bánh ngọt</a></li>
+          <li><a href="#anvat">Ăn vặt</a></li>
+          <li><a href="#settrabanh">Set trà bánh</a></li>
+          <li><a href="#topping">Topping</a></li>
+        </ul>
+      </aside>
+
+      <!-- CAFE-->
+      <section class="product-list active" id="cafe">
+        <div class="section-header">
+          <h2>☕ Cà Phê & Đồ Uống Nóng</h2>
+          <p>Hương vị cà phê đậm đà, pha chế theo công thức riêng của Cat Cafe</p>
+        </div>
+        <div class="grid-cards menu-grid">
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/cfsuada.jpg" alt="Cà phê sữa đá" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Cà phê sữa đá</h3>
+              <p>Đậm đà, ngọt béo, hương truyền thống.</p>
+              <div class="price-action">
+                <span class="price-tag">60.000đ</span>
+                <div class="tags">
+                  <span class="tag">coffee</span>
+                  <span class="tag">classic</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/naukemmuoi.png" alt="Nâu kem muối" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Nâu kem muối</h3>
+              <p>Cà phê mặn ngọt, béo thơm lạ.</p>
+              <div class="price-action">
+                <span class="price-tag">65.000đ</span>
+                <div class="tags">
+                  <span class="tag">coffee</span>
+                  <span class="tag">đậm đà</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/bacxiu.jpg" alt="Bạc xỉu" loading="lazy" />
+              <span class="badge new">New</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Bạc xỉu</h3>
+              <p>Ngọt nhẹ, sữa nhiều, vị dịu, đậm đà.</p>
+              <div class="price-action">
+                <span class="price-tag">70.000đ</span>
+                <div class="tags">
+                  <span class="tag">coffee</span>
+                  <span class="tag">sảng khoái</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/vani-latte.jpg" alt="Vani Latte" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Vani Latte</h3>
+              <p>Hương vani dịu, cà phê ấm áp, thanh ngọt.</p>
+              <div class="price-action">
+                <span class="price-tag">70.000đ</span>
+                <div class="tags">
+                  <span class="tag">coffee</span>
+                  <span class="tag">thơm béo</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/mocha.jpg" alt="Mocha" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Mocha</h3>
+              <p>Pha trộn cà phê và chocolate hoàn hảo.</p>
+              <div class="price-action">
+                <span class="price-tag">65.000đ</span>
+                <div class="tags">
+                  <span class="tag">coffee</span>
+                  <span class="tag">chocolate</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SINH TO-->
+      <section class="product-list" id="sinhto">
+        <div class="section-header">
+          <h2>🥤 Sinh Tố & Đồ Uống Lạnh</h2>
+          <p>Sinh tố tươi ngon từ trái cây tự nhiên, mát lạnh sảng khoái</p>
+        </div>
+        <div class="grid-cards menu-grid">
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/chanhleotuyet.jpg" alt="Chanh leo tuyết" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Chanh leo tuyết</h3>
+              <p>Chua thanh, mát lạnh, sảng khoái.</p>
+              <div class="price-action">
+                <span class="price-tag">55.000đ</span>
+                <div class="tags">
+                  <span class="tag">đá xay</span>
+                  <span class="tag">trái cây</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/sto-dautay.webp" alt="Sinh tố dâu tây" loading="lazy" />
+              <span class="badge new">New</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Sinh tố dâu tây</h3>
+              <p>Ngọt mát, tươi ngon, vitamin C dồi dào.</p>
+              <div class="price-action">
+                <span class="price-tag">65.000đ</span>
+                <div class="tags">
+                  <span class="tag">smoothie</span>
+                  <span class="tag">vitamin</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/sto-mangcau.jpg" alt="Sinh tố mãng cầu" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Sinh tố mãng cầu</h3>
+              <p>Béo ngậy, thơm lừng, hương vị đặc trưng.</p>
+              <div class="price-action">
+                <span class="price-tag">70.000đ</span>
+                <div class="tags">
+                  <span class="tag">smoothie</span>
+                  <span class="tag">đặc biệt</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/duadaxay.jpg" alt="Dừa đá xay" loading="lazy" />
+              <span class="badge standard">Standard</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Dừa đá xay</h3>
+              <p>Mát lạnh, ngọt dịu, giải khát tuyệt vời.</p>
+              <div class="price-action">
+                <span class="price-tag">60.000đ</span>
+                <div class="tags">
+                  <span class="tag">đá xay</span>
+                  <span class="tag">dừa</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--BANH NGOT -->
+      <section class="product-list" id="banhngot">
+        <div class="section-header">
+          <h2>🧁 Bánh Ngọt & Tráng Miệng</h2>
+          <p>Bánh ngọt tươi ngon được làm hàng ngày, hoàn hảo để thưởng thức cùng cà phê</p>
+        </div>
+        <div class="grid-cards menu-grid">
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/tiramisu.webp" alt="Tiramisu" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Tiramisu</h3>
+              <p>Bánh ngọt Ý truyền thống, béo ngậy.</p>
+              <div class="price-action">
+                <span class="price-tag">85.000đ</span>
+                <div class="tags">
+                  <span class="tag">bánh ngọt</span>
+                  <span class="tag">premium</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/pudding-trung.jpg" alt="Pudding trứng" loading="lazy" />
+              <span class="badge new">New</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Pudding trứng</h3>
+              <p>Mịn màng, thơm béo, ngọt dịu.</p>
+              <div class="price-action">
+                <span class="price-tag">45.000đ</span>
+                <div class="tags">
+                  <span class="tag">pudding</span>
+                  <span class="tag">trứng</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/tart-trung.jpg" alt="Tart trứng" loading="lazy" />
+              <span class="badge standard">Standard</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Tart trứng</h3>
+              <p>Vỏ bánh giòn, nhân trứng béo ngậy.</p>
+              <div class="price-action">
+                <span class="price-tag">55.000đ</span>
+                <div class="tags">
+                  <span class="tag">tart</span>
+                  <span class="tag">trứng</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/kem-tuoi.jpg" alt="Kem tươi" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Kem tươi</h3>
+              <p>Kem tươi nguyên chất, mát lạnh.</p>
+              <div class="price-action">
+                <span class="price-tag">40.000đ</span>
+                <div class="tags">
+                  <span class="tag">kem</span>
+                  <span class="tag">tươi</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--DO AN VAT-->
+      <section class="product-list" id="anvat">
+        <div class="section-header">
+          <h2>🍟 Đồ Ăn Vặt</h2>
+          <p>Món ăn nhẹ thơm ngon, ăn kèm hoàn hảo với đồ uống</p>
+        </div>
+        <div class="grid-cards menu-grid">
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/khoai-tay-chien.jpg" alt="Khoai tây chiên" loading="lazy" />
+              <span class="badge standard">Standard</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Khoai tây chiên</h3>
+              <p>Giòn rụm, thơm ngon, ăn kèm tuyệt vời.</p>
+              <div class="price-action">
+                <span class="price-tag">35.000đ</span>
+                <div class="tags">
+                  <span class="tag">ăn vặt</span>
+                  <span class="tag">giòn</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/nem-chua-ran.jpg" alt="Nem chua rán" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Nem chua rán</h3>
+              <p>Đặc sản Thanh Hóa, giòn tan, đậm đà.</p>
+              <div class="price-action">
+                <span class="price-tag">45.000đ</span>
+                <div class="tags">
+                  <span class="tag">đặc sản</span>
+                  <span class="tag">rán</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/banh-ga.jpg" alt="Bánh gà" loading="lazy" />
+              <span class="badge new">New</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Bánh gà</h3>
+              <p>Bánh mì nướng giòn, nhân gà thơm ngon.</p>
+              <div class="price-action">
+                <span class="price-tag">40.000đ</span>
+                <div class="tags">
+                  <span class="tag">bánh mì</span>
+                  <span class="tag">gà</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--SET TRA BANH-->
+      <section class="product-list" id="settrabanh">
+        <div class="section-header">
+          <h2>🫖 Set Trà & Bánh</h2>
+          <p>Combo trà và bánh tinh tế, lý tưởng cho buổi hẹn hò hoặc họp mặt bạn bè</p>
+        </div>
+        <div class="grid-cards menu-grid">
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/teatime.webp" alt="Set trà chiều" loading="lazy" />
+              <span class="badge signature">Signature</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Set trà chiều</h3>
+              <p>Trà thơm + bánh ngọt, hoàn hảo cho buổi chiều.</p>
+              <div class="price-action">
+                <span class="price-tag">120.000đ</span>
+                <div class="tags">
+                  <span class="tag">combo</span>
+                  <span class="tag">trà chiều</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/hight-tea.webp" alt="High tea set" loading="lazy" />
+              <span class="badge premium">Premium</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">High Tea Set</h3>
+              <p>Set cao cấp với đa dạng bánh ngọt và trà.</p>
+              <div class="price-action">
+                <span class="price-tag">200.000đ</span>
+                <div class="tags">
+                  <span class="tag">premium</span>
+                  <span class="tag">high tea</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--TOPPING-->
+      <section class="product-list" id="topping">
+        <div class="section-header">
+          <h2>🧊 Topping Đặc Biệt</h2>
+          <p>Các loại topping thơm ngon để làm đồ uống của bạn thêm hấp dẫn</p>
+        </div>
+        <div class="grid-cards menu-grid">
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/bonglantrungmuoi.jpg" alt="Bông lan trứng muối" loading="lazy" />
+              <span class="badge new">New</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Topping trứng muối</h3>
+              <p>Topping béo ngậy, mặn ngọt hài hòa.</p>
+              <div class="price-action">
+                <span class="price-tag">15.000đ</span>
+                <div class="tags">
+                  <span class="tag">topping</span>
+                  <span class="tag">trứng muối</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="image-container">
+              <img src="../assets/images/kemtrung.jpg" alt="Kem trứng" loading="lazy" />
+              <span class="badge standard">Standard</span>
+            </div>
+            <div class="content">
+              <h3 class="item-name">Topping kem trứng</h3>
+              <p>Kem mịn màng, thơm béo, ngọt dịu.</p>
+              <div class="price-action">
+                <span class="price-tag">10.000đ</span>
+                <div class="tags">
+                  <span class="tag">topping</span>
+                  <span class="tag">kem</span>
+                </div>
+                <button class="add-btn">Thêm món</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="menu-overlay"></div>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h3 id="popup-name"></h3>
+        <p>Giá: <span id="popup-price"></span>đ</p>
+
+        <label>Số lượng:</label>
+        <div class="quantity">
+          <button id="minus">-</button>
+          <input type="number" id="quantity" value="1" min="1" />
+          <button id="plus">+</button>
+        </div>
+
+        <label>Ghi chú món:</label>
+        <textarea id="note" placeholder="Ví dụ: ít đá, thêm ngọt..."></textarea>
+
+        <div class="popup-actions">
+          <button id="cancel">Hủy</button>
+          <button id="confirm">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/menu.js"></script>
+  </body>
+</html>

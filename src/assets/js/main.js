@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // ===== XỬ LÝ NÚT "XEM THÊM" MENU =====
   const showMoreBtn = document.getElementById("show-more");
-  const extraCards = document.querySelectorAll(".card.extra");
+  const extraCards = document.querySelectorAll(".signature-card.extra");
   
   if (showMoreBtn && extraCards.length > 0) {
     let isExpanded = false;
@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.reveal, .fade-in').forEach(el => {
+  document.querySelectorAll('.reveal, .fade-in, .signature-card').forEach(el => {
     observer.observe(el);
   });
 
@@ -543,12 +543,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const mapBtn = document.querySelector("#store .btn.primary");
     if (mapBtn) mapBtn.textContent = t.viewMap;
 
-    // --- Nút “Xem thêm / Thu gọn” ---
+    // --- Nút "Xem thêm / Thu gọn" ---
     const showMoreBtn = document.getElementById("show-more");
     if (showMoreBtn) {
-      const isExpanded =
-        showMoreBtn.textContent.includes("Thu gọn") ||
-        showMoreBtn.textContent.includes("Show Less");
+      // Check if extra cards are actually visible to determine the correct state
+      const extraCards = document.querySelectorAll(".card.extra");
+      const isExpanded = extraCards.length > 0 && extraCards[0].classList.contains("show");
       showMoreBtn.textContent = isExpanded ? t.showLess : t.showMore;
     }
 
