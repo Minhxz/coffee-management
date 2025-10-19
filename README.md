@@ -1,4 +1,31 @@
-# ☕ Coffee Cats - Hệ Thống Quản Lý Quán Cà Phê
+# Coffee Management — Local dev instructions
+
+This repository is a static website. To serve it locally (Windows PowerShell):
+
+1. Install `http-server` if you don't have it (requires Node.js / npm):
+
+```powershell
+npm install -g http-server
+```
+
+2. From the repository root, start the server on port 3000:
+
+```powershell
+# using global install
+http-server . -p 3000
+
+# or using npm script
+npm install
+npm run start
+```
+
+3. Open the site in the browser:
+
+http://localhost:3000/src/pages/index.html
+
+4. Verify in DevTools → Network that `/src/assets/css/combined.css` returns HTTP 200 and that pages are styled. If you see nested `/src/src/...` requests, ensure files were updated to use root-absolute paths and clear browser cache.
+
+If you prefer, I can continue to fully rebuild the site structure or perform a careful consolidation — tell me which option (1=full reset, 2=careful rebuild, 3=minimal fix).# ☕ Coffee Cats - Hệ Thống Quản Lý Quán Cà Phê
 
 Hệ thống quản lý quán cà phê hiện đại với giao diện thân thiện và tính năng đầy đủ cho việc vận hành quán cà phê.
 

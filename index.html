@@ -62,13 +62,13 @@
         <h1>🐱 Cat Cafe</h1>
         <p>Chào mừng đến với Cat Cafe - nơi cà phê thơm ngon gặp gỡ những chú mèo đáng yêu!</p>
         
-        <a href="./src/pages/index.html" class="btn">Vào trang chính</a>
-        <script>
-          // Auto redirect after 3 seconds
-          setTimeout(() => {
-            window.location.href = './src/pages/index.html';
-          }, 3000);
-        </script>
+                <a href="src/pages/index.html" class="btn">Vào trang chính</a>
+                <script>
+                    // Auto redirect after 3 seconds (use absolute path to avoid nested paths)
+                    setTimeout(() => {
+                        window.location.href = 'src/pages/index.html';
+                    }, 3000);
+                </script>
     </div>
 </body>
 </html>
