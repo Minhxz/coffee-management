@@ -166,3 +166,24 @@ body::before {
 .red {
   color: red;
 }
+/* Giao diện mặc định (máy tính) */
+body {
+  font-size: 18px;
+  padding: 40px;
+}
+
+/* Màn hình nhỏ hơn 768px (máy tính bảng) */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+/* Màn hình nhỏ hơn 480px (điện thoại) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
