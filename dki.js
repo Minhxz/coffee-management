@@ -1,4 +1,6 @@
-// Hiển thị/ẩn mật khẩu
+// ============================
+// ẨN / HIỆN MẬT KHẨU
+// ============================
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 togglePassword.addEventListener("click", function () {
@@ -17,20 +19,22 @@ toggleRePassword.addEventListener("click", function () {
   this.classList.toggle("fa-eye-slash");
 });
 
-// Validate form
+// ============================
+// KIỂM TRA FORM ĐĂNG KÝ
+// ============================
 function ValidateForm() {
   let email = document.getElementById("email").value.trim();
   let password = document.getElementById("password").value.trim();
   let repassword = document.getElementById("repassword").value.trim();
 
-  // Xóa thông báo lỗi cũ
+  // Xóa lỗi cũ
   document.getElementById("emailError").innerText = "";
   document.getElementById("passwordError").innerText = "";
   document.getElementById("repasswordError").innerText = "";
 
   let isValid = true;
 
-  // Kiểm tra email
+  // Kiểm tra email hợp lệ
   let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
   if (!emailPattern.test(email)) {
     document.getElementById("emailError").innerText =
@@ -38,12 +42,12 @@ function ValidateForm() {
     isValid = false;
   }
 
-  // Kiểm tra mật khẩu
+  // Kiểm tra mật khẩu đủ mạnh
   let passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/;
   if (!passwordPattern.test(password)) {
     document.getElementById("passwordError").innerText =
-      "Mật khẩu phải có ít nhất 8 kí tự và có 1 chữ hoa, 1 chữ thường, 1 số và 1 ký tự đặc biệt!";
+      "Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt!";
     isValid = false;
   }
 
@@ -53,9 +57,13 @@ function ValidateForm() {
       "Mật khẩu không giống nhau, vui lòng kiểm tra lại!";
     isValid = false;
   }
+
+  // Nếu tất cả hợp lệ
   if (isValid) {
-    window.location.href = "welcome.html"; // đổi thành trang bạn muốn
+    alert("🎉 Tạo tài khoản thành công!");
+    window.location.href = "welcom.html"; // 👉 Đổi thành trang bạn muốn đến
   }
 
+  // Ngăn form tự reload
   return false;
 }
