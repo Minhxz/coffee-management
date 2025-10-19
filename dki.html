@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="dki.css" />
+    <title>Tạo tài khoản</title>
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="box">
+        <h2>Chào mừng đến với Cộng</h2>
+        <p>Tạo tài khoản bằng tài khoản mạng xã hội</p>
+
+        <div class="container">
+          <div class="item">
+            <button onclick="window.location.href='https://www.facebook.com'">
+              <i class="fa-brands fa-facebook-f"></i>
+              <span>Facebook</span>
+            </button>
+          </div>
+
+          <div class="item">
+            <button onclick="window.location.href='https://account.apple.com'">
+              <i class="fa-brands fa-apple"></i>
+              <span>Apple</span>
+            </button>
+          </div>
+        </div>
+
+        <hr />
+
+        <form class="bang" onsubmit="return ValidateForm()">
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email <span class="red">*</span></label>
+            <input type="text" id="email" name="email" />
+            <span class="error" id="emailError"></span>
+          </div>
+
+          <!-- Mật khẩu -->
+          <div class="form-group">
+            <label for="password">Mật khẩu <span class="red">*</span></label>
+            <div class="input-wrapper">
+              <input type="password" id="password" name="password" />
+              <i class="fa-regular fa-eye" id="togglePassword"></i>
+            </div>
+            <span class="error" id="passwordError"></span>
+          </div>
+
+          <!-- Nhập lại mật khẩu -->
+          <div class="form-group">
+            <label for="repassword"
+              >Nhập lại mật khẩu <span class="red">*</span></label
+            >
+            <div class="input-wrapper">
+              <input type="password" id="repassword" name="repassword" />
+              <i class="fa-regular fa-eye" id="toggleRePassword"></i>
+            </div>
+            <span class="error" id="repasswordError"></span>
+          </div>
+
+          <button type="submit">Tạo tài khoản</button>
+        </form>
+
+        <p>Đã có tài khoản? <a href="index.html">Đăng nhập</a></p>
+      </div>
+    </div>
+
+    <script src="dki.js"></script>
+  </body>
+</html>
