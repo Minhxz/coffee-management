@@ -61,7 +61,7 @@ function ValidateForm() {
   // Nếu tất cả hợp lệ
   if (isValid) {
     alert("🎉 Tạo tài khoản thành công!");
-    window.location.href = "welcom.html"; // 👉 Đổi thành trang bạn muốn đến
+    window.location.href = "index.html"; // 👉 Đổi thành trang bạn muốn đến
   }
 
   // Ngăn form tự reload
