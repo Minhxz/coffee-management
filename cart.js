@@ -137,7 +137,7 @@ document.getElementById("checkout").addEventListener("click", () => {
     qrBox.innerHTML = `
       <div class="qr-container">
         <h3>Quét mã để thanh toán 💳</h3>
-        <img src="./PicsLinh/QR2.png" alt="QR thanh toán" class="qr-image" />
+        <img src="./PicsLinh/QR.png" alt="QR thanh toán" class="qr-image" />
         <p>Vui lòng quét mã để chuyển khoản thanh toán đơn hàng của bạn.</p>
         <div class="qr-buttons">
           <button id="hide-qr" class="hide-qr">Ẩn mã QR</button>
