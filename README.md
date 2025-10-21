@@ -1,3 +1,5 @@
+# Coffee Management — File structure 
+````markdown
 # Coffee Management - File Structure
 
 ## Organized File Structure
@@ -63,4 +65,7 @@ coffee-management/
 - **Login**: `/html/login.html`
 - **Support**: `/html/hotro.html`
 - **Cart**: `/html/cart.html`
+
+````
+
 
