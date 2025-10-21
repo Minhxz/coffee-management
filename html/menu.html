@@ -19,43 +19,47 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/menu.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
   </head>
   <body class="has-texture">
     <!-- Header -->
     <header class="site-header elevate-1">
       <nav class="navbar">
-        <img src="/images/golocat.jpg" alt="" id="cat" />
-        <a href="/index.html" class="logo">CÀ PHÊ</a>
+        <img src="../images/golocat.jpg" alt="" id="cat" />
+        <a href="../index.html" class="logo">CÀ PHÊ</a>
         <div class="main-menu">
-          <a href="/index.html">Trang Chủ</a>
-          <a href="/html/menu.html" class="active" aria-current="page">Menu</a>
-          <a href="/index.html#story">Tuyển Dụng</a>
-          <a href="/index.html#testimonials">Cảm Nhận</a>
-          <a href="/html/hotro.html">Liên Hệ-Hỗ Trợ</a>
+          <a href="../index.html">Trang Chủ</a>
+          <a href="menu.html" class="active" aria-current="page">Menu</a>
+          <a href="../index.html#story">Tuyển Dụng</a>
+          <a href="../index.html#testimonials">Cảm Nhận</a>
+          <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
         </div>
         <div class="header-right">
           <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-
-          <a href="/html/cart.html" id="cart-btn" aria-label="Giỏ hàng">
-            <button type="button" class="icon-btn">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="cart-count">0</span>
-            </button>
+          <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
           </a>
-
-          <a href="/html/login.html" class="btn login-btn" aria-label="Đăng nhập">
+          <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
             <i class="fa-regular fa-user"></i>
             <span>Đăng nhập</span>
           </a>
+          <button id="lang-toggle" class="btn secondary">EN / VI</button>
         </div>
       </nav>
-      <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      
+      <!-- Search Overlay -->
+      <div id="search-overlay" class="search-overlay"></div>
+      <div id="search-bar" class="search-bar">
+        <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+        <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
     </header>
-
+    
     <!-- Khu vực nội dung -->
     <main class="menu-page">
       <aside class="sidebar">
@@ -71,121 +75,392 @@
 
       <!-- CAFE-->
       <section class="product-list active" id="cafe">
-        <div class="grid-cards signature-grid">
-          <article class="card card--tall reveal">
-            <div class="card-media">
-              <img src="/images/caphedennong.jpg" alt="Cafe nóng" />
-              <div class="card-badge">Signature</div>
+        <div class="drinks-grid">
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/cfsuada.jpg" alt="Cacao nóng">
+              <span class="drink-badge">Signature</span>
             </div>
-
-            <div class="card-body">
-              <h3 class="item-name">Cafe - nóng</h3>
-              <p class="muted">
-                Đậm vị nguyên chất, thơm nồng, giúp tỉnh táo tức thì.
-              </p>
-              <div class="meta-row">
-                <span class="price-tag">65.000đ</span>
-                <div class="chips">
-                  <span class="chip">coffee</span>
-                  <span class="chip">classic</span>
-                </div>
-
-                <button class="add-btn" data-name="Cafe - nóng" data-price="65000">Thêm món</button>
+            <div class="drink-info">
+              <h3>Cacao nóng</h3>
+              <p>Đậm vị – ngọt béo cân bằng</p>
+              <div class="drink-price">65.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Coffee</span>
+                <span class="tag">Classic</span>
               </div>
+              <button class="add-btn" data-name="Cacao nóng" data-price="65000">
+                <i class="fas fa-plus"></i>
+                Thêm món
+              </button>
             </div>
-          </article>
+          </div>
 
-          <article class="card card--tall reveal">
-            <div class="card-media">
-              <img src="/images/bacxiu.jpg" alt="Bạc xỉu" />
-              <div class="card-badge">Signature</div>
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/mocha.jpg" alt="Cacao đá">
+              <span class="drink-badge">Popular</span>
             </div>
-
-            <div class="card-body">
-              <h3 class="item-name">Bạc xỉu</h3>
-              <p class="muted">
-                Cà phê pha sữa tươi béo ngậy, ngọt nhẹ quyến rũ.
-              </p>
-              <div class="meta-row">
-                <span class="price-tag">65.000đ</span>
-                <div class="chips">
-                  <span class="chip">coffee</span>
-                  <span class="chip">classic</span>
-                </div>
-
-                <button class="add-btn" data-name="Bạc xỉu" data-price="65000">Thêm món</button>
+            <div class="drink-info">
+              <h3>Cacao đá</h3>
+              <p>Đậm vị – ngọt béo cân bằng</p>
+              <div class="drink-price">65.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Coffee</span>
+                <span class="tag">Classic</span>
               </div>
+              <button class="add-btn" data-name="Cacao đá" data-price="65000">
+                <i class="fas fa-plus"></i>
+                Thêm món
+              </button>
             </div>
-          </article>
+          </div>
 
-          <article class="card card--tall reveal">
-            <div class="card-media">
-              <img src="/images/mocha.jpg" alt="Mocha latte" />
-              <div class="card-badge">Signature</div>
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/suada.jpg" alt="Cafe cốt dừa">
+              <span class="drink-badge">Special</span>
             </div>
-
-            <div class="card-body">
-              <h3 class="item-name">Mocha latte</h3>
-              <p class="muted">Hòa quyện vị cà phê, socola và sữa béo ngậy.</p>
-              <div class="meta-row">
-                <span class="price-tag">65.000đ</span>
-                <div class="chips">
-                  <span class="chip">coffee</span>
-                  <span class="chip">classic</span>
-                </div>
-
-                <button class="add-btn" data-name="Mocha latte" data-price="65000">Thêm món</button>
+            <div class="drink-info">
+              <h3>Cafe cốt dừa</h3>
+              <p>Đậm vị – ngọt béo cân bằng</p>
+              <div class="drink-price">60.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Coffee</span>
+                <span class="tag">Coconut</span>
               </div>
+              <button class="add-btn" data-name="Cafe cốt dừa" data-price="60000">
+                <i class="fas fa-plus"></i>
+                Thêm món
+              </button>
             </div>
-          </article>
+          </div>
 
-          <article class="card card--tall reveal">
-            <div class="card-media">
-              <img src="/images/vani-latte.jpg" alt="Vanilla Latte" />
-              <div class="card-badge">New</div>
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/caphedennong.jpg" alt="Cafe bạc hà">
+              <span class="drink-badge">New</span>
             </div>
-
-            <div class="card-body">
-              <h3 class="item-name">Vanilla Latte</h3>
-              <p class="muted">
-                Espresso kết hợp sữa tươi và hương vani ngọt dịu.
-              </p>
-              <div class="meta-row">
-                <span class="price-tag">70.000đ</span>
-                <div class="chips">
-                  <span class="chip">latte</span>
-                  <span class="chip">vanilla</span>
-                </div>
-
-                <button class="add-btn" data-name="Vanilla Latte" data-price="70000">Thêm món</button>
+            <div class="drink-info">
+              <h3>Cafe bạc hà</h3>
+              <p>Đậm vị – ngọt béo cân bằng</p>
+              <div class="drink-price">60.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Coffee</span>
+                <span class="tag">Mint</span>
               </div>
+              <button class="add-btn" data-name="Cafe bạc hà" data-price="60000">
+                <i class="fas fa-plus"></i>
+                Thêm món
+              </button>
             </div>
-          </article>
+          </div>
 
-          <!-- hidden / extra items (initially hidden by .hidden-drink in CSS) -->
-          <article class="card card--tall reveal hidden-drink">
-            <div class="card-media">
-              <img src="/images/chanhleotuyet.jpg" alt="Chanh leo tuyết" />
-              <div class="card-badge">Fresh</div>
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/kemtrung.jpg" alt="Cafe trứng sữa">
+              <span class="drink-badge">Premium</span>
             </div>
-            <div class="card-body">
-              <h3 class="item-name">Chanh leo tuyết</h3>
-              <p class="muted">Chua ngọt, mát lạnh.</p>
-              <div class="meta-row">
-                <span class="price-tag">50.000đ</span>
-                <div class="chips">
-                  <span class="chip">fruit</span>
-                </div>
-                <button class="add-btn" data-name="Chanh leo tuyết" data-price="50000">Thêm món</button>
+            <div class="drink-info">
+              <h3>Cafe trứng sữa</h3>
+              <p>Đậm vị – ngọt béo cân bằng</p>
+              <div class="drink-price">65.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Coffee</span>
+                <span class="tag">Egg cream</span>
               </div>
+              <button class="add-btn" data-name="Cafe trứng sữa" data-price="65000">
+                <i class="fas fa-plus"></i>
+                Thêm món
+              </button>
             </div>
-          </article>
+          </div>
+        </div>
+      </section>
+      <!-- SINH TO-->
+      <section class="product-list" id="sinhto">
+        <div class="drinks-grid">
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/sto-mangcau.jpg" alt="Sinh tố xoài chanh leo">
+              <span class="drink-badge">Fresh</span>
+            </div>
+            <div class="drink-info">
+              <h3>Sinh tố xoài chanh leo</h3>
+              <p>Tươi mát, ngọt dịu từ trái cây tự nhiên</p>
+              <div class="drink-price">65.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Smoothie</span>
+                <span class="tag">Tropical</span>
+              </div>
+              <button class="add-btn" data-name="Sinh tố xoài chanh leo" data-price="65000">
+                <i class="fas fa-plus"></i>
+                Thêm món
+              </button>
+            </div>
+          </div>
 
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/sto-dautay.webp" alt="Sinh tố việt quất đá xay">
+              <span class="drink-badge">Popular</span>
+            </div>
+            <div class="drink-info">
+              <h3>Sinh tố việt quất đá xay</h3>
+              <p>Chua ngọt hài hòa, giàu vitamin</p>
+              <div class="drink-price">65.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Smoothie</span>
+                <span class="tag">Berries</span>
+              </div>
+              <button class="add-btn" data-name="Sinh tố việt quất đá xay" data-price="65000">
+                <i class="fas fa-plus"></i>
+                Thêm món
+              </button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/chanhleotuyet.jpg" alt="Sinh tố chanh leo dâu tây">
+              <span class="drink-badge">Special</span>
+            </div>
+            <div class="drink-info">
+              <h3>Sinh tố chanh leo dâu tây</h3>
+              <p>Hương vị nhiệt đới đặc trưng</p>
+              <div class="drink-price">65.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Smoothie</span>
+                <span class="tag">Mixed fruit</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/chanhleotuyet.jpg" alt="Sinh tố chanh leo">
+              <span class="drink-badge">Classic</span>
+            </div>
+            <div class="drink-info">
+              <h3>Sinh tố chanh leo</h3>
+              <p>Chua thanh, mát lạnh, sảng khoái</p>
+              <div class="drink-price">60.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Smoothie</span>
+                <span class="tag">Passion fruit</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/sto-mangcau.jpg" alt="Xoài chuối chanh dây">
+              <span class="drink-badge">Premium</span>
+            </div>
+            <div class="drink-info">
+              <h3>Xoài chuối chanh dây</h3>
+              <p>Kết hợp hoàn hảo các loại trái cây</p>
+              <div class="drink-price">70.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Smoothie</span>
+                <span class="tag">Tropical mix</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--BANH -->
+      <section class="product-list" id="banhngot">
+        <div class="drinks-grid">
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/tiramisu.webp" alt="Tiramisu">
+              <span class="drink-badge">Premium</span>
+            </div>
+            <div class="drink-info">
+              <h3>Tiramisu</h3>
+              <p>Bánh ngọt Italia với hương vị cà phê đặc trưng</p>
+              <div class="drink-price">85.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Dessert</span>
+                <span class="tag">Coffee cake</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/tart-trung.jpg" alt="Bánh hạnh nhân">
+              <span class="drink-badge">Popular</span>
+            </div>
+            <div class="drink-info">
+              <h3>Bánh hạnh nhân</h3>
+              <p>Thơm béo, giòn tan với hương hạnh nhân</p>
+              <div class="drink-price">65.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Cake</span>
+                <span class="tag">Almond</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/pudding-trung.jpg" alt="Bánh trái cây">
+              <span class="drink-badge">Fresh</span>
+            </div>
+            <div class="drink-info">
+              <h3>Bánh trái cây</h3>
+              <p>Tươi mát với nhiều loại trái cây tự nhiên</p>
+              <div class="drink-price">70.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Cake</span>
+                <span class="tag">Fruit</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/banh-ga.jpg" alt="Bánh gà">
+              <span class="drink-badge">Special</span>
+            </div>
+            <div class="drink-info">
+              <h3>Bánh gà</h3>
+              <p>Bánh mặn truyền thống với nhân gà thơm ngon</p>
+              <div class="drink-price">45.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Savory</span>
+                <span class="tag">Chicken</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Repeat same structure for other product-list sections (sinhto, banhngot, anvat, settrabanh, topping).
-           All images in this file point to /images/<filename>. Use the existing /images folder. -->
+      <!--DO AN VAt-->
+      <section class="product-list" id="anvat">
+        <div class="drinks-grid">
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/kem-tuoi.jpg" alt="Kem choco">
+              <span class="drink-badge">Sweet</span>
+            </div>
+            <div class="drink-info">
+              <h3>Kem choco</h3>
+              <p>Kem chocolate thơm ngon, mát lạnh</p>
+              <div class="drink-price">45.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Ice cream</span>
+                <span class="tag">Chocolate</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/chanhleotuyet.jpg" alt="Chanh tuyết">
+              <span class="drink-badge">Cool</span>
+            </div>
+            <div class="drink-info">
+              <h3>Chanh tuyết</h3>
+              <p>Chanh tươi với đá tuyết mát lạnh</p>
+              <div class="drink-price">40.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Ice</span>
+                <span class="tag">Lemon</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/sukem.jpg" alt="Vani kem dâu">
+              <span class="drink-badge">Popular</span>
+            </div>
+            <div class="drink-info">
+              <h3>Vani kem dâu</h3>
+              <p>Kem vani ngọt ngào với dâu tây tươi</p>
+              <div class="drink-price">50.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Ice cream</span>
+                <span class="tag">Strawberry</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--SET TRA BANH-->
+      <section class="product-list" id="settrabanh">
+        <div class="drinks-grid">
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/teatime.webp" alt="Set trà bánh 1">
+              <span class="drink-badge">Combo</span>
+            </div>
+            <div class="drink-info">
+              <h3>Set trà bánh 1</h3>
+              <p>Trà thơm ngon kèm bánh ngọt tinh tế</p>
+              <div class="drink-price">120.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Tea set</span>
+                <span class="tag">Combo</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/hight-tea.webp" alt="Set trà bánh 2">
+              <span class="drink-badge">Premium</span>
+            </div>
+            <div class="drink-info">
+              <h3>Set trà bánh 2</h3>
+              <p>High tea sang trọng với nhiều loại bánh</p>
+              <div class="drink-price">180.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">High tea</span>
+                <span class="tag">Deluxe</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--TOPPING-->
+      <section class="product-list" id="topping">
+        <div class="drinks-grid">
+          <div class="drink-card">
+            <div class="drink-image">
+              <img src="../images/chanhleotuyet.jpg" alt="Trân châu">
+              <span class="drink-badge">Add-on</span>
+            </div>
+            <div class="drink-info">
+              <h3>Trân châu</h3>
+              <p>Trân châu dai ngon, bổ sung cho đồ uống</p>
+              <div class="drink-price">10.000đ</div>
+              <div class="drink-tags">
+                <span class="tag">Topping</span>
+                <span class="tag">Pearls</span>
+              </div>
+              <button class="add-btn">Thêm món</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <div class="menu-overlay"></div>
 
@@ -210,7 +485,7 @@
         </div>
       </div>
     </div>
-    <script src="/js/main.js"></script>
-    <script src="/js/menu.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
   </body>
 </html>
