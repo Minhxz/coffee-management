@@ -9,97 +9,71 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/dki.css" />
+  <link rel="stylesheet" href="../css/style.css" />
     <title>Tạo tài khoản - CAT CAFE</title>
   </head>
-
   <body>
-    <div class="content">
-      <div class="box">
-        <h2>Tạo tài khoản</h2>
-        <p>Tham gia cộng đồng Cat Cafe để nhận ưu đãi đặc biệt</p>
-
-        <div class="container">
-          <div class="item">
-            <button onclick="window.location.href='https://www.facebook.com'" type="button">
-              <i class="fa-brands fa-facebook-f"></i>
-              <span>Facebook</span>
-            </button>
-          </div>
-
-          <div class="item">
-            <button onclick="window.location.href='https://account.apple.com'" type="button">
-              <i class="fa-brands fa-apple"></i>
-              <span>Apple</span>
-            </button>
-          </div>
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <img src="../images/golocat.jpg" alt="Cat Cafe logo" class="auth-logo" />
+          <h2>Tạo tài khoản</h2>
+          <p class="auth-subtitle">Tham gia cộng đồng Cat Cafe để nhận ưu đãi đặc biệt</p>
         </div>
 
-        <hr />
-
-        <form class="bang" onsubmit="return ValidateForm()">
-          <!-- Email -->
+        <form class="auth-form" onsubmit="return ValidateForm();" novalidate>
           <div class="form-group">
             <label for="email">Địa chỉ Email <span class="red">*</span></label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              placeholder="your.email@example.com"
-              autocomplete="email"
-              required
-            />
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" autocomplete="email" required />
             <span class="error" id="emailError"></span>
           </div>
 
-          <!-- Mật khẩu -->
           <div class="form-group">
             <label for="password">Mật khẩu <span class="red">*</span></label>
-            <div class="input-wrapper">
-              <input 
-                type="password" 
-                id="password" 
-                name="password" 
-                placeholder="Tối thiểu 6 ký tự"
-                autocomplete="new-password"
-                required
-                minlength="6"
-              />
-              <i class="fa-regular fa-eye" id="togglePassword" title="Hiện/ẩn mật khẩu"></i>
+            <div class="input-wrapper" style="position:relative;">
+              <input type="password" id="password" name="password" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password" required minlength="6" />
+              <i class="fa-regular fa-eye" id="togglePassword" title="Hiện/ẩn mật khẩu" style="position:absolute; right:10px; top:8px; cursor:pointer;"></i>
             </div>
             <span class="error" id="passwordError"></span>
           </div>
 
-          <!-- Nhập lại mật khẩu -->
           <div class="form-group">
             <label for="repassword">Xác nhận mật khẩu <span class="red">*</span></label>
-            <div class="input-wrapper">
-              <input 
-                type="password" 
-                id="repassword" 
-                name="repassword" 
-                placeholder="Nhập lại mật khẩu"
-                autocomplete="new-password"
-                required
-                minlength="6"
-              />
-              <i class="fa-regular fa-eye" id="toggleRePassword" title="Hiện/ẩn mật khẩu"></i>
+            <div class="input-wrapper" style="position:relative;">
+              <input type="password" id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" autocomplete="new-password" required minlength="6" />
+              <i class="fa-regular fa-eye" id="toggleRePassword" title="Hiện/ẩn mật khẩu" style="position:absolute; right:10px; top:8px; cursor:pointer;"></i>
             </div>
             <span class="error" id="repasswordError"></span>
           </div>
 
-          <button type="submit">
-            <i class="fa-solid fa-user-plus" style="margin-right: 8px;"></i>
+          <button type="submit" class="btn primary btn-full" style="margin-top:8px;">
+            <i class="fa-solid fa-user-plus" style="margin-right:8px;"></i>
             Tạo tài khoản
           </button>
         </form>
 
-        <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+        <div class="auth-divider"><span>hoặc</span></div>
+
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:8px;">
+          <button onclick="window.location.href='https://www.facebook.com'" class="btn secondary" style="padding:8px 12px;">
+            <i class="fa-brands fa-facebook-f"></i> Facebook
+          </button>
+          <button onclick="window.location.href='https://account.apple.com'" class="btn secondary" style="padding:8px 12px;">
+            <i class="fa-brands fa-apple"></i> Apple
+          </button>
+        </div>
+
+        <div style="text-align:center; margin-top:12px;">
+          <a href="login.html" class="inline-link">Đã có tài khoản? Đăng nhập</a>
+        </div>
+        <div class="auth-footer" style="margin-top:12px; text-align:center;">
+          <a href="../index.html" class="back-link">← Quay lại trang chủ</a>
+        </div>
       </div>
     </div>
 
-    <script src="../js/main.js"></script>
     <script src="../js/dki.js"></script>
+    <script src="../js/main.js"></script>
   </body>
 </html>
+

@@ -41,6 +41,8 @@
           </select>
         </div>
         <div class="col-md-3 text-end">
+          <a href="../index.html" class="btn btn-outline-secondary me-2">Quay lại trang chủ</a>
+          <button id="logout-btn" class="logout-btn me-2">Đăng xuất</button>
           <button class="btn btn-success px-4">+ Thêm đơn mới</button>
         </div>
       </div>
@@ -53,20 +55,7 @@
         <div class="col-md-4">
           <div class="column">
             <div class="status-header">⏳ Đang chờ xử lý</div>
-
-            <div class="order-card">
-              <h6>Đơn #001 - Linh</h6>
-              <small>10:32 AM</small>
-              <p>1 Latte, 1 Trà sữa matcha</p>
-              <button class="btn btn-sm btn-warning">Bắt đầu pha</button>
-            </div>
-
-            <div class="order-card">
-              <h6>Đơn #002 - Quỳnh</h6>
-              <small>10:40 AM</small>
-              <p>2 Espresso</p>
-              <button class="btn btn-sm btn-warning">Bắt đầu pha</button>
-            </div>
+            <div id="pending-list" class="orders-list"></div>
           </div>
         </div>
 
@@ -74,13 +63,7 @@
         <div class="col-md-4">
           <div class="column">
             <div class="status-header">☕ Đang pha chế</div>
-
-            <div class="order-card border-start border-primary">
-              <h6>Đơn #003 - Nam</h6>
-              <small>10:35 AM</small>
-              <p>1 Cappuccino, 1 Mocha</p>
-              <button class="btn btn-sm btn-primary">Hoàn thành</button>
-            </div>
+            <div id="brewing-list" class="orders-list"></div>
           </div>
         </div>
 
@@ -88,21 +71,325 @@
         <div class="col-md-4">
           <div class="column">
             <div class="status-header">✅ Hoàn thành</div>
-
-            <div class="order-card border-start border-success">
-              <h6>Đơn #004 - Hằng</h6>
-              <small>10:20 AM</small>
-              <p>1 Cold Brew</p>
-              <button class="btn btn-sm btn-success" disabled>
-                Đã phục vụ
-              </button>
-            </div>
+            <div id="done-list" class="orders-list"></div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Bootstrap JS -->
+    <!-- Add Order Modal -->
+    <div class="modal fade" id="addOrderModal" tabindex="-1" aria-labelledby="addOrderModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form id="add-order-form">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addOrderModalLabel">Tạo đơn mới</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="order-name" class="form-label">Tên khách</label>
+                <input type="text" id="order-name" class="form-control" placeholder="Ví dụ: Linh" required />
+              </div>
+              <div class="mb-3">
+                <label for="order-items" class="form-label">Món (mô tả)</label>
+                <textarea id="order-items" class="form-control" rows="3" placeholder="Ví dụ: 1 Latte, 1 Trà sữa"></textarea>
+              </div>
+              <div class="row g-2">
+                <div class="col-6">
+                  <label for="order-qty" class="form-label">Số lượng món</label>
+                  <input type="number" id="order-qty" class="form-control" min="1" value="1" />
+                </div>
+                <div class="col-6">
+                  <label for="order-note" class="form-label">Ghi chú (tuỳ chọn)</label>
+                  <input id="order-note" class="form-control" placeholder="Ít đá, ít đường..." />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+              <button type="submit" class="btn btn-success">Thêm đơn</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteConfirmLabel">Xác nhận</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Bạn có chắc muốn xóa đơn này không? Hành động không thể hoàn tác.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Hủy</button>
+            <button id="confirm-delete-btn" type="button" class="btn btn-danger btn-sm">Xóa</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Logout button: clear admin session and redirect to login
+      (function() {
+        const btn = document.getElementById('logout-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          try {
+            // known session key used by the site
+            localStorage.removeItem('coffee_admin_session');
+          } catch (err) {
+            console.warn('Logout: could not clear session', err);
+          }
+          // Redirect to login page
+          window.location.href = 'login.html';
+        });
+      })();
+    </script>
+    <script>
+      // Order management: create, move, persist
+      (function() {
+        const STORAGE_KEY = 't1_orders_v1';
+
+        function uid() {
+          return 'o_' + Math.random().toString(36).slice(2,9);
+        }
+
+        function nowLabel() {
+          const d = new Date();
+          return d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }
+
+        function loadOrders() {
+          try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+          } catch (e) { return []; }
+        }
+
+        function saveOrders(list) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+        }
+
+        function render() {
+          const orders = loadOrders();
+          const pending = document.getElementById('pending-list');
+          const brewing = document.getElementById('brewing-list');
+          const done = document.getElementById('done-list');
+          [pending, brewing, done].forEach(el => el.innerHTML = '');
+
+          orders.forEach(o => {
+            const card = document.createElement('div');
+            card.className = 'order-card ' + (o.status === 'brewing' ? 'border-start border-primary' : '') + (o.status === 'done' ? 'border-start border-success' : '');
+            // prepare enter animation
+            card.classList.add('enter');
+            card.dataset.id = o.id;
+
+            const h = document.createElement('h6');
+            h.textContent = `Đơn ${o.id.replace('o_','')} - ${o.name}`;
+            const small = document.createElement('small');
+            small.textContent = o.time;
+            const p = document.createElement('p');
+            p.textContent = o.items;
+
+            const actions = document.createElement('div');
+            actions.style.marginTop = '8px';
+
+            if (o.status === 'pending') {
+              const start = document.createElement('button');
+              start.className = 'btn btn-sm btn-warning';
+              start.textContent = 'Bắt đầu pha';
+              start.addEventListener('click', () => updateStatus(o.id, 'brewing'));
+              actions.appendChild(start);
+            } else if (o.status === 'brewing') {
+              const complete = document.createElement('button');
+              complete.className = 'btn btn-sm btn-primary';
+              complete.textContent = 'Hoàn thành';
+              complete.addEventListener('click', () => updateStatus(o.id, 'done'));
+              actions.appendChild(complete);
+            } else {
+              const served = document.createElement('button');
+              served.className = 'btn btn-sm btn-success me-2';
+              served.textContent = 'Đã phục vụ';
+              served.disabled = true;
+              actions.appendChild(served);
+
+              // delete button for completed orders
+              const del = document.createElement('button');
+              del.className = 'btn btn-sm btn-outline-danger';
+              del.textContent = 'Xóa';
+              del.addEventListener('click', () => {
+                // open delete confirmation modal
+                const deleteModalEl = document.getElementById('deleteConfirmModal');
+                const deleteModal = deleteModalEl ? new bootstrap.Modal(deleteModalEl) : null;
+                if (deleteModal) {
+                  // store the id to delete on confirm
+                  deleteModalEl.dataset.toDelete = o.id;
+                  deleteModal.show();
+                } else {
+                  if (confirm('Xác nhận xóa đơn này?')) deleteOrder(o.id);
+                }
+              });
+              actions.appendChild(del);
+            }
+
+            card.appendChild(h);
+            card.appendChild(small);
+            card.appendChild(p);
+            card.appendChild(actions);
+
+            // make draggable
+            card.setAttribute('draggable', 'true');
+            card.addEventListener('dragstart', (ev) => {
+              ev.dataTransfer.setData('text/plain', o.id);
+              card.classList.add('dragging');
+              // small timeout to allow CSS transitions
+              setTimeout(() => card.classList.add('hide-during-drag'), 20);
+            });
+            card.addEventListener('dragend', () => {
+              card.classList.remove('dragging');
+              card.classList.remove('hide-during-drag');
+            });
+
+            if (o.status === 'pending' && pending) pending.appendChild(card);
+            if (o.status === 'brewing' && brewing) brewing.appendChild(card);
+            if (o.status === 'done' && done) done.appendChild(card);
+
+            // trigger enter -> show
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                card.classList.add('show');
+                card.classList.remove('enter');
+              });
+            });
+          });
+        }
+
+        // setup drop handlers for lists
+        function setupDropZones() {
+          const mapping = [
+            { el: document.getElementById('pending-list'), status: 'pending' },
+            { el: document.getElementById('brewing-list'), status: 'brewing' },
+            { el: document.getElementById('done-list'), status: 'done' }
+          ];
+
+          mapping.forEach(zone => {
+            const el = zone.el;
+            if (!el) return;
+            el.addEventListener('dragover', (e) => {
+              e.preventDefault();
+              el.classList.add('dragover');
+            });
+            el.addEventListener('dragleave', () => el.classList.remove('dragover'));
+            el.addEventListener('drop', (e) => {
+              e.preventDefault();
+              el.classList.remove('dragover');
+              const id = e.dataTransfer.getData('text/plain');
+              if (!id) return;
+              // update status and re-render
+              updateStatus(id, zone.status);
+            });
+          });
+        }
+
+        // call setup after DOM ready so lists exist
+        document.addEventListener('DOMContentLoaded', setupDropZones);
+
+        function updateStatus(id, to) {
+          const list = loadOrders();
+          const it = list.find(x => x.id === id);
+          if (!it) return;
+          // add leaving class to card element to animate
+          const cardEl = document.querySelector(`.order-card[data-id="${id}"]`);
+          if (cardEl) {
+            cardEl.classList.add('leaving');
+            setTimeout(() => {
+              it.status = to;
+              saveOrders(list);
+              render();
+            }, 240);
+          } else {
+            it.status = to;
+            saveOrders(list);
+            render();
+          }
+        }
+
+        function deleteOrder(id) {
+          let list = loadOrders();
+          // animate leave on the card then remove
+          const cardEl = document.querySelector(`.order-card[data-id="${id}"]`);
+          if (cardEl) {
+            cardEl.classList.add('leaving');
+            setTimeout(() => {
+              list = list.filter(x => x.id !== id);
+              saveOrders(list);
+              render();
+            }, 260);
+          } else {
+            list = list.filter(x => x.id !== id);
+            saveOrders(list);
+            render();
+          }
+        }
+
+        // delete modal confirm handler
+        document.addEventListener('DOMContentLoaded', () => {
+          const delModalEl = document.getElementById('deleteConfirmModal');
+          const confirmBtn = document.getElementById('confirm-delete-btn');
+          if (confirmBtn && delModalEl) {
+            confirmBtn.addEventListener('click', () => {
+              const id = delModalEl.dataset.toDelete;
+              if (id) deleteOrder(id);
+              const m = bootstrap.Modal.getInstance(delModalEl);
+              m?.hide();
+            });
+          }
+        });
+
+        function addOrder(name, items) {
+          const list = loadOrders();
+          const o = { id: uid(), name: name || 'Khách', items: items || '', time: nowLabel(), status: 'pending' };
+          list.unshift(o);
+          saveOrders(list);
+          render();
+        }
+
+        // wire add button to open modal and handle form submit
+        document.addEventListener('DOMContentLoaded', () => {
+          render();
+          const addBtn = document.querySelector('.btn.btn-success');
+          const addModalEl = document.getElementById('addOrderModal');
+          const addModal = addModalEl ? new bootstrap.Modal(addModalEl) : null;
+          const form = document.getElementById('add-order-form');
+
+          if (addBtn && addModal) {
+            addBtn.addEventListener('click', (e) => {
+              e.preventDefault();
+              addModal.show();
+            });
+          }
+
+          if (form) {
+            form.addEventListener('submit', function(ev) {
+              ev.preventDefault();
+              const name = document.getElementById('order-name').value.trim() || 'Khách';
+              const items = document.getElementById('order-items').value.trim() || 'Chưa có món';
+              const qty = Number(document.getElementById('order-qty').value || 1);
+              const note = document.getElementById('order-note').value.trim();
+              const itemsText = qty > 1 ? `${qty} x ${items}` : items + (note ? ' — ' + note : '');
+              addOrder(name, itemsText);
+              form.reset();
+              addModal.hide();
+            });
+          }
+        });
+      })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -44,7 +44,26 @@ const ADMIN_CREDENTIALS = {
   displayName: 'Quản trị viên'
 };
 
+// Additional regular user
+const USER_TMINH = {
+  email: 'toiminh@gmail.com',
+  password: '123',
+  displayName: 'Minh'
+};
+
 const SESSION_KEY = 'coffee_admin_session';
+
+// Ensure all login button links point to the correct login page depending on current path
+function normalizeLoginHref() {
+  const loginAnchors = document.querySelectorAll('a.btn.login-btn');
+  loginAnchors.forEach(a => {
+    try {
+      const inHtml = location.pathname.includes('/html/');
+      // if we're inside the html/ folder, use relative 'login.html', otherwise point to 'html/login.html'
+      a.setAttribute('href', inHtml ? 'login.html' : 'html/login.html');
+    } catch (e) {}
+  });
+}
 
 // Header scroll effect
 function initHeaderScrollEffect() {
@@ -66,6 +85,91 @@ function initHeaderScrollEffect() {
   });
 }
 
+// Scroll-spy: highlight nav links when their section is in view and smooth-scroll on anchor clicks
+function initScrollSpy() {
+  const nav = document.querySelector('.main-menu');
+  if (!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('a[href*="#"]'));
+  if (!links.length) return;
+
+  // collect unique target sections
+  const sections = links
+    .map(l => {
+      try {
+        const url = new URL(l.href, location.href);
+        const hash = url.hash.replace('#', '');
+        return hash ? document.getElementById(hash) : null;
+      } catch (e) {
+        return null;
+      }
+    })
+    .filter(Boolean);
+
+  function setActiveHash(hash) {
+    links.forEach(l => {
+      try {
+        const url = new URL(l.href, location.href);
+        const h = url.hash.replace('#', '');
+        if (h === hash) l.classList.add('active'); else l.classList.remove('active');
+      } catch (e) {}
+    });
+  }
+
+  // click handler: smooth-scroll when link target is on same page
+  links.forEach(link => {
+    link.addEventListener('click', (ev) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.includes('#')) return; // not an anchor
+
+      const url = new URL(link.href, location.href);
+      const targetId = url.hash.replace('#', '');
+      const targetEl = document.getElementById(targetId);
+
+      // if target exists and the link points to the current page, smooth scroll and prevent full navigation
+      if (targetEl && url.pathname === location.pathname) {
+        ev.preventDefault();
+        // compute header offset so content isn't hidden under fixed header
+        const header = document.querySelector('.site-header');
+        const offset = header ? header.getBoundingClientRect().height + 12 : 96;
+        const top = window.scrollY + targetEl.getBoundingClientRect().top - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        // update hash without jumping
+        try { history.replaceState(null, '', '#' + targetId); } catch (e) {}
+        // ensure active state matches immediately
+        setActiveHash(targetId);
+      }
+    });
+  });
+
+  // use IntersectionObserver to update active link when scrolling
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        if (id) setActiveHash(id);
+      }
+    });
+  }, { threshold: 0.45 });
+
+  sections.forEach(s => io.observe(s));
+
+  // on load, if there's a hash, set active and scroll smoothly a tiny bit to ensure visibility
+  if (location.hash) {
+    const h = location.hash.replace('#','');
+    const el = document.getElementById(h);
+    if (el) {
+      setTimeout(() => {
+        const header = document.querySelector('.site-header');
+        const offset = header ? header.getBoundingClientRect().height + 12 : 96;
+        const top = window.scrollY + el.getBoundingClientRect().top - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        setActiveHash(h);
+      }, 120);
+    }
+  }
+}
+
 // Login form handlers (chỉ chạy nếu có form login)
 document.addEventListener('DOMContentLoaded', () => {
   // Khởi tạo page transition cho tất cả trang
@@ -73,6 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Khởi tạo header scroll effect
   initHeaderScrollEffect();
+  // Khởi tạo scroll-spy để highlight menu khi cuộn và xử lý click anchor
+  initScrollSpy();
+  // normalize login anchor hrefs for current location
+  normalizeLoginHref();
   
   const loginForm = document.getElementById('auth-form');
   
@@ -127,12 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       setTimeout(() => {
+        // Admin login -> order dashboard
         if (
           email.toLowerCase() === ADMIN_CREDENTIALS.email.toLowerCase() &&
           password === ADMIN_CREDENTIALS.password
         ) {
           const sessionObj = {
-            isAdmin: true,
+            role: 'admin',
             email: ADMIN_CREDENTIALS.email,
             displayName: ADMIN_CREDENTIALS.displayName,
             loginAt: Date.now()
@@ -141,6 +250,20 @@ document.addEventListener('DOMContentLoaded', () => {
           showSuccess('Đăng nhập thành công. Đang chuyển hướng...');
           setTimeout(() => {
             window.location.href = 'order.html';
+          }, 600);
+        }
+        // Regular user (Minh) -> go to homepage and show avatar + logout
+        else if (email.toLowerCase() === USER_TMINH.email.toLowerCase() && password === USER_TMINH.password) {
+          const sessionObj = {
+            role: 'user',
+            email: USER_TMINH.email,
+            displayName: USER_TMINH.displayName,
+            loginAt: Date.now()
+          };
+          localStorage.setItem(SESSION_KEY, JSON.stringify(sessionObj));
+          showSuccess('Đăng nhập thành công. Đang chuyển hướng về trang chủ...');
+          setTimeout(() => {
+            window.location.href = '../index.html';
           }, 600);
         } else {
           showError('Email hoặc mật khẩu không đúng.');
@@ -154,6 +277,178 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Render header user state across pages (avatar + logout)
+function renderHeaderUser() {
+  const session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
+  const headerRight = document.querySelector('.header-right');
+  if (!headerRight) return;
+
+  // remove existing avatar/logout added previously
+  const existingAvatar = headerRight.querySelector('.user-avatar');
+  const existingLogout = headerRight.querySelector('.btn.logout-inline');
+  existingAvatar?.remove();
+  existingLogout?.remove();
+
+  // hide original login button if present when session exists
+  const origLogin = document.querySelector('.btn.login-btn');
+  // hide original login button when signed in, show when logged out
+  if (session) {
+    if (origLogin) origLogin.style.display = 'none';
+  } else {
+    if (origLogin) origLogin.style.display = '';
+  }
+
+  if (session && session.role === 'user') {
+    // create a small custom dropdown menu for the user
+    const menu = document.createElement('div');
+    menu.className = 'user-menu';
+
+    const avatar = document.createElement('button');
+    avatar.className = 'user-avatar';
+    avatar.type = 'button';
+    avatar.textContent = session.displayName ? session.displayName.charAt(0).toUpperCase() : 'U';
+    avatar.title = session.displayName || session.email;
+    menu.appendChild(avatar);
+
+    const dropdown = document.createElement('div');
+    dropdown.className = 'user-menu-dropdown';
+
+    const profile = document.createElement('a');
+    profile.className = 'dropdown-item menu-profile';
+  profile.href = 'account.html';
+    profile.textContent = session.displayName || session.email;
+    dropdown.appendChild(profile);
+
+    const sep = document.createElement('div');
+    sep.className = 'dropdown-divider';
+    dropdown.appendChild(sep);
+
+    const logout = document.createElement('button');
+    logout.className = 'dropdown-item logout-btn-inline menu-logout';
+    logout.type = 'button';
+    logout.textContent = 'Đăng xuất';
+    logout.addEventListener('click', () => {
+      // sign out: remove session and re-render header so the original login button returns
+      localStorage.removeItem(SESSION_KEY);
+      renderHeaderUser();
+      normalizeLoginHref();
+      showToast('Đã đăng xuất');
+    });
+    dropdown.appendChild(logout);
+
+    menu.appendChild(dropdown);
+    headerRight.insertBefore(menu, headerRight.firstChild);
+
+    // toggle and outside click
+    avatar.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('open');
+    });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+    // stop clicks inside dropdown from closing when clicking on items
+    dropdown.addEventListener('click', (e) => e.stopPropagation());
+  }
+  // admin case: show logout too
+  else if (session && session.role === 'admin') {
+    // admin also gets a small dropdown with dashboard + logout
+    const menu = document.createElement('div');
+    menu.className = 'user-menu';
+
+    const avatar = document.createElement('button');
+    avatar.className = 'user-avatar';
+    avatar.type = 'button';
+    avatar.textContent = session.displayName ? session.displayName.charAt(0).toUpperCase() : 'A';
+    avatar.title = session.displayName || session.email;
+    menu.appendChild(avatar);
+
+    const dropdown = document.createElement('div');
+    dropdown.className = 'user-menu-dropdown';
+
+    const dash = document.createElement('a');
+    dash.className = 'dropdown-item menu-dashboard';
+    // ensure correct relative path depending on current location
+    dash.href = location.pathname.includes('/html/') ? 'order.html' : 'html/order.html';
+    dash.textContent = 'Dashboard';
+    dropdown.appendChild(dash);
+
+  const acct = document.createElement('a');
+  acct.className = 'dropdown-item menu-account';
+  acct.href = location.pathname.includes('/html/') ? 'account.html' : 'html/account.html';
+  acct.textContent = 'Quản lý tài khoản';
+  dropdown.appendChild(acct);
+
+    const sep = document.createElement('div');
+    sep.className = 'dropdown-divider';
+    dropdown.appendChild(sep);
+
+    const logout = document.createElement('button');
+    logout.className = 'dropdown-item logout-btn-inline';
+    logout.type = 'button';
+    logout.textContent = 'Đăng xuất';
+    logout.addEventListener('click', () => {
+      // sign out: remove session and re-render header so the original login button returns
+      localStorage.removeItem(SESSION_KEY);
+      renderHeaderUser();
+      normalizeLoginHref();
+      showToast('Đã đăng xuất');
+    });
+    dropdown.appendChild(logout);
+
+    menu.appendChild(dropdown);
+    headerRight.appendChild(menu);
+
+    avatar.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('open');
+    });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+    dropdown.addEventListener('click', (e) => e.stopPropagation());
+  }
+}
+
+// ensure header is rendered on initial load
+document.addEventListener('DOMContentLoaded', renderHeaderUser);
+
+// Logout confirmation modal helper
+function showLogoutConfirm() {
+  // if modal exists reuse
+  let modal = document.getElementById('logout-confirm-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'logout-confirm-modal';
+    modal.className = 'logout-modal';
+    modal.innerHTML = `
+      <div class="logout-card">
+        <h3>Bạn có muốn đăng xuất?</h3>
+        <p class="small">Bạn sẽ phải đăng nhập lại để tiếp tục.</p>
+        <div style="display:flex;gap:10px;margin-top:18px;justify-content:flex-end;">
+          <button id="logout-cancel" class="btn secondary">Hủy</button>
+          <button id="logout-confirm" class="btn primary">Đăng xuất</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // wire buttons
+    modal.querySelector('#logout-cancel').addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+    modal.querySelector('#logout-confirm').addEventListener('click', () => {
+      localStorage.removeItem(SESSION_KEY);
+      modal.classList.remove('active');
+      renderHeaderUser();
+      normalizeLoginHref();
+      showToast('Bạn đã đăng xuất');
+      // redirect to home
+      const inHtml = location.pathname.includes('/html/');
+      window.location.href = inHtml ? 'login.html' : 'html/login.html';
+    });
+  }
+
+  // show modal
+  setTimeout(() => modal.classList.add('active'), 30);
+}
 
 // ===== MAIN PAGE FUNCTIONALITY =====
 document.addEventListener("DOMContentLoaded", function() {
@@ -954,20 +1249,50 @@ function addToCart(name, price) {
 }
 
 // Toast notification
-function showToast(message) {
-  let toast = document.createElement("div");
-  toast.className = "custom-toast";
-  toast.innerText = message;
+function showToast(message, opts = {}) {
+  // opts: { type: 'success'|'error'|'info', duration: ms, actionText: string, actionHandler: fn }
+  const { type = 'info', duration = 3000, actionText, actionHandler } = opts;
+  let toast = document.createElement('div');
+  toast.className = 'custom-toast';
+  if (type) toast.classList.add('custom-toast--' + type);
+
+  const content = document.createElement('div');
+  content.className = 'custom-toast__content';
+  content.textContent = message;
+  toast.appendChild(content);
+
+  if (actionText && typeof actionHandler === 'function') {
+    const actionBtn = document.createElement('button');
+    actionBtn.className = 'custom-toast__action';
+    actionBtn.textContent = actionText;
+    actionBtn.addEventListener('click', (e) => {
+      try { actionHandler(e); } catch (e) { console.error(e); }
+      // remove toast immediately after action
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 260);
+    });
+    toast.appendChild(actionBtn);
+  }
+
   document.body.appendChild(toast);
+  // trigger enter
+  setTimeout(() => toast.classList.add('show'), 60);
 
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 100);
+  // auto-dismiss
+  const auto = setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 260);
+  }, duration + 60);
 
-  setTimeout(() => {
-    toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 500);
-  }, 2500);
+  // allow manual close on click outside action (clicking toast hides it)
+  toast.addEventListener('click', (e) => {
+    if (e.target.classList.contains('custom-toast__action')) return; // ignore action button clicks
+    clearTimeout(auto);
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 180);
+  });
+
+  return toast;
 }
 
 // Khởi tạo cart khi DOM loaded

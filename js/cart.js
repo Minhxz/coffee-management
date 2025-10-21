@@ -133,10 +133,11 @@ document.getElementById("clear-cart").addEventListener("click", () => {
 // ✅ Thanh toán
 document.getElementById("checkout").addEventListener("click", () => {
   if (cart.length === 0) {
-    alert("Giỏ hàng trống!");
+    showToast("Giỏ hàng trống!");
     return;
   }
-  alert("Cảm ơn bạn! Vui lòng kiểm tra lại kĩ số tiền trước khi thanh toán!");
+  // show a small notification and let the QR overlay handler run
+  showToast("Chuẩn bị hiển thị mã QR — vui lòng quét để thanh toán");
 });
 
 // ✅ Khi tải trang
@@ -157,7 +158,7 @@ document.getElementById("checkout").addEventListener("click", () => {
     qrBox.innerHTML = `
       <div class="qr-container">
         <h3>Quét mã để thanh toán 💳</h3>
-        <img src="./PicsLinh/QR.png" alt="QR thanh toán" class="qr-image" />
+  <img src="../images/qr.png" alt="QR thanh toán" class="qr-image" />
         <p>Vui lòng quét mã để chuyển khoản thanh toán đơn hàng của bạn.</p>
         <div class="qr-buttons">
           <button id="hide-qr" class="hide-qr">Ẩn mã QR</button>
@@ -175,12 +176,30 @@ document.getElementById("checkout").addEventListener("click", () => {
 
     // Xác nhận thanh toán => xóa giỏ hàng
     document.getElementById("confirm-payment").addEventListener("click", () => {
+      // snapshot current cart so we can offer an undo
+      const prevCart = JSON.parse(JSON.stringify(cart));
+
+      // clear cart UI & storage
+      cart = [];
       localStorage.removeItem("cart");
       document.getElementById("cart-list").innerHTML = "";
-      document.getElementById("total").textContent = "Tổng cộng: 0đ";
+      if (document.getElementById("total")) document.getElementById("total").textContent = "Tổng cộng: 0đ";
+
       qrBox.remove();
       overlay.remove();
-      alert("✅ Thanh toán thành công! Giỏ hàng đã được làm trống.");
+
+      // show actionable toast with Undo (Hoàn tác)
+      showToast("✅ Thanh toán thành công!", {
+        type: "success",
+        duration: 8000,
+        actionText: "Hoàn tác",
+        actionHandler: () => {
+          // restore previous cart
+          cart = prevCart;
+          saveCart();
+          showToast("Hoàn tác: giỏ hàng đã được khôi phục.", { type: "info", duration: 2200 });
+        },
+      });
     });
   }
 });

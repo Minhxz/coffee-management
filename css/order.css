@@ -58,20 +58,21 @@ body {
   font-size: 1rem;
   color: #333;
 }
-
 .logout-btn {
-  background-color: #3e773e;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+  color: #3e773e;
+  border: 1px solid rgba(62,119,62,0.15);
+  padding: 7px 12px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: 0.3s;
+  font-size: 0.95rem;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
 }
 
 .logout-btn:hover {
-  background-color: #2d5d2d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(46, 64, 42, 0.08);
 }
 /* ======= CÁC CỘT TRẠNG THÁI ======= */
 .column {
@@ -79,7 +80,7 @@ body {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  height: 80vh;
+  height: 78vh;
   overflow-y: auto;
   border-top: 5px solid #3e773e;
 }
@@ -93,19 +94,58 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* Make status headers more distinct */
+.status-header {
+  background: linear-gradient(90deg, rgba(62,119,62,0.06), rgba(62,119,62,0.02));
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(62,119,62,0.06);
+}
+
 /* ======= THẺ ĐƠN HÀNG ======= */
 .order-card {
   border-left: 6px solid #ffb84d;
   margin-bottom: 14px;
-  padding: 12px;
-  border-radius: 8px;
-  background: #fffaf0;
-  transition: transform 0.2s ease;
+  padding: 14px 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg,#fffdf6 0%, #fff9f0 100%);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  box-shadow: 0 4px 10px rgba(24,24,24,0.04);
 }
 
 .order-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(22,36,17,0.07);
 }
+
+/* entry/leave animations for smoother transitions */
+.order-card {
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .28s ease, box-shadow .2s ease;
+}
+
+.order-card.enter {
+  opacity: 0;
+  transform: translateY(-8px) scale(.995);
+}
+
+.order-card.enter.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.order-card.leaving {
+  opacity: 1;
+}
+
+.order-card.leaving.hide {
+  opacity: 0;
+  transform: translateY(8px) scale(.995);
+}
+
+/* Drag & drop visuals */
+.order-card.dragging { opacity: 0.5; transform: scale(.98); }
+.order-card.hide-during-drag { visibility: hidden; }
+.orders-list.dragover { outline: 2px dashed rgba(62,119,62,0.28); border-radius: 8px; padding: 6px; background: rgba(62,119,62,0.02); }
 
 .order-card h6 {
   margin-bottom: 4px;
@@ -127,6 +167,12 @@ body {
 .order-card button {
   font-weight: 600;
   border-radius: 6px;
+}
+
+/* Small action button styles inside cards */
+.order-card .btn-sm {
+  padding: 6px 10px;
+  font-weight: 700;
 }
 
 /* Các trạng thái đặc biệt */
@@ -153,3 +199,25 @@ body {
 .column::-webkit-scrollbar-thumb:hover {
   background: #aaa;
 }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .column { height: auto; max-height: 60vh; }
+  .search-bar { gap: 8px; }
+  .logout-btn, .search-bar button, .btn.btn-success { margin-top: 6px; }
+  .col-md-3.text-end { text-align: right !important; }
+}
+
+@media (max-width: 576px) {
+  .col-md-6, .col-md-3 { flex: 0 0 100%; max-width: 100%; }
+  .col-md-3.text-end { text-align: left !important; }
+  .search-bar { flex-direction: column; }
+  .column { height: auto; max-height: 55vh; }
+  .order-card { padding: 12px; }
+}
+
+/* Modal tweaks */
+.modal-content .form-label { font-weight: 600; color: #2f4f2f; }
+.modal-content .form-control { border-radius: 8px; }
+.modal-header { background: linear-gradient(90deg, rgba(62,119,62,0.03), rgba(62,119,62,0.01)); }
+.modal-footer .btn { min-width: 96px; }
