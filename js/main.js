@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem(SESSION_KEY, JSON.stringify(sessionObj));
           showSuccess('Đăng nhập thành công. Đang chuyển hướng...');
           setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = 'order.html';
           }, 600);
         } else {
           showError('Email hoặc mật khẩu không đúng.');

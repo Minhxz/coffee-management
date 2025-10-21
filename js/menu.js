@@ -34,6 +34,17 @@ const btnConfirm = document.getElementById("confirm");
 // Ẩn popup khi mới tải
 popup.style.display = "none";
 
+// Hàm hiển thị popup
+function showPopup(name, price) {
+  popupName.textContent = name;
+  popupPrice.textContent = price.toLocaleString();
+  quantityInput.value = 1;
+  noteInput.value = "";
+  
+  popup.classList.add("active");
+  popup.style.display = "flex";
+}
+
 // Thêm sự kiện cho các nút Thêm món
 const addButtons = document.querySelectorAll(".add-btn");
 
@@ -46,11 +57,8 @@ addButtons.forEach((button) => {
     const priceText = drinkCard.querySelector(".drink-price").textContent;
     const price = parseInt(priceText.replace(/[^\d]/g, ''));
 
-    // Thêm vào giỏ hàng
-    addToCart(name, price);
-    
-    // Hiển thị thông báo
-    showAddToCartNotification(name);
+    // Hiển thị popup
+    showPopup(name, price);
   });
 });
 
@@ -143,7 +151,7 @@ btnConfirm.addEventListener("click", () => {
     name: popupName.textContent,
     price: Number(popupPrice.textContent.replace(/\D/g, "")), // ép về số
     quantity: Number(quantityInput.value),
-    note: noteInput.value,
+    note: noteInput.value.trim(),
   };
 
   console.log("Món đã thêm:", item);
@@ -151,8 +159,8 @@ btnConfirm.addEventListener("click", () => {
   // Lấy giỏ hàng cũ (nếu có)
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Kiểm tra xem món đã có trong giỏ chưa
-  let existing = cart.find((x) => x.name === item.name);
+  // Kiểm tra xem món đã có trong giỏ chưa (bao gồm cả ghi chú)
+  let existing = cart.find((x) => x.name === item.name && x.note === item.note);
   if (existing) {
     existing.quantity = Number(existing.quantity) + Number(item.quantity);
   } else {
@@ -165,16 +173,49 @@ btnConfirm.addEventListener("click", () => {
   // Cập nhật hiển thị trên icon giỏ hàng ngay lập tức
   updateCartCount();
 
-  showToast("Đã thêm vào giỏ hàng!");
+  showToast(`Đã thêm "${item.name}" vào giỏ hàng!`);
 
+  popup.classList.remove("active");
   popup.style.display = "none";
+});
+
+// Nút hủy
+btnCancel.addEventListener("click", () => {
+  popup.classList.remove("active");
+  popup.style.display = "none";
+});
+
+// Nút tăng/giảm số lượng
+btnMinus.addEventListener("click", () => {
+  let currentValue = parseInt(quantityInput.value);
+  if (currentValue > 1) {
+    quantityInput.value = currentValue - 1;
+  }
+});
+
+btnPlus.addEventListener("click", () => {
+  let currentValue = parseInt(quantityInput.value);
+  if (currentValue < 10) {
+    quantityInput.value = currentValue + 1;
+  }
+});
+
+// Đóng popup khi click bên ngoài
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.classList.remove("active");
+    popup.style.display = "none";
+  }
 });
 
 function showToast(message) {
   // Tạo phần tử toast nếu chưa có
   let toast = document.createElement("div");
   toast.className = "custom-toast";
-  toast.innerText = message;
+  toast.innerHTML = `
+    <i class="fas fa-check-circle"></i>
+    ${message}
+  `;
   document.body.appendChild(toast);
 
   // Hiệu ứng hiện lên
@@ -182,11 +223,11 @@ function showToast(message) {
     toast.classList.add("show");
   }, 100);
 
-  // Tự ẩn sau 2.5 giây
+  // Tự ẩn sau 3 giây
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.remove(), 500);
-  }, 2500);
+  }, 3000);
 }
 // ========== Nút mở/đóng menu trên mobile ==========
 const menuToggle = document.querySelector(".menu-toggle");

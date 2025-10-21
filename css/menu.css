@@ -223,20 +223,52 @@ h4 {
   padding: 120px 60px 40px;
 }
 .add-btn {
-  background-color: #6a994e; /* xanh matcha hoặc coffee */
+  background: var(--grad-accent);
   color: #fff;
   border: none;
-  border-radius: 20px;
-  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.add-btn:hover::before {
+  left: 100%;
 }
 
 .add-btn:hover {
-  background-color: #386641;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  background: var(--accent-strong);
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-1);
+}
+
+.add-btn i {
+  font-size: 0.9rem;
 }
 
 /* SIDEBAR*/
@@ -523,14 +555,15 @@ input:checked + .slider:before {
 
 /* ===== KHUNG NỘI DUNG POPUP ===== */
 .popup-content {
-  background: linear-gradient(145deg, #ffffff, #f4f6f8);
-  padding: 25px 20px;
-  border-radius: 15px;
-  width: 320px;
+  background: var(--card);
+  padding: 30px 25px;
+  border-radius: var(--radius-lg);
+  width: 380px;
   max-width: 90%;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-2);
   animation: fadeIn 0.3s ease;
-  font-family: "Segoe UI", sans-serif;
+  font-family: var(--font-body);
+  border: 1px solid rgba(60, 94, 44, 0.1);
 }
 
 @keyframes fadeIn {
@@ -547,92 +580,121 @@ input:checked + .slider:before {
 /* ===== TIÊU ĐỀ & GIÁ ===== */
 .popup-content h3 {
   margin-top: 0;
-  color: #2c3e50;
+  color: var(--dark);
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  margin-bottom: 8px;
 }
 
 .popup-content p {
   text-align: center;
-  font-weight: bold;
-  color: #27ae60;
-  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
 }
 
 /* ===== NHÃN ===== */
 .popup-content label {
   font-weight: 600;
-  color: #444;
+  color: var(--dark);
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 
 /* ===== CHỌN SỐ LƯỢNG ===== */
 .quantity {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 15px;
+  gap: 10px;
+  margin-bottom: 20px;
   justify-content: center;
 }
 
 .quantity button {
-  width: 35px;
-  height: 35px;
-  background-color: #e7e7e7;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-alt);
+  border: 2px solid var(--accent-fade);
+  border-radius: var(--radius-md);
+  font-size: 1.3rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quantity button:hover {
-  background-color: #d0d0d0;
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }
 
 .quantity input {
-  width: 60px;
+  width: 70px;
   text-align: center;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 8px;
+  border: 2px solid var(--accent-fade);
+  border-radius: var(--radius-md);
   font-size: 1rem;
+  font-weight: 600;
+  background: var(--card);
+  color: var(--dark);
+}
+
+.quantity input:focus {
+  outline: none;
+  border-color: var(--accent);
 }
 
 /* ===== GHI CHÚ ===== */
 textarea {
   width: 100%;
-  height: 60px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  padding: 8px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--accent-fade);
+  padding: 12px;
   font-size: 0.95rem;
+  font-family: var(--font-body);
   resize: none;
-  margin-bottom: 15px;
-  transition: border-color 0.2s;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+  background: var(--card);
+  color: var(--dark);
 }
 
 textarea:focus {
-  border-color: #27ae60;
+  border-color: var(--accent);
   outline: none;
+  box-shadow: 0 0 0 3px rgba(60, 94, 44, 0.1);
 }
 
-/* ===== CÁC NÚT HÀNH ĐỘNG ===== */
+/* ===== TOAST NOTIFICATION ===== */
 .custom-toast {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
-  transform: translateX(-50%) translateY(30px);
-  background: #6b4f29;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--grad-accent);
   color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 16px 24px;
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-2);
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
 }
 
 .custom-toast.show {
@@ -640,39 +702,50 @@ textarea:focus {
   transform: translateX(-50%) translateY(0);
 }
 
+.custom-toast i {
+  font-size: 1.1rem;
+}
+
 .popup-actions {
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
   margin-top: 10px;
 }
 
 .popup-actions button {
   flex: 1;
-  margin: 0 5px;
-  padding: 10px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.25s ease;
+  font-family: var(--font-body);
 }
 
 #cancel {
-  background-color: #e74c3c;
-  color: #fff;
+  background: var(--bg-alt);
+  color: var(--muted);
+  border: 2px solid var(--accent-fade);
 }
 
 #cancel:hover {
-  background-color: #c0392b;
+  background: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
 }
 
 #confirm {
-  background-color: #27ae60;
+  background: var(--grad-accent);
   color: #fff;
+  box-shadow: var(--shadow-1);
 }
 
 #confirm:hover {
-  background-color: #1e8a4a;
+  background: var(--accent-strong);
+  box-shadow: var(--shadow-2);
+  transform: translateY(-1px);
 }
 
 /* ===== HIỂN THỊ ICON GIỎ HÀNG ===== */
