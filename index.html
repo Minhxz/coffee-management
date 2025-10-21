@@ -12,46 +12,46 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/order.css">
 </head>
 <body class="has-texture">
 
-  <!-- Header -->
-  <header class="site-header elevate-1">
-    <nav class="navbar">
-      <img src="images/golocat.jpg" alt="" id="cat">
-      <a href="index.html" class="logo">CÀ PHÊ</a>
-      <div class="main-menu">
-        <a href="#" class="active" aria-current="page">Trang Chủ</a>
-        <a href="html/menu.html">Menu</a>
-        <a href="#story">Tuyển Dụng</a>
-        <a href="#testimonials">Cảm Nhận</a>
-        <a href="html/hotro.html">Liên Hệ-Hỗ Trợ</a>
-      </div>
-      <div class="header-right">
-        <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
-          <i class="fa-solid fa-magnifying-glass"></i>
+    <!-- Header -->
+    <header class="site-header elevate-1">
+      <nav class="navbar">
+        <img src="images/golocat.jpg" alt="" id="cat" />
+        <a href="index.html" class="logo">CÀ PHÊ</a>
+        <div class="main-menu">
+          <a href="index.html" class="active" aria-current="page">Trang Chủ</a>
+          <a href="html/menu.html">Menu</a>
+          <a href="#story">Tuyển Dụng</a>
+          <a href="#testimonials">Cảm Nhận</a>
+          <a href="html/hotro.html">Liên Hệ-Hỗ Trợ</a>
+        </div>
+        <div class="header-right">
+          <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a href="html/login.html" class="btn login-btn" aria-label="Đăng nhập">
+            <i class="fa-regular fa-user"></i>
+            <span>Đăng nhập</span>
+          </a>
+          <button id="lang-toggle" class="btn secondary">EN / VI</button>
+        </div>
+      </nav>
+      
+      <!-- Search Overlay -->
+      <div id="search-overlay" class="search-overlay"></div>
+      <div id="search-bar" class="search-bar">
+        <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+        <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fa-solid fa-xmark"></i>
         </button>
-        <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-        <a href="html/login.html" class="btn login-btn" aria-label="Đăng nhập">
-          <i class="fa-regular fa-user"></i>
-          <span>Đăng nhập</span>
-        </a>
-        <button id="lang-toggle" class="btn secondary">EN / VI</button>
       </div>
-    </nav>
-    
-    <!-- Search Overlay -->
-    <div id="search-overlay" class="search-overlay"></div>
-    <div id="search-bar" class="search-bar">
-      <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
-      <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-  </header>
+    </header>
+
 <!-- slide động -->
 <section class="hero-slider">
 
@@ -68,7 +68,7 @@
           Thưởng thức cà phê đậm đà, đồ uống tươi mới và làm bạn cùng những chú mèo đáng yêu – tất cả đều có ở Cat Cafe.
         </p>
         <div class="hero__cta">
-          <a href="#menu-scroll" class="btn primary">Khám phá menu</a>
+          <a href="html/menu.html" class="btn primary">Khám phá menu</a>
           <a href="#store" class="btn secondary">Cửa hàng gần bạn</a>
         </div>
       </div>
@@ -103,7 +103,7 @@
         </p>
         <div class="hero__cta">
           <a href="#gallery" class="btn primary">Xem không gian</a>
-          <a href="datban.html" class="btn secondary">Đặt bàn ngay</a>
+          <a href="html/datban.html" class="btn secondary">Đặt bàn ngay</a>
         </div>
       </div>
 
@@ -135,8 +135,8 @@
           Ai mà chịu nổi độ đáng yêu này chứ
         </p>
         <div class="hero__cta">
-          <a href="menu.html" class="btn primary">Khám phá menu</a>
-          <a href="hotro.html" class="btn secondary">Liên hệ</a>
+          <a href="html/menu.html" class="btn primary">Khám phá menu</a>
+          <a href="html/hotro.html" class="btn secondary">Liên hệ</a>
         </div>
       </div>
 
@@ -167,7 +167,7 @@
 </section>
 <!-- hết slide động -->
 
-   <!-- Signature Drinks -->
+   <!-- Signature Drinks - New Clean Version -->
 <section class="section section-tight" id="signature">
   <div class="container">
     <div class="section-head">
@@ -175,161 +175,170 @@
         <span class="accent-bar"></span> MÓN BÁN CHẠY
       </h2>
       <p class="section-intro">
-        Một số thức uống nổi bật
+        Những thức uống được yêu thích nhất tại Cat Cafe
       </p>
     </div>
-    <div class="grid-cards signature-grid">
-
-      <!-- 4 món đầu -->
-      <article class="card card--tall reveal">
-        <div class="card-media">
-          <img src="images/cfsuada.jpg" alt="Cà phê sữa đá">
-          <div class="card-badge">Signature</div>
+    
+    <div class="drinks-grid">
+      <div class="drink-card">
+        <div class="drink-image">
+          <img src="images/cfsuada.jpg" alt="Cà phê sữa đá" onerror="console.log('Image failed to load: images/cfsuada.jpg')">
+          <span class="drink-badge">Signature</span>
         </div>
-        <div class="card-body">
+        <div class="drink-info">
           <h3>Cà phê sữa đá</h3>
-          <p class="muted">Đậm đà, ngọt béo, hương truyền thống.</p>
-          <div class="meta-row">
-            <span class="price-tag">60.000đ</span>
-            <div class="chips">
-              <span class="chip">coffee</span>
-              <span class="chip">thanh nhẹ</span>
-            </div>
+          <p>Đậm đà, ngọt béo, hương vị truyền thống Việt Nam</p>
+          <div class="drink-price">60.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Coffee</span>
+            <span class="tag">Đá</span>
           </div>
+          <button class="btn-add-cart" data-name="Cà phê sữa đá" data-price="60000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--tall reveal">
-        <div class="card-media">
-          <img src="images/naukemmuoi.png" alt="Nâu kem muối">
-          <div class="card-badge">Signature</div>
+      <div class="drink-card">
+        <div class="drink-image">
+          <img src="images/naukemmuoi.jpg" alt="Nâu kem muối">
+          <span class="drink-badge">Popular</span>
         </div>
-        <div class="card-body">
+        <div class="drink-info">
           <h3>Nâu kem muối</h3>
-          <p class="muted">Cà phê mặn ngọt, béo thơm lạ.</p>
-          <div class="meta-row">
-            <span class="price-tag">65.000đ</span>
-            <div class="chips">
-              <span class="chip">coffee</span>
-              <span class="chip">đậm đà</span>
-            </div>
+          <p>Cà phê đậm đà với lớp kem muối béo ngậy độc đáo</p>
+          <div class="drink-price">65.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Coffee</span>
+            <span class="tag">Kem muối</span>
           </div>
+          <button class="btn-add-cart" data-name="Nâu kem muối" data-price="65000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--tall reveal">
-        <div class="card-media">
+      <div class="drink-card">
+        <div class="drink-image">
           <img src="images/bacxiu.jpg" alt="Bạc xỉu">
-          <div class="card-badge">New</div>
+          <span class="drink-badge">Classic</span>
         </div>
-        <div class="card-body">
+        <div class="drink-info">
           <h3>Bạc xỉu</h3>
-          <p class="muted">Ngọt nhẹ, sữa nhiều, vị dịu, đậm đà.</p>
-          <div class="meta-row">
-            <span class="price-tag">70.000đ</span>
-            <div class="chips">
-              <span class="chip">coffee</span>
-              <span class="chip">sảng khoái</span>
-            </div>
+          <p>Sữa đặc ngọt ngào hòa quyện cùng cà phê nhẹ</p>
+          <div class="drink-price">55.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Coffee</span>
+            <span class="tag">Sữa đặc</span>
           </div>
+          <button class="btn-add-cart" data-name="Bạc xỉu" data-price="55000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--tall reveal">
-        <div class="card-media">
-          <img src="images/vani-latte.jpg" alt="Vani-Latte">
-          <div class="card-badge">New</div>
+      <div class="drink-card">
+        <div class="drink-image">
+          <img src="images/vani-latte.jpg" alt="Vanilla Latte">
+          <span class="drink-badge">New</span>
         </div>
-        <div class="card-body">
-          <h3>Vani-Latte</h3>
-          <p class="muted">Hương vani dịu, cà phê ấm áp, thanh ngọt.</p>
-          <div class="meta-row">
-            <span class="price-tag">70.000đ</span>
-            <div class="chips">
-              <span class="chip">coffee</span>
-              <span class="chip">thơm béo</span>
-            </div>
+        <div class="drink-info">
+          <h3>Vanilla Latte</h3>
+          <p>Espresso thơm nồng với hương vani ngọt dịu</p>
+          <div class="drink-price">70.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Latte</span>
+            <span class="tag">Vanilla</span>
           </div>
+          <button class="btn-add-cart" data-name="Vanilla Latte" data-price="70000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
         </div>
-      </article>
+      </div>
 
-    <!-- 4 món cuộn xuống (ẩn ban đầu) -->
-<article class="card card--tall reveal extra">
-  <div class="card-media">
-    <img src="images/chanhleotuyet.jpg" alt="Chanh leo tuyết">
-    <div class="card-badge">Standard</div>
-  </div>
-  <div class="card-body">
-    <h3>Chanh leo tuyết</h3>
-    <p class="muted">Chua thanh, mát lạnh, sảng khoái.</p>
-    <div class="meta-row">
-      <span class="price-tag">55.000đ</span>
-      <div class="chips">
-        <span class="chip">đá xay</span>
-        <span class="chip">trái cây</span>
+      <div class="drink-card hidden-drink">
+        <div class="drink-image">
+          <img src="images/chanhleotuyet.jpg" alt="Chanh leo tuyết">
+          <span class="drink-badge">Fresh</span>
+        </div>
+        <div class="drink-info">
+          <h3>Chanh leo tuyết</h3>
+          <p>Chanh leo chua ngọt với đá tuyết mát lạnh</p>
+          <div class="drink-price">50.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Trái cây</span>
+            <span class="tag">Đá tuyết</span>
+          </div>
+          <button class="btn-add-cart" data-name="Chanh leo tuyết" data-price="50000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
+        </div>
+      </div>
+
+      <div class="drink-card hidden-drink">
+        <div class="drink-image">
+          <img src="images/suachuacaphe.png" alt="Sữa chua cà phê">
+          <span class="drink-badge">Special</span>
+        </div>
+        <div class="drink-info">
+          <h3>Sữa chua cà phê</h3>
+          <p>Sự kết hợp độc đáo giữa sữa chua và cà phê</p>
+          <div class="drink-price">65.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Coffee</span>
+            <span class="tag">Sữa chua</span>
+          </div>
+          <button class="btn-add-cart" data-name="Sữa chua cà phê" data-price="65000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
+        </div>
+      </div>
+
+      <div class="drink-card hidden-drink">
+        <div class="drink-image">
+          <img src="images/atisomuoimo.png" alt="Atiso muối mơ">
+          <span class="drink-badge">Healthy</span>
+        </div>
+        <div class="drink-info">
+          <h3>Atiso muối mơ</h3>
+          <p>Thanh mát, giải nhiệt với hương vị chua ngọt tự nhiên</p>
+          <div class="drink-price">45.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Thảo mộc</span>
+            <span class="tag">Muối mơ</span>
+          </div>
+          <button class="btn-add-cart" data-name="Atiso muối mơ" data-price="45000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
+        </div>
+      </div>
+
+      <div class="drink-card hidden-drink">
+        <div class="drink-image">
+          <img src="images/trasuakem.jpg" alt="Trà sữa kem trứng">
+          <span class="drink-badge">Premium</span>
+        </div>
+        <div class="drink-info">
+          <h3>Trà sữa kem trứng</h3>
+          <p>Trà sữa thơm ngon với lớp kem trứng béo ngậy</p>
+          <div class="drink-price">75.000đ</div>
+          <div class="drink-tags">
+            <span class="tag">Milk Tea</span>
+            <span class="tag">Kem trứng</span>
+          </div>
+          <button class="btn-add-cart" data-name="Trà sữa kem trứng" data-price="75000">
+            <i class="fa-solid fa-plus"></i> Thêm đồ
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</article>
 
-<article class="card card--tall reveal extra">
-  <div class="card-media">
-    <img src="images/suachuacaphe.png" alt="Sữa chua cà phê">
-    <div class="card-badge">Basic</div>
-  </div>
-  <div class="card-body">
-    <h3>Sữa chua cà phê</h3>
-    <p class="muted">chua ngọt, béo thơm, mát lạnh, thơm nồng.</p>
-    <div class="meta-row">
-      <span class="price-tag">70.000đ</span>
-      <div class="chips">
-        <span class="chip">milk-tea</span>
-        <span class="chip">sữa chua</span>
-      </div>
+    <div class="show-more-section">
+      <button class="show-more-btn" id="show-more-drinks">
+        <span>Xem thêm món</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
     </div>
-  </div>
-</article>
-
-<article class="card card--tall reveal extra">
-  <div class="card-media">
-    <img src="images/atisomuoimo.png" alt="Atiso muối mơ">
-    <div class="card-badge">Standard</div>
-  </div>
-  <div class="card-body">
-    <h3>Atiso muối mơ</h3>
-    <p class="muted">Thanh mát, chua nhẹ, giải nhiệt.</p>
-    <div class="meta-row">
-      <span class="price-tag">65.000đ</span>
-      <div class="chips">
-        <span class="chip">chua nhẹ</span>
-        <span class="chip">ngọt dịu </span>
-      </div>
-    </div>
-  </div>
-</article>
-
-<article class="card card--tall reveal extra">
-  <div class="card-media">
-    <img src="images/trasuakem.jpg" alt="Trà sữa kem trứng">
-    <div class="card-badge">New</div>
-  </div>
-  <div class="card-body">
-    <h3>Trà sữa kem trứng</h3>
-    <p class="muted">Béo ngậy, mịn màng, thơm dịu.</p>
-    <div class="meta-row">
-      <span class="price-tag">60.000đ</span>
-      <div class="chips">
-        <span class="chip">milk-tea</span>
-        <span class="chip">ngọt nhẹ</span>
-      </div>
-    </div>
-  </div>
-</article>
-
-    </div>
-   <div class="center-block">
-  <button class="btn secondary" id="show-more">   Xem Thêm   </button>
-</div>
   </div>
 </section>
     <!-- Story -->
@@ -582,6 +591,34 @@
   </div>
 </div>
   <div id="modal-root"></div>
+
+  <!-- Cart Popup -->
+  <div id="cart-popup" class="popup-overlay">
+    <div class="popup-content">
+      <h3 id="popup-name">Tên món</h3>
+      <p id="popup-price">Giá: 60.000đ</p>
+      
+      <div class="quantity-selector">
+        <label>Số lượng:</label>
+        <div class="quantity-controls">
+          <button type="button" id="decrease-qty">-</button>
+          <input type="number" id="quantity-input" value="1" min="1" max="10">
+          <button type="button" id="increase-qty">+</button>
+        </div>
+      </div>
+      
+      <div class="note-section">
+        <label for="note-input">Ghi chú:</label>
+        <textarea id="note-input" placeholder="Ghi chú đặc biệt (không bắt buộc)"></textarea>
+      </div>
+      
+      <div class="popup-actions">
+        <button id="cancel-cart">Hủy</button>
+        <button id="confirm-cart">Thêm vào giỏ</button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/order.js"></script>
   <script src="js/main.js"></script>
 </body>

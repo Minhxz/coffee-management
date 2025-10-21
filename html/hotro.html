@@ -51,32 +51,42 @@
 
 <body class="has-texture">
 
-  <!-- Header -->
-  <header class="site-header elevate-1">
-    <nav class="navbar">
-      <img src="../images/golocat.jpg" alt="" id="cat">
-      <a href="../index.html" class="logo">CÀ PHÊ</a>
-      <div class="main-menu">
-        <a href="../index.html" class="active" aria-current="page">Trang Chủ</a>
-        <a href="menu.html">Menu</a>
-        <a href="#story">Tuyển Dụng</a>
-        <a href="#testimonials">Cảm Nhận</a>
-        <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
-      </div>
-      <div class="header-right">
-        <button type="button" class="icon-btn" aria-label="Tìm kiếm">
-          <i class="fa-solid fa-magnifying-glass"></i>
+    <!-- Header -->
+    <header class="site-header elevate-1">
+      <nav class="navbar">
+        <img src="../images/golocat.jpg" alt="" id="cat" />
+        <a href="../index.html" class="logo">CÀ PHÊ</a>
+        <div class="main-menu">
+          <a href="../index.html">Trang Chủ</a>
+          <a href="menu.html">Menu</a>
+          <a href="../index.html#story">Tuyển Dụng</a>
+          <a href="../index.html#testimonials">Cảm Nhận</a>
+          <a href="hotro.html" class="active" aria-current="page">Liên Hệ-Hỗ Trợ</a>
+        </div>
+        <div class="header-right">
+          <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
+            <i class="fa-regular fa-user"></i>
+            <span>Đăng nhập</span>
+          </a>
+          <button id="lang-toggle" class="btn secondary">EN / VI</button>
+        </div>
+      </nav>
+      
+      <!-- Search Overlay -->
+      <div id="search-overlay" class="search-overlay"></div>
+      <div id="search-bar" class="search-bar">
+        <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+        <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fa-solid fa-xmark"></i>
         </button>
-        <a href="javascript:void(0);" id="cart-btn">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-        <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
-          <i class="fa-regular fa-user"></i>
-          <span>Đăng nhập</span>
-        </a>
-      </div>  
-    </nav>
-  </header>
+      </div>
+    </header>
 
 <!--Contact section-->
 <section class="contact-section container">
@@ -144,3 +154,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

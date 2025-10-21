@@ -1,0 +1,495 @@
+/* Booking Page Styles */
+
+/* Hero Section */
+.booking-hero {
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+  padding: 120px 0 80px;
+  margin-top: 90px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-text .highlight {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-features {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(60, 94, 44, 0.1);
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.feature i {
+  font-size: 16px;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(60, 94, 44, 0.2);
+}
+
+/* Main Content */
+.booking-main {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Form Section */
+.booking-form-section {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(60, 94, 44, 0.1);
+  border: 1px solid rgba(60, 94, 44, 0.05);
+}
+
+.form-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.form-header h2 {
+  color: var(--dark);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.form-header p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.form-group label i {
+  color: var(--accent);
+  width: 16px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 16px 20px;
+  border: 2px solid rgba(60, 94, 44, 0.1);
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: var(--bg);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(60, 94, 44, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.error-msg {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 4px;
+  display: none;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: #dc2626;
+}
+
+.form-group.error .error-msg {
+  display: block;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.submit-btn,
+.back-btn {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: white;
+  flex: 1;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(60, 94, 44, 0.3);
+}
+
+.back-btn {
+  background: rgba(60, 94, 44, 0.1);
+  color: var(--accent);
+  border: 2px solid rgba(60, 94, 44, 0.2);
+}
+
+.back-btn:hover {
+  background: rgba(60, 94, 44, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Info Section */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.location-card,
+.contact-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(60, 94, 44, 0.1);
+  border: 1px solid rgba(60, 94, 44, 0.05);
+}
+
+.location-card h3,
+.contact-card h3 {
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.location-card h3 i,
+.contact-card h3 i {
+  color: var(--accent);
+}
+
+.map-container {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(60, 94, 44, 0.15);
+}
+
+.map-container iframe {
+  border-radius: 16px;
+}
+
+.address-info {
+  background: var(--bg);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+
+.address-info p {
+  margin: 8px 0;
+  color: var(--dark);
+  font-size: 14px;
+}
+
+.address-info p:first-child {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(60, 94, 44, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--dark);
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list li i {
+  color: var(--accent);
+  width: 16px;
+}
+
+.info-list li:last-child i {
+  color: #f59e0b;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 80px rgba(60, 94, 44, 0.3);
+  animation: modalSlideIn 0.4s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  padding: 30px 30px 0;
+  text-align: center;
+}
+
+.modal-header h3 {
+  color: var(--accent);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.modal-header i {
+  color: #10b981;
+  font-size: 24px;
+}
+
+.modal-body {
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.modal-body p {
+  color: var(--dark);
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.booking-summary {
+  background: var(--bg);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.booking-summary h4 {
+  color: var(--accent);
+  margin: 0 0 12px 0;
+}
+
+.modal-footer {
+  padding: 0 30px 30px;
+  display: flex;
+  gap: 12px;
+}
+
+.modal-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.modal-btn.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.modal-btn.primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+.modal-btn.secondary {
+  background: rgba(60, 94, 44, 0.1);
+  color: var(--accent);
+}
+
+.modal-btn.secondary:hover {
+  background: rgba(60, 94, 44, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .info-section {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero-features {
+    justify-content: center;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .booking-form-section {
+    padding: 30px 20px;
+  }
+  
+  .location-card,
+  .contact-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-hero {
+    padding: 100px 0 60px;
+  }
+  
+  .booking-main {
+    padding: 60px 0;
+  }
+  
+  .hero-features {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal-content {
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+}

@@ -116,31 +116,8 @@ h4 {
   z-index: -2;
 }
 
-/*header*/
-header {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  background: #fff;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 6px 28px 0 rgba(60, 94, 44, 0.08);
-  z-index: 200;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  min-height: 78px;
-}
+/* Header styles đã được di chuyển vào style.css để thống nhất */
 
-.navbar {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  justify-content: space-between;
-  position: relative;
-  min-height: 76px;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 28px;
-}
 /* ===== FIX: Ẩn nút ☰ trên desktop ===== */
 .menu-toggle {
   display: none;
@@ -154,43 +131,6 @@ header {
   color: #333;
   cursor: pointer;
   z-index: 999;
-}
-
-#cat {
-  display: flex;
-  height: 100px;
-  width: 100px;
-}
-.logo {
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: 1.2px;
-  font-family: var(--font-heading);
-  color: var(--dark);
-}
-.main-menu {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  margin: 0;
-}
-.main-menu a {
-  color: var(--dark);
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: background 0.18s, color 0.18s;
-}
-
-.main-menu a:hover {
-  background: rgba(60, 94, 44, 0.08);
-  color: var(--accent);
-}
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 /* Nút */

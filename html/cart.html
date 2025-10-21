@@ -4,21 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giỏ hàng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/cart.css" />
   </head>
   <body>
-    <header>
-      <a href="menu.html" class="back-link">← Quay lại thực đơn</a>
-      <h2>🛍 Giỏ hàng của bạn</h2>
+    <!-- Header -->
+    <header class="site-header elevate-1">
+      <nav class="navbar">
+        <img src="../images/golocat.jpg" alt="" id="cat" />
+        <a href="../index.html" class="logo">CÀ PHÊ</a>
+        <div class="main-menu">
+          <a href="../index.html">Trang Chủ</a>
+          <a href="menu.html">Menu</a>
+          <a href="../index.html#story">Tuyển Dụng</a>
+          <a href="../index.html#testimonials">Cảm Nhận</a>
+          <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
+        </div>
+        <div class="header-right">
+          <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="javascript:void(0);" id="cart-btn" class="icon-btn active" aria-label="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
+            <i class="fa-regular fa-user"></i>
+            <span>Đăng nhập</span>
+          </a>
+          <button id="lang-toggle" class="btn secondary">EN / VI</button>
+        </div>
+      </nav>
+      
+      <!-- Search Overlay -->
+      <div id="search-overlay" class="search-overlay"></div>
+      <div id="search-bar" class="search-bar">
+        <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+        <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
     </header>
+    
+    <div class="cart-hero">
+      <div class="container">
+        <div class="cart-header">
+          <a href="menu.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Quay lại thực đơn</span>
+          </a>
+          <div class="cart-title">
+            <i class="fa-solid fa-shopping-cart"></i>
+            <h1>Giỏ hàng của bạn</h1>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <main>
-      <ul id="cart-list"></ul>
-      <div class="total" id="total">Tổng cộng: 0đ</div>
-
-      <div class="cart-actions">
-        <button id="clear-cart">Xóa tất cả</button>
-        <button id="checkout">Thanh toán</button>
+    <main class="cart-main">
+      <div class="container">
+        <div class="cart-content">
+          <div class="cart-items-section">
+            <div id="cart-empty" class="cart-empty" style="display: none;">
+              <div class="empty-icon">
+                <i class="fa-solid fa-shopping-cart"></i>
+              </div>
+              <h3>Giỏ hàng trống</h3>
+              <p>Bạn chưa có món nào trong giỏ hàng</p>
+              <a href="menu.html" class="btn primary">
+                <i class="fa-solid fa-utensils"></i>
+                Khám phá thực đơn
+              </a>
+            </div>
+            
+            <ul id="cart-list" class="cart-list"></ul>
+          </div>
+          
+          <div class="cart-summary">
+            <div class="summary-card">
+              <h3>
+                <i class="fa-solid fa-receipt"></i>
+                Tóm tắt đơn hàng
+              </h3>
+              
+              <div class="summary-row">
+                <span>Tạm tính:</span>
+                <span id="subtotal">0đ</span>
+              </div>
+              
+              <div class="summary-row">
+                <span>Phí giao hàng:</span>
+                <span id="shipping">Miễn phí</span>
+              </div>
+              
+              <div class="summary-divider"></div>
+              
+              <div class="summary-row total-row">
+                <span>Tổng cộng:</span>
+                <span id="total">0đ</span>
+              </div>
+              
+              <div class="cart-actions">
+                <button id="clear-cart" class="btn secondary">
+                  <i class="fa-solid fa-trash"></i>
+                  Xóa tất cả
+                </button>
+                <button id="checkout" class="btn primary">
+                  <i class="fa-solid fa-credit-card"></i>
+                  Thanh toán
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
 

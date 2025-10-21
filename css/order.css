@@ -49,67 +49,7 @@ body {
   background-color: #2d5d2d;
 }
 
-.navbar {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  justify-content: space-between;
-  position: relative;
-  min-height: 76px;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 28px;
-  background-color: #fff;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  font-family: "League Spartan", "Be Vietnam Pro", "Noto Sans", Arial;
-  color: #2f4f2f;
-}
-.logo img {
-  width: 50px;
-  height: auto;
-  border-radius: 8px;
-}
-.main-menu {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  list-style-type: none; /* ✅ Bỏ dấu chấm trước các mục */
-}
-
-.main-menu a {
-  font-family: "League Spartan", "Be Vietnam Pro", "Noto Sans", Arial,
-    sans-serif;
-  color: black;
-  font-weight: 300;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 20px;
-  text-decoration: none; /* ✅ Bỏ gạch chân */
-  transition: background 0.18s, color 0.18s;
-  font-weight: bold;
-}
-
-.main-menu a.active,
-.main-menu a:hover {
-  background: rgba(41, 64, 31, 0.08);
-  color: var(--accent);
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+/* Header styles đã được di chuyển vào style.css để thống nhất */
 /* Góc phải (Admin info) */
 .admin-info {
   display: flex;

@@ -1,11 +1,25 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartList = document.getElementById("cart-list");
 const totalEl = document.getElementById("total");
+const subtotalEl = document.getElementById("subtotal");
+const cartEmpty = document.getElementById("cart-empty");
 
 // ✅ Hàm render giỏ hàng
 function renderCart() {
   cartList.innerHTML = "";
   let total = 0;
+
+  // Kiểm tra giỏ hàng trống
+  if (cart.length === 0) {
+    cartEmpty.style.display = "block";
+    cartList.style.display = "none";
+    totalEl.innerText = "0đ";
+    if (subtotalEl) subtotalEl.innerText = "0đ";
+    return;
+  } else {
+    cartEmpty.style.display = "none";
+    cartList.style.display = "flex";
+  }
 
   cart.forEach((item, index) => {
     const li = document.createElement("li");
@@ -16,11 +30,16 @@ function renderCart() {
 
     li.innerHTML = `
       <div class="item-top">
-        <div>
+        <div class="item-info">
           <div class="item-name">${item.name}</div>
           <div class="item-price">${subtotal.toLocaleString()}đ</div>
         </div>
-        <button class="delete-btn" data-index="${index}">Xóa</button>
+        <div class="item-controls">
+          <button class="delete-btn" data-index="${index}">
+            <i class="fa-solid fa-trash"></i>
+            Xóa
+          </button>
+        </div>
       </div>
 
       <div class="quantity-controls">
@@ -31,7 +50,7 @@ function renderCart() {
         <button class="plus" data-index="${index}">+</button>
       </div>
 
-      <textarea class="note-input" data-index="${index}" placeholder="Ghi chú...">${
+      <textarea class="note-input" data-index="${index}" placeholder="Ghi chú đặc biệt...">${
       item.note || ""
     }</textarea>
     `;
@@ -39,7 +58,8 @@ function renderCart() {
     cartList.appendChild(li);
   });
 
-  totalEl.innerText = `Tổng cộng: ${total.toLocaleString()}đ`;
+  totalEl.innerText = `${total.toLocaleString()}đ`;
+  if (subtotalEl) subtotalEl.innerText = `${total.toLocaleString()}đ`;
 
   attachEvents();
 }

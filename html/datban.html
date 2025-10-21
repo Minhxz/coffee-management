@@ -4,81 +4,216 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đặt bàn | CAT CAFE</title>
-  <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=League+Spartan:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../fontawesome-free-7.1.0-web/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/datban.css" />
 </head>
-<body>
+<body class="has-texture">
   <!-- Header -->
-  <header class="header">
-    <h1>Đặt bàn tại CAT CAFE</h1>
-    <p>Không gian cà phê Việt – Đặt bàn trước để có chỗ lý tưởng nhé!</p>
+  <header class="site-header elevate-1">
+    <nav class="navbar">
+      <img src="../images/golocat.jpg" alt="" id="cat" />
+      <a href="../index.html" class="logo">CÀ PHÊ</a>
+      <div class="main-menu">
+        <a href="../index.html">Trang Chủ</a>
+        <a href="menu.html">Menu</a>
+        <a href="../index.html#story">Tuyển Dụng</a>
+        <a href="../index.html#testimonials">Cảm Nhận</a>
+        <a href="hotro.html">Liên Hệ-Hỗ Trợ</a>
+      </div>
+      <div class="header-right">
+        <button type="button" id="search-toggle" class="icon-btn" aria-label="Tìm kiếm">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="javascript:void(0);" id="cart-btn" class="icon-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <a href="login.html" class="btn login-btn" aria-label="Đăng nhập">
+          <i class="fa-regular fa-user"></i>
+          <span>Đăng nhập</span>
+        </a>
+        <button id="lang-toggle" class="btn secondary">EN / VI</button>
+      </div>
+    </nav>
+    
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay"></div>
+    <div id="search-bar" class="search-bar">
+      <input type="text" id="search-input" placeholder="Tìm kiếm món ăn, đồ uống..." aria-label="Tìm kiếm">
+      <button type="button" id="search-close" class="search-close" aria-label="Đóng tìm kiếm">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
   </header>
 
-  <!-- Form -->
-  <section class="booking-container">
-    <form id="bookingForm" novalidate>
-      <div class="form-group">
-        <label>Họ và tên *</label>
-        <input type="text" name="name" placeholder="Nhập họ và tên của bạn">
-        <small class="error-msg"></small>
-      </div>
-
-      <div class="form-group">
-        <label>Số điện thoại *</label>
-        <input type="tel" name="phone" placeholder="VD: 0912345678">
-        <small class="error-msg"></small>
-      </div>
-
-      <div class="form-group">
-        <label>Email *</label>
-        <input type="email" name="email" placeholder="VD: email@gmail.com">
-        <small class="error-msg"></small>
-      </div>
-
-      <div class="form-group">
-        <label>Ngày đặt *</label>
-        <input type="date" name="date">
-        <small class="error-msg"></small>
-      </div>
-
-      <div class="form-group">
-        <label>Giờ đặt *</label>
-        <input type="time" name="time">
-        <small class="error-msg"></small>
-      </div>
-
-      <div class="form-group">
-        <label>Số khách *</label>
-        <select name="guests">
-          <option value="">-- Chọn số khách --</option>
-          <option value="1-2">1 - 2 người</option>
-          <option value="3-5">3 - 5 người</option>
-          <option value="6+">Trên 6 người</option>
-        </select>
-        <small class="error-msg"></small>
-      </div>
-
-      <div class="form-group">
-        <label>Ghi chú (tuỳ chọn)</label>
-        <textarea name="note" placeholder="Ghi chú thêm về chỗ ngồi hoặc dịp đặc biệt..."></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">Đặt bàn ngay</button>
-      
-      <button type="button" id="back-home-btn" class="back-home-btn">⬅️ Quay lại trang chủ</button>
-
-    </form>
-
-    <!-- Popup -->
-    <div class="popup" id="successPopup">
-      <div class="popup-content">
-        <h3>🎉 Đặt bàn thành công!</h3>
-        <p>Cảm ơn bạn đã tin tưởng CAT CAFE.<br>Chúng tôi sẽ liên hệ sớm để xác nhận.</p>
-        <button id="closePopup">Đóng</button>
+  <!-- Page Header -->
+  <section class="booking-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Đặt bàn tại <span class="highlight">CAT CAFE</span></h1>
+          <p>Không gian cà phê ấm cúng với những chú mèo đáng yêu. Đặt bàn trước để được phục vụ tốt nhất!</p>
+          <div class="hero-features">
+            <div class="feature">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mở cửa 7:00 - 22:00</span>
+            </div>
+            <div class="feature">
+              <i class="fa-solid fa-wifi"></i>
+              <span>Free WiFi</span>
+            </div>
+            <div class="feature">
+              <i class="fa-solid fa-cat"></i>
+              <span>Pet Friendly</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="../images/anh4.jpg" alt="Cat Cafe Interior">
+        </div>
       </div>
     </div>
   </section>
 
-  <script src="./js/datban.js"></script>
+  <!-- Main Content -->
+  <main class="booking-main">
+    <div class="container">
+      <div class="booking-grid">
+        <!-- Booking Form -->
+        <div class="booking-form-section">
+          <div class="form-header">
+            <h2>Thông tin đặt bàn</h2>
+            <p>Vui lòng điền đầy đủ thông tin để chúng tôi phục vụ bạn tốt nhất</p>
+          </div>
+          
+          <form id="bookingForm" class="booking-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label><i class="fa-solid fa-user"></i> Họ và tên *</label>
+                <input type="text" name="name" placeholder="Nhập họ và tên của bạn" required>
+                <small class="error-msg"></small>
+              </div>
+              
+              <div class="form-group">
+                <label><i class="fa-solid fa-phone"></i> Số điện thoại *</label>
+                <input type="tel" name="phone" placeholder="0123 456 789" required>
+                <small class="error-msg"></small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fa-solid fa-envelope"></i> Email *</label>
+              <input type="email" name="email" placeholder="example@gmail.com" required>
+              <small class="error-msg"></small>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label><i class="fa-solid fa-calendar"></i> Ngày đặt *</label>
+                <input type="date" name="date" required>
+                <small class="error-msg"></small>
+              </div>
+              
+              <div class="form-group">
+                <label><i class="fa-solid fa-clock"></i> Giờ đặt *</label>
+                <input type="time" name="time" required>
+                <small class="error-msg"></small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fa-solid fa-users"></i> Số khách *</label>
+              <select name="guests" required>
+                <option value="">-- Chọn số khách --</option>
+                <option value="1">1 người</option>
+                <option value="2">2 người</option>
+                <option value="3">3 người</option>
+                <option value="4">4 người</option>
+                <option value="5">5 người</option>
+                <option value="6+">Trên 6 người</option>
+              </select>
+              <small class="error-msg"></small>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fa-solid fa-comment"></i> Ghi chú (tuỳ chọn)</label>
+              <textarea name="note" placeholder="Ghi chú thêm về chỗ ngồi, dịp đặc biệt, yêu cầu riêng..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-calendar-check"></i>
+                Đặt bàn ngay
+              </button>
+              
+              <button type="button" class="back-btn" onclick="window.location.href='../index.html'">
+                <i class="fa-solid fa-arrow-left"></i>
+                Quay lại trang chủ
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Map & Info Section -->
+        <div class="info-section">
+          <div class="location-card">
+            <h3><i class="fa-solid fa-map-marker-alt"></i> Vị trí quán</h3>
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8639810282995!2d105.78248687503159!3d21.040131280613426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4bd70dc24b%3A0x1a6ca30efba44baa!2zODUgWHXDom4gVGjhuaV5LCBE4buLY2ggVuG7jW5nIEjhuq11LCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1734789123456!5m2!1sen!2s"
+                width="100%" 
+                height="250" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <div class="address-info">
+              <p><strong>Cat Cafe Hà Nội</strong></p>
+              <p>📍 85 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</p>
+              <p>📞 0123 456 789</p>
+              <p>⏰ 7:00 - 22:00 (Hàng ngày)</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3><i class="fa-solid fa-info-circle"></i> Thông tin quan trọng</h3>
+            <ul class="info-list">
+              <li><i class="fa-solid fa-check"></i> Miễn phí WiFi tốc độ cao</li>
+              <li><i class="fa-solid fa-check"></i> Không gian yên tĩnh, phù hợp làm việc</li>
+              <li><i class="fa-solid fa-check"></i> Có khu vực riêng cho nhóm lớn</li>
+              <li><i class="fa-solid fa-check"></i> Menu đa dạng: cà phê, trà, bánh ngọt</li>
+              <li><i class="fa-solid fa-check"></i> Thú cưng được chào đón</li>
+              <li><i class="fa-solid fa-exclamation-triangle"></i> Vui lòng đặt bàn trước 30 phút</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-circle-check"></i> Đặt bàn thành công!</h3>
+      </div>
+      <div class="modal-body">
+        <p>Cảm ơn bạn đã tin tưởng <strong>CAT CAFE</strong>!</p>
+        <p>Chúng tôi sẽ liên hệ với bạn trong vòng <strong>15 phút</strong> để xác nhận thông tin đặt bàn.</p>
+        <div class="booking-summary" id="bookingSummary"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn primary" id="closeModal">Đóng</button>
+        <button class="modal-btn secondary" onclick="window.location.href='menu.html'">Xem Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/datban.js"></script>
 </body>
 </html>
