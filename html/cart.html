@@ -55,11 +55,11 @@
         <div class="cart-header">
           <a href="menu.html" class="back-link">
             <i class="fa-solid fa-arrow-left"></i>
-            <span>Quay lại thực đơn</span>
+            <span data-translate="backToMenu">Quay lại thực đơn</span>
           </a>
           <div class="cart-title">
             <i class="fa-solid fa-shopping-cart"></i>
-            <h1>Giỏ hàng của bạn</h1>
+            <h1 data-translate="cartTitle">Giỏ hàng của bạn</h1>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
               <div class="empty-icon">
                 <i class="fa-solid fa-shopping-cart"></i>
               </div>
-              <h3>Giỏ hàng trống</h3>
+              <h3 data-translate="emptyCart">Giỏ hàng trống</h3>
               <p>Bạn chưa có món nào trong giỏ hàng</p>
               <a href="menu.html" class="btn primary">
                 <i class="fa-solid fa-utensils"></i>
@@ -92,28 +92,28 @@
               </h3>
               
               <div class="summary-row">
-                <span>Tạm tính:</span>
+                <span data-translate="subtotal">Tạm tính:</span>
                 <span id="subtotal">0đ</span>
               </div>
               
               <div class="summary-row">
-                <span>Phí giao hàng:</span>
+                <span data-translate="shipping">Phí giao hàng:</span>
                 <span id="shipping">Miễn phí</span>
               </div>
               
               <div class="summary-divider"></div>
               
               <div class="summary-row total-row">
-                <span>Tổng cộng:</span>
+                <span data-translate="total">Tổng cộng:</span>
                 <span id="total">0đ</span>
               </div>
               
               <div class="cart-actions">
-                <button id="clear-cart" class="btn secondary">
+                <button id="clear-cart" class="btn secondary" data-translate="clearCart">
                   <i class="fa-solid fa-trash"></i>
                   Xóa tất cả
                 </button>
-                <button id="checkout" class="btn primary">
+                <button id="checkout" class="btn primary" data-translate="checkout">
                   <i class="fa-solid fa-credit-card"></i>
                   Thanh toán
                 </button>
@@ -124,6 +124,7 @@
       </div>
     </main>
 
+    <script src="../js/main.js"></script>
     <script src="../js/cart.js"></script>
   </body>
 </html>

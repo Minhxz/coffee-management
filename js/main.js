@@ -387,6 +387,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Lấy ngôn ngữ hiện tại từ localStorage hoặc mặc định là 'vi' (tiếng Việt)
   let currentLang = localStorage.getItem('lang') || 'vi';
 
+  // Cập nhật nút lang-toggle để phản ánh ngôn ngữ hiện tại
+  langBtn.textContent = currentLang === "vi" ? "EN" : "VI";
+
   // ========================================
   // DỮ LIỆU DỊCH SONG NGỮ (VI & EN)
   // ========================================
@@ -522,14 +525,193 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Coffee Yogurt", desc: "Sweet-sour, creamy, and perfectly chilled.", price: "₫70,000" },
         { name: "Artichoke Plum Tea", desc: "Lightly sour, soothing and cooling.", price: "₫65,000" },
         { name: "Egg Cream Milk Tea", desc: "Rich, smooth, and lightly sweet.", price: "₫60,000" }
-      ]
-    }
-  };
+      ],
 
-  // ========================================
-  // HÀM CHÍNH: CHUYỂN NGÔN NGỮ
-  // ========================================
-  function switchLang() {
+      // --- Hotro page ---
+      addressTitle: "📍 Address Info",
+      hoursTitle: "🕐 Opening Hours",
+      contactTitle: "✉️ Contact Info",
+      hoursText: "Monday – Friday: 9h30-22:00\nSaturday, Sunday: 9h30-23:00",
+      emailText: "CatCaFe2025@gmail.com\nHotline: 0378093269-0965299505",
+      namePlaceholder: "Your Name:",
+      emailPlaceholder: "Gmail:",
+      messagePlaceholder: "Comment:",
+      submitBtn: "Submit",
+      successMsg: "✅ Sent successfully! Thank you for contacting Cat Cafe ❤️",
+
+      // --- Datban page ---
+      bookingTitle: "Reserve Your Table",
+      nameLabel: "Full Name",
+      emailLabel: "Email",
+      phoneLabel: "Phone Number",
+      dateLabel: "Date",
+      timeLabel: "Time",
+      guestsLabel: "Number of Guests",
+      noteLabel: "Notes (Optional)",
+      selectGuests: "-- Select number of guests --",
+      bookingBtn: "Reserve Now",
+      backBtn: "Back to Home",
+      closeBtn: "Close",
+      viewMenuBtn: "View Menu",
+      bookingSuccess: "✅ Booking confirmed! We'll see you soon!",
+
+      // --- Cart page ---
+      cartTitle: "Giỏ hàng",
+      emptyCart: "Giỏ hàng trống",
+      backToMenu: "Quay lại thực đơn",
+      subtotal: "Tạm tính",
+      shipping: "Phí giao hàng",
+      total: "Tổng cộng",
+      checkout: "Thanh toán",
+      clearCart: "Xóa tất cả",
+      quantity: "Số lượng",
+
+      // --- Menu page ---
+      searchPlaceholder: "Tìm kiếm món ăn, đồ uống...",
+      addToCart: "Thêm vào giỏ",
+      price: "Giá"
+    },
+
+    en: {
+    // --- Menu ---
+    home: "Home",
+    menu: "Menu",
+    jobs: "Careers",
+    feedback: "Feedback",
+    contact: "Contact & Support",
+
+    // --- Slides ---
+    slides: [
+      {
+        title: "CAT CAFE",
+        accent: "The first branch in Hanoi",
+        subtitle:
+          "Enjoy rich coffee, fresh drinks, and make friends with adorable cats — all at Cat Cafe.",
+        primary: "Explore Menu",
+        secondary: "Find a Store"
+      },
+      {
+        title: "Visit Cat Cafe,",
+        accent: "Love at First Sight",
+        subtitle:
+          "Cozy lights, soft music, lazy cats, and perfect vibes.",
+        primary: "View Space",
+        secondary: "Reserve Now"
+      },
+      {
+        title: "Sweet Cats",
+        accent: "Chill Coffee, Happy You",
+        subtitle:
+          "Sip your coffee while cats snuggle up — impossible not to smile!",
+        primary: "Explore Menu",
+        secondary: "Contact"
+      }
+    ],
+
+    // --- Best sellers ---
+    bestSellers: "BEST SELLERS",
+    bestSellersIntro: "Some of our signature drinks",
+    showMore: "Show More",
+    showLess: "Show Less",
+
+    // --- Store ---
+    storeTitle: "Find the Nearest Store",
+    storeText:
+      "We have several locations across Hanoi — find one near you and drop by.",
+    viewMap: "View Map",
+
+    // --- Testimonials ---
+    testimonialTitle: "Customer Feedback",
+    testimonialIntro:
+      "Share your thoughts after enjoying our drinks — every comment helps us improve every day.",
+    testimonialSub: "Recent Reviews",
+
+    // --- Drink items ---
+    items: [
+      { name: "Vietnamese Iced Coffee", desc: "Bold flavor with balanced sweetness.", price: "₫60,000" },
+      { name: "Salted Cream Coffee", desc: "Rich coffee with smooth salted cream.", price: "₫65,000" },
+      { name: "Bac Xiu (Milk Coffee)", desc: "Sweet, creamy, and light in coffee flavor.", price: "₫70,000" },
+      { name: "Vanilla Latte", desc: "Mild vanilla aroma blended with espresso.", price: "₫70,000" },
+      { name: "Passionfruit Ice Blend", desc: "Refreshing and tangy tropical flavor.", price: "₫55,000" },
+      { name: "Coffee Yogurt", desc: "Sweet-sour, creamy, and perfectly chilled.", price: "₫70,000" },
+      { name: "Artichoke Plum Tea", desc: "Lightly sour, soothing and cooling.", price: "₫65,000" },
+      { name: "Egg Cream Milk Tea", desc: "Rich, smooth, and lightly sweet.", price: "₫60,000" }
+    ],
+
+    // --- Hotro page ---
+    addressTitle: "📍 Address Info",
+    hoursTitle: "🕐 Opening Hours",
+    contactTitle: "✉️ Contact Info",
+    hoursText: "Monday – Friday: 9:30 AM - 10:00 PM\nSaturday, Sunday: 9:30 AM - 11:00 PM",
+    emailText: "CatCaFe2025@gmail.com\nHotline: 0378093269-0965299505",
+    nameLabel: "Your Name:",
+    emailLabel: "Email:",
+    messagePlaceholder: "Your Message:",
+    submitBtn: "Submit",
+    successMsg: "✅ Sent successfully! Thank you for contacting Cat Cafe ❤️",
+
+    // --- Datban page ---
+    bookingTitle: "Reserve Your Table",
+    fullNameLabel: "Full Name",
+    emailLabel: "Email",
+    phoneLabel: "Phone Number",
+    dateLabel: "Date",
+    timeLabel: "Time",
+    guestsLabel: "Number of Guests",
+    reserveBtn: "Reserve",
+    bookingSuccess: "✅ Booking confirmed! We'll see you soon!",
+
+    // --- Cart page ---
+    cartTitle: "Shopping Cart",
+    emptyCart: "Your cart is empty",
+    backToMenu: "Back to Menu",
+    subtotal: "Subtotal",
+    shipping: "Shipping Fee",
+    total: "Total",
+    checkout: "Checkout",
+    clearCart: "Clear Cart",
+    quantity: "Quantity",
+
+    // --- Menu page ---
+    searchPlaceholder: "Search menu...",
+    addToCart: "Add to Cart",
+    price: "Price"
+  }
+};
+
+// ========================================
+// HÀM GENERIC: DỊCH TOÀN BỘ TRANG
+// ========================================
+function applyGenericTranslations(lang) {
+  // Dịch tất cả element có data-translate attribute
+  document.querySelectorAll("[data-translate]").forEach((el) => {
+    const key = el.getAttribute("data-translate");
+    const t = translations[lang];
+    
+    // Hỗ trợ nested keys (ví dụ: "menu.home")
+    const keys = key.split(".");
+    let value = t;
+    for (const k of keys) {
+      value = value?.[k];
+    }
+    
+    if (value) {
+      // Nếu là attribute như placeholder, title, etc.
+      const attr = el.getAttribute("data-translate-attr");
+      if (attr) {
+        el.setAttribute(attr, value);
+      } else {
+        // Nếu không, cập nhật textContent
+        el.textContent = value;
+      }
+    }
+  });
+}
+
+// ========================================
+// HÀM CHÍNH: CHUYỂN NGÔN NGỮ
+// ========================================
+function switchLang() {
     // Đổi ngôn ngữ: nếu hiện tại là 'vi' thì chuyển sang 'en', ngược lại
     currentLang = currentLang === "vi" ? "en" : "vi";
     const t = translations[currentLang]; // Dữ liệu của ngôn ngữ mới
@@ -690,6 +872,8 @@ if (loginBtn) {
     // --- Cập nhật nút chuyển ngôn ngữ ---
     langBtn.textContent = currentLang === "vi" ? "EN" : "VI";
 
+    // --- Dịch các element có data-translate attribute (dành cho tất cả trang) ---
+    applyGenericTranslations(currentLang);
   
     // Lưu lại lựa chọn vào localStorage
     localStorage.setItem("lang", currentLang);
@@ -698,8 +882,19 @@ if (loginBtn) {
   // Khi bấm nút đổi ngôn ngữ thì gọi hàm switchLang
   langBtn.addEventListener("click", switchLang);
 
+  // Áp dụng ngôn ngữ đã lưu khi tải trang
   // Nếu lần trước người dùng chọn tiếng Anh → tự động chuyển khi tải lại trang
-  if (currentLang === "en") switchLang();
+  if (currentLang === "en") {
+    const t = translations.en;
+    const menuLinks = document.querySelectorAll(".main-menu a");
+    if (menuLinks.length >= 5) {
+      menuLinks[0].textContent = t.home;
+      menuLinks[1].textContent = t.menu;
+      menuLinks[2].textContent = t.jobs;
+      menuLinks[3].textContent = t.feedback;
+      menuLinks[4].textContent = t.contact;
+    }
+  }
 });
 
 // ===== CART FUNCTIONALITY =====

@@ -136,85 +136,166 @@ h4 {
 /* Nút */
 .icon-btn {
   position: relative;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #fff;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(60, 94, 44, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
   cursor: pointer;
-  color: #333;
-  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.18s;
+  color: var(--accent);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
+
 .icon-btn:hover {
-  background: #f2f5f1;
-  color: #2f5e2f;
-  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.18);
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 6px 20px rgba(60, 94, 44, 0.3);
+  transform: translateY(-2px) scale(1.05);
+  border-color: var(--accent);
 }
+
 .icon-btn:active {
-  transform: scale(0.9);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.icon-btn:hover::before {
+  opacity: 1;
+}
+
+.icon-btn i {
+  position: relative;
+  z-index: 1;
 }
 .icon-btn .mini-badge {
   position: absolute;
-  top: -4px;
-  right: -4px;
-  background: #dc2626;
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: #fff;
-  font-size: 0.6rem;
-  padding: 3px 6px;
+  font-size: 0.65rem;
+  padding: 4px 7px;
   line-height: 1;
   border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4), 0 0 0 2px white;
+  animation: badgePulse 2s ease-in-out infinite;
+  min-width: 20px;
+  text-align: center;
+}
+
+@keyframes badgePulse {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4), 0 0 0 2px white;
+  }
+  50% { 
+    transform: scale(1.1); 
+    box-shadow: 0 6px 16px rgba(220, 38, 38, 0.6), 0 0 0 3px white;
+  }
 }
 
 /* Nút P2 */
 .btn {
-  padding: 8px 24px;
-  border-radius: 8px;
-  border: 0;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid transparent;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  transition: all 0.22s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: var(--font-heading);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 8px;
   text-decoration: none;
+  height: 44px;
+  min-width: fit-content;
+  position: relative;
+  backdrop-filter: blur(10px);
 }
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .btn.primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
   color: #fff;
-  box-shadow: 0 2px 6px rgba(60, 94, 44, 0.12);
+  border: 1px solid var(--accent);
+  box-shadow: 0 4px 15px rgba(60, 94, 44, 0.2);
 }
+
 .btn.primary:hover {
-  background: var(--accent-strong);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(60, 94, 44, 0.18);
+  box-shadow: 0 8px 25px rgba(60, 94, 44, 0.3);
 }
+
 .btn.secondary {
-  background: transparent;
-  border: 1.5px solid var(--accent);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(60, 94, 44, 0.2);
   color: var(--accent);
+  backdrop-filter: blur(10px);
 }
+
 .btn.secondary:hover {
-  background: rgba(60, 94, 44, 0.07);
+  background: var(--accent);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(60, 94, 44, 0.25);
+  border-color: var(--accent);
+}
+
+.btn.secondary:hover::before {
+  opacity: 1;
+}
+
+.btn span, .btn i {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure all text turns white on button hover */
+.icon-btn:hover i,
+.login-btn:hover span,
+.login-btn:hover i,
+.btn.secondary:hover,
+.btn.secondary:hover span,
+.btn.secondary:hover i {
+  color: white !important;
 }
 .login-btn {
   color: var(--accent);
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 10px;
 }
 .login-btn:hover {
-  background: rgba(60, 94, 44, 0.08);
-  color: #2d4620;
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 15px rgba(60, 94, 44, 0.3);
+  transform: translateY(-1px);
 }
 
 /*menu-page*/
@@ -301,8 +382,10 @@ h4 {
 }
 
 .sidebar li:hover {
-  color: #333;
+  color: #fff;
+  background: var(--grad-accent);
   transform: translateX(3px);
+  border-radius: var(--radius-md);
 }
 
 /*  DANH SÁCH SẢN PHẨM */
@@ -556,9 +639,9 @@ input:checked + .slider:before {
 /* ===== KHUNG NỘI DUNG POPUP ===== */
 .popup-content {
   background: var(--card);
-  padding: 30px 25px;
+  padding: 25px 20px;
   border-radius: var(--radius-lg);
-  width: 380px;
+  width: 360px;
   max-width: 90%;
   box-shadow: var(--shadow-2);
   animation: fadeIn 0.3s ease;
@@ -582,7 +665,7 @@ input:checked + .slider:before {
   margin-top: 0;
   color: var(--dark);
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   font-family: var(--font-heading);
   margin-bottom: 8px;
@@ -592,8 +675,8 @@ input:checked + .slider:before {
   text-align: center;
   font-weight: 600;
   color: var(--accent);
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
 }
 
 /* ===== NHÃN ===== */
@@ -601,7 +684,7 @@ input:checked + .slider:before {
   font-weight: 600;
   color: var(--dark);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   font-size: 0.95rem;
 }
 
@@ -610,17 +693,17 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   justify-content: center;
 }
 
 .quantity button {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: var(--bg-alt);
   border: 2px solid var(--accent-fade);
   border-radius: var(--radius-md);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -637,9 +720,9 @@ input:checked + .slider:before {
 }
 
 .quantity input {
-  width: 70px;
+  width: 60px;
   text-align: center;
-  padding: 8px;
+  padding: 6px;
   border: 2px solid var(--accent-fade);
   border-radius: var(--radius-md);
   font-size: 1rem;
@@ -656,14 +739,14 @@ input:checked + .slider:before {
 /* ===== GHI CHÚ ===== */
 textarea {
   width: 100%;
-  height: 80px;
+  height: 70px;
   border-radius: var(--radius-md);
   border: 2px solid var(--accent-fade);
-  padding: 12px;
+  padding: 10px;
   font-size: 0.95rem;
   font-family: var(--font-body);
   resize: none;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   transition: all 0.2s ease;
   background: var(--card);
   color: var(--dark);
@@ -675,35 +758,35 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(60, 94, 44, 0.1);
 }
 
-/* ===== TOAST NOTIFICATION ===== */
+/* Toast Notification */
 .custom-toast {
   position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  background: var(--grad-accent);
-  color: #fff;
-  padding: 16px 24px;
-  border-radius: var(--radius-lg);
-  font-size: 0.95rem;
-  font-weight: 600;
-  box-shadow: var(--shadow-2);
+  top: 100px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 20px rgba(60, 94, 44, 0.3);
+  transform: translateX(100%);
   opacity: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: flex;
   align-items: center;
-  gap: 8px;
-  backdrop-filter: blur(10px);
+  gap: 6px;
 }
 
 .custom-toast.show {
+  transform: translateX(0);
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-.custom-toast i {
-  font-size: 1.1rem;
 }
 
 .popup-actions {
@@ -714,7 +797,7 @@ textarea:focus {
 
 .popup-actions button {
   flex: 1;
-  padding: 12px 20px;
+  padding: 11px 16px;
   border: none;
   border-radius: var(--radius-md);
   font-weight: 600;

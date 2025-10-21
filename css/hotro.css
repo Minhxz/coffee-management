@@ -1,8 +1,8 @@
 /* CONTACT SECTION */
-.container { 
+.contact-section.container { 
 max-width: 1100px; 
 margin: 0 auto; 
-padding: 40px 40px; 
+padding: 120px 40px 40px; 
 }
 
 .contact-info {
@@ -71,6 +71,18 @@ font-weight: bold;
 }
 .contact-section {
   margin-top: 60px; /* hoặc bằng đúng chiều cao header của bạn */
+}
+
+/* Ensure header buttons work properly */
+.header-right .icon-btn,
+.header-right .btn {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.header-right .icon-btn:hover i,
+.header-right .btn:hover span {
+  color: inherit !important;
 }
 
 

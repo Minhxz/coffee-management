@@ -173,7 +173,10 @@ btnConfirm.addEventListener("click", () => {
   // Cập nhật hiển thị trên icon giỏ hàng ngay lập tức
   updateCartCount();
 
-  showToast(`Đã thêm "${item.name}" vào giỏ hàng!`);
+  // Hiện thông báo (sử dụng showToast từ main.js)
+  if (typeof showToast === 'function') {
+    showToast("Đã thêm vào giỏ hàng!");
+  }
 
   popup.classList.remove("active");
   popup.style.display = "none";
@@ -208,27 +211,7 @@ popup.addEventListener("click", (e) => {
   }
 });
 
-function showToast(message) {
-  // Tạo phần tử toast nếu chưa có
-  let toast = document.createElement("div");
-  toast.className = "custom-toast";
-  toast.innerHTML = `
-    <i class="fas fa-check-circle"></i>
-    ${message}
-  `;
-  document.body.appendChild(toast);
-
-  // Hiệu ứng hiện lên
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 100);
-
-  // Tự ẩn sau 3 giây
-  setTimeout(() => {
-    toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 500);
-  }, 3000);
-}
+// showToast is provided by js/main.js — use that implementation to keep a single source
 // ========== Nút mở/đóng menu trên mobile ==========
 const menuToggle = document.querySelector(".menu-toggle");
 const mainMenu = document.querySelector(".main-menu");

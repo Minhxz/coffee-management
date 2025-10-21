@@ -84,49 +84,49 @@
         <!-- Booking Form -->
         <div class="booking-form-section">
           <div class="form-header">
-            <h2>Thông tin đặt bàn</h2>
+            <h2 data-translate="bookingTitle">Thông tin đặt bàn</h2>
             <p>Vui lòng điền đầy đủ thông tin để chúng tôi phục vụ bạn tốt nhất</p>
           </div>
           
           <form id="bookingForm" class="booking-form" novalidate>
             <div class="form-row">
               <div class="form-group">
-                <label><i class="fa-solid fa-user"></i> Họ và tên *</label>
+                <label data-translate="nameLabel"><i class="fa-solid fa-user"></i> Họ và tên *</label>
                 <input type="text" name="name" placeholder="Nhập họ và tên của bạn" required>
                 <small class="error-msg"></small>
               </div>
               
               <div class="form-group">
-                <label><i class="fa-solid fa-phone"></i> Số điện thoại *</label>
+                <label data-translate="phoneLabel"><i class="fa-solid fa-phone"></i> Số điện thoại *</label>
                 <input type="tel" name="phone" placeholder="0123 456 789" required>
                 <small class="error-msg"></small>
               </div>
             </div>
 
             <div class="form-group">
-              <label><i class="fa-solid fa-envelope"></i> Email *</label>
+              <label data-translate="emailLabel"><i class="fa-solid fa-envelope"></i> Email *</label>
               <input type="email" name="email" placeholder="example@gmail.com" required>
               <small class="error-msg"></small>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label><i class="fa-solid fa-calendar"></i> Ngày đặt *</label>
+                <label data-translate="dateLabel"><i class="fa-solid fa-calendar"></i> Ngày đặt *</label>
                 <input type="date" name="date" required>
                 <small class="error-msg"></small>
               </div>
               
               <div class="form-group">
-                <label><i class="fa-solid fa-clock"></i> Giờ đặt *</label>
+                <label data-translate="timeLabel"><i class="fa-solid fa-clock"></i> Giờ đặt *</label>
                 <input type="time" name="time" required>
                 <small class="error-msg"></small>
               </div>
             </div>
 
             <div class="form-group">
-              <label><i class="fa-solid fa-users"></i> Số khách *</label>
+              <label data-translate="guestsLabel"><i class="fa-solid fa-users"></i> Số khách *</label>
               <select name="guests" required>
-                <option value="">-- Chọn số khách --</option>
+                <option value="" data-translate="selectGuests">-- Chọn số khách --</option>
                 <option value="1">1 người</option>
                 <option value="2">2 người</option>
                 <option value="3">3 người</option>
@@ -138,17 +138,17 @@
             </div>
 
             <div class="form-group">
-              <label><i class="fa-solid fa-comment"></i> Ghi chú (tuỳ chọn)</label>
+              <label data-translate="noteLabel"><i class="fa-solid fa-comment"></i> Ghi chú (tuỳ chọn)</label>
               <textarea name="note" placeholder="Ghi chú thêm về chỗ ngồi, dịp đặc biệt, yêu cầu riêng..."></textarea>
             </div>
 
             <div class="form-actions">
-              <button type="submit" class="submit-btn">
+              <button type="submit" class="submit-btn" data-translate="bookingBtn">
                 <i class="fa-solid fa-calendar-check"></i>
                 Đặt bàn ngay
               </button>
               
-              <button type="button" class="back-btn" onclick="window.location.href='../index.html'">
+              <button type="button" class="back-btn" onclick="window.location.href='../index.html'" data-translate="backBtn">
                 <i class="fa-solid fa-arrow-left"></i>
                 Quay lại trang chủ
               </button>
@@ -207,8 +207,8 @@
         <div class="booking-summary" id="bookingSummary"></div>
       </div>
       <div class="modal-footer">
-        <button class="modal-btn primary" id="closeModal">Đóng</button>
-        <button class="modal-btn secondary" onclick="window.location.href='menu.html'">Xem Menu</button>
+        <button class="modal-btn primary" id="closeModal" data-translate="closeBtn">Đóng</button>
+        <button class="modal-btn secondary" onclick="window.location.href='menu.html'" data-translate="viewMenuBtn">Xem Menu</button>
       </div>
     </div>
   </div>
